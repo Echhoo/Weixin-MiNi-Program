@@ -6,21 +6,26 @@ page {
 }
 
 .container{
-  height: 100%;
-  width: auto;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   position: relative;
 }
 .Img{
   display: block;
-  width: 100%;
-  height: 100%;
+  right:0rpx;
   /* display: initial; */
   position: relative;
 }
 
 .Icon{
-
+  left:40vw;
+  top:45vh;
+  height:20%;
+  width: 40%;
+  display: block;
+  box-sizing: border-box;
+  /* height:res.windowHeight; */
   /* display: initial; */
   position: absolute;
 }

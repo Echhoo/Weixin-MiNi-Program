@@ -1,29 +1,50 @@
 //index.js
-const app = getApp()
-
-Page({
+const app = getApp();
+const back = wx.getBackgroundAudioManager();
+Page(
+  
+  {
+    
   data: {
+    height:0,
+    width:0,
+    rate:0,
     bgUrl: "",
-    bg1Url: "",
-    bg2Url: "",
-    iconUrl:""
+    iconUrl:"",
+    tiger:""
   },
+    playBackgroundAudio: function () {
+      player();
+      function player(){
+      back.src="http://music.163.com/#/song?id=5271030";
+      back.title="绿光";
+      back.coverImgUrl="https://img-blog.csdnimg.cn/20200402100157151.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mjc3Mzk0MQ==,size_16,color_FFFFFF,t_70";
+      back.play();
+      back.onEnded(()=>{
+        player();
+      })
+      }
+ },
   onLoad: function (options) {
+    this.playBackgroundAudio();
+    this.setData({
+      height: wx.getSystemInfoSync().windowHeight,
+      width: wx.getSystemInfoSync().windowWidth,
+    })
     wx.cloud.init({
       env: 'cloud1-4gt82x70cccbf17e'
     })
     wx.cloud.getTempFileURL({
       fileList: [
       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/blue.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/grey.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png'
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/yinzhang.png'
     ],
       success: res => {
         this.setData({bgUrl:res.fileList[0].tempFileURL,
-          bg1Url:res.fileList[1].tempFileURL,
-          bg2Url:res.fileList[2].tempFileURL,
-        iconUrl:res.fileList[3].tempFileURL})
+          iconUrl:res.fileList[1].tempFileURL,
+          tiger:res.fileList[2].tempFileURL
+        })
         console.log(res.fileList[1].tempFileURL)
       },
     })
