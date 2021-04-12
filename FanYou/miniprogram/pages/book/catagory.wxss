@@ -1,0 +1,40 @@
+/* pages/book/catagory.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.test-bg{
+  width: 100%;
+  height: 100%;
+  background-color: #FFF9DC;
+  position: relative;
+}
+
+.bg-image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+  position: absolute;
+}
+.button1{
+  width: 70rpx;
+  height:245rpx;
+  position:absolute;
+}
+.button2{
+  width: 70rpx;
+  height:245rpx;
+  position:absolute;
+}
+.button3{
+  width: 70rpx;
+  height:245rpx;
+  position:absolute;
+}
+.button4{
+  width: 65rpx;
+  height:240rpx;
+  position:absolute;
+}

@@ -1,0 +1,17 @@
+<!--pages/book/catagory.wxml-->
+<!-- <view class="container">
+  <image src="../../images/backpic3.png" mode="widthFix"></image>
+</view> -->
+<!-- <view class="button1">
+  <image src="../../images/button1.png"></image>
+</view> -->
+<view class="test-bg">
+  <image src="../../images/backpic3.png" class="bg-image" mode="scaleToFill"></image>
+  <image src="../../images/button1.png" class="button1" style="margin-top:{{height*0.4}}px;margin-left:{{width*0.73}}px"></image>
+  <image src="../../images/button2.png" class="button2" style="margin-top:{{height*0.4}}px;margin-left:{{width*0.62}}px"></image>
+  <image src="../../images/button3.png" class="button3" style="margin-top:{{height*0.4}}px;margin-left:{{width*0.29}}px"></image>
+  <image src="../../images/button4.png" class="button4" style="margin-top:{{height*0.40}}px;margin-left:{{width*0.18}}px"></image>
+</view>
+
+  
+
