@@ -1,4 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <image  class="Img" src="{{bgUrl}} "mode="widthFix"></image>
+    <!-- <image  class="Img" src="{{bgUrl}} "mode="widthFix"></image> -->
+    <image  class="Img" src="{{bgUrl}}"></image>
+    <image class="Icon" src="{{iconUrl}}" style="position: absolute; left: 376rpx; top: 646rpx; width: 278rpx; height: 388rpx; display: block; box-sizing: border-box"></image>
 </view>

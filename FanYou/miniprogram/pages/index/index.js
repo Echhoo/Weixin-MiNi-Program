@@ -3,17 +3,28 @@ const app = getApp()
 
 Page({
   data: {
-    bgUrl: ""
+    bgUrl: "",
+    bg1Url: "",
+    bg2Url: "",
+    iconUrl:""
   },
   onLoad: function (options) {
     wx.cloud.init({
       env: 'cloud1-4gt82x70cccbf17e'
     })
     wx.cloud.getTempFileURL({
-      fileList: ['cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png'],
+      fileList: [
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/blue.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/grey.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png'
+    ],
       success: res => {
-        this.setData({bgUrl:res.fileList[0].tempFileURL})
-        console.log(res.fileList[0].tempFileURL)
+        this.setData({bgUrl:res.fileList[0].tempFileURL,
+          bg1Url:res.fileList[1].tempFileURL,
+          bg2Url:res.fileList[2].tempFileURL,
+        iconUrl:res.fileList[3].tempFileURL})
+        console.log(res.fileList[1].tempFileURL)
       },
     })
   },
