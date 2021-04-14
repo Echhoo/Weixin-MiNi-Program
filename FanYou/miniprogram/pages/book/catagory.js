@@ -16,6 +16,44 @@ Page({
       height: wx.getSystemInfoSync().windowHeight,
       width: wx.getSystemInfoSync().windowWidth,
     })
+    wx.cloud.getTempFileURL({
+      fileList: [
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/catalogue/backpic3.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/catalogue/button1.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/catalogue/button2.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/catalogue/button3.png',
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/catalogue/button4.png'
+    ],
+      success: res => {
+        this.setData({
+          bgUrl:res.fileList[0].tempFileURL,
+          button1Url:res.fileList[1].tempFileURL,
+          button2Url:res.fileList[2].tempFileURL,
+          button3Url:res.fileList[3].tempFileURL,
+          button4Url:res.fileList[4].tempFileURL
+        })
+      },
+    })
+  },
+  festivalView: function(e){
+    wx.navigateTo({ 
+      url: '../festival/festival',       
+    })
+  },
+  cityView: function(e){
+    wx.navigateTo({ 
+      url: '../city/city',       
+    })
+  },
+  personView: function(e){
+    wx.navigateTo({ 
+      url: '../person/person',       
+    })
+  },
+  teamView: function(e){
+    wx.navigateTo({ 
+      url: '../team/team',       
+    })
   },
 
   /**
