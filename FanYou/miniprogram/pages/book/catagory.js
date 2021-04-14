@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bgUrl:"",
+    button1Url:"",
+    button2Url:"",
+    button3Url:"",
+    button4Url:""
 
   },
 
@@ -12,10 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      height: wx.getSystemInfoSync().windowHeight,
-      width: wx.getSystemInfoSync().windowWidth,
-    })
     wx.cloud.getTempFileURL({
       fileList: [
       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/catalogue/backpic3.png',

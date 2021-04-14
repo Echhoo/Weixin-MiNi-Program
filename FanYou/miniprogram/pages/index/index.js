@@ -13,20 +13,8 @@ Page(
     iconUrl:"",
     tiger:""
   },
-    playBackgroundAudio: function () {
-      player();
-      function player(){
-      back.src="http://music.163.com/#/song?id=5271030";
-      back.title="绿光";
-      back.coverImgUrl="https://img-blog.csdnimg.cn/20200402100157151.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mjc3Mzk0MQ==,size_16,color_FFFFFF,t_70";
-      back.play();
-      back.onEnded(()=>{
-        player();
-      })
-      }
- },
+    
   onLoad: function (options) {
-    this.playBackgroundAudio();
     this.setData({
       height: wx.getSystemInfoSync().windowHeight,
       width: wx.getSystemInfoSync().windowWidth,
@@ -96,52 +84,6 @@ Page(
     })
   },
 
-  // 上传图片
-  // doUpload: function () {
-  //   // 选择图片
-  //   wx.chooseImage({
-  //     count: 1,
-  //     sizeType: ['compressed'],
-  //     sourceType: ['album', 'camera'],
-  //     success: function (res) {
-  //       wx.showLoading({
-  //         title: '上传中',
-  //       })
-
-  //       const filePath = res.tempFilePaths[0]
-        
-  //       // 上传图片
-  //       const cloudPath = `my-image${filePath.match(/\.[^.]+?$/)[0]}`
-  //       wx.cloud.uploadFile({
-  //         cloudPath,
-  //         filePath,
-  //         success: res => {
-  //           console.log('[上传文件] 成功：', res)
-
-  //           app.globalData.fileID = res.fileID
-  //           app.globalData.cloudPath = cloudPath
-  //           app.globalData.imagePath = filePath
-            
-  //           wx.navigateTo({
-  //             url: '../storageConsole/storageConsole'
-  //           })
-  //         },
-  //         fail: e => {
-  //           console.error('[上传文件] 失败：', e)
-  //           wx.showToast({
-  //             icon: 'none',
-  //             title: '上传失败',
-  //           })
-  //         },
-  //         complete: () => {
-  //           wx.hideLoading()
-  //         }
-  //       })
-  //     },
-  //     fail: e => {
-  //       console.error(e)
-  //     }
-  //   })
-  // },
+  
 
 })
