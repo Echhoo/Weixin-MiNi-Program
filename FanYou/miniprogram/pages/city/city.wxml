@@ -1,0 +1,33 @@
+<!-- 省市二级联动选择器 -->
+<view class="picker-content">
+  <view class="picker-name">选择城市</view>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker-detail">
+      {{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}市
+    </view>
+  </picker>
+</view>
+
+
+<!--外层容器用于定位 -->
+<view class='view-list-wrapper'>
+    <!--用于存放卡片的容器 -->
+    <view x-scroll='false' class="view-list" style='transform: translateX( {{viewDistance}}rpx)' bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+        <!--若干卡片，信息展示 -->
+        <view class="nav-item {{classArray[index] ? classArray[index] : ''}}" wx:for="{{viewData}}" data-index="{{index}}">
+            <image class='view-image' src='{{item.image}}' mode='aspectFill'></image>
+            <view class='view-info'>
+                <view class='view-title {{item.title.length>9 ? "text-small" : ""}}'>{{item.title}}</view>
+                <view class='view-type'>{{item.category}}</view>
+            </view>
+            <view class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}'>景点详情</view>
+        </view>
+
+    </view>
+</view>
+
+<view class="view-description-wrapper">
+  <view class="item-title">景点简介</view>
+  <view class="view-description">{{currentView.description}}</view>
+</view>
+

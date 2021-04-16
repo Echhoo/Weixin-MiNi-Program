@@ -13,6 +13,11 @@ Page(
     iconUrl:"",
     tiger:""
   },
+    toBook: function() {
+      wx.navigateTo({
+        url: '../book/catagory',
+      })
+    },
     playBackgroundAudio: function () {
       player();
       function player(){
@@ -95,7 +100,9 @@ Page(
       }
     })
   },
-
+  jumpAnimation: function(){
+    
+  },
   // 上传图片
   // doUpload: function () {
   //   // 选择图片
