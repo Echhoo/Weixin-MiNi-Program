@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/team/team",
-    "pages/book/catagory",  
-    "pages/festival/festival",
     "pages/index/index",
+    "pages/team/team",
+    "pages/book/catagory",
+
+    "pages/festival/festival",
+  
     "pages/city/city",
     "pages/person/person",
-    
+  
 
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

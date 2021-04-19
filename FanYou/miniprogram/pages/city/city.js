@@ -166,7 +166,6 @@ moveCard(direction) {
   })
 },
 })
-=======
 // pages/city/city.js
 Page({
 
