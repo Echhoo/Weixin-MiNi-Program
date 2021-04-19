@@ -1,2 +1,23 @@
 <!--pages/team/team.wxml-->
-<text>pages/team/team.wxml</text>
+<view class="container">
+  <view class="pic-container">
+    <image src="{{teamUrl}}" class="pic"></image>
+  </view>
+  <view class="member">
+    <view class="TM"></view>
+    <view class="names">
+      <view class="name1"></view>
+      <view class="name2"></view>
+      <view class="name3"></view>
+      <view class="name4"></view>
+    </view>
+  </view>
+  <view class="contact">
+    <view class="CU"></view>
+    <view class="email"></view>
+  </view>
+
+  <view class="feedback">
+
+  </view>
+</view>
