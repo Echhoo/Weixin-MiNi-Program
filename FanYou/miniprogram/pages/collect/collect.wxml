@@ -1,0 +1,12 @@
+
+
+<view class='container'>
+  <view class='mrys' wx:for="{{storyList}}" wx:key="id">
+    <view class='title'>{{item.city}}</view>
+    <image class='image' src='{{item.view[0].image}}' mode='aspectFill'></image>
+    
+    <view class='content'>{{item.view[0].description}}</view>
+  </view>
+
+
+</view>

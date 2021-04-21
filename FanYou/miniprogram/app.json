@@ -1,13 +1,15 @@
 {
   "pages": [
-    
-    "pages/book/catagory",
+    "pages/collect/collect",
+    "pages/collecttest/collecttest",
     "pages/index/index",
-    "pages/festival/festival",
+    "pages/book/catagory",
     "pages/city/city",
+   
+    "pages/festival/festival",
+    
     "pages/person/person",
     "pages/team/team",
-
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -31,4 +33,5 @@
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
+  
 }
