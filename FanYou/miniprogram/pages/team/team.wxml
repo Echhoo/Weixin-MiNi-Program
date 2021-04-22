@@ -1,23 +1,23 @@
 <!--pages/team/team.wxml-->
 <view class="container">
-  <view class="pic-container">
+  <!-- <view class="pic-container">
     <image src="{{teamUrl}}" class="pic"></image>
-  </view>
+  </view> -->
   <view class="member">
-    <view class="TM"></view>
+    <view class="TM">团队名称</view>
     <view class="names">
-      <view class="name1"></view>
-      <view class="name2"></view>
-      <view class="name3"></view>
-      <view class="name4"></view>
+      <view class="name">刘茵</view>
+      <view class="name">马斓轩</view>
+      <view class="name">王子旭</view>
+      <view class="name">曹沛鑫</view>
     </view>
   </view>
   <view class="contact">
-    <view class="CU"></view>
+    <view class="CU">联系我们</view>
     <view class="email"></view>
   </view>
 
   <view class="feedback">
-
+ [-两只老虎爱跳舞-]
   </view>
 </view>

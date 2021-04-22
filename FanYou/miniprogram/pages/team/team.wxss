@@ -2,7 +2,7 @@
 page{
   width: 100%;
   height: 100%;
-  background-color: #FFF9DC;
+  background-color: white;
 }
 .container{
   height: 100vh;
@@ -11,15 +11,15 @@ page{
   position: relative;
 } 
 
-.pic-container{
+/* .pic-container{
   width:600rpx;
   height:600rpx;
   position:absolute;
-} 
-.pic{
+}  */
+/* .pic{
   width:600rpx;
   height:600rpx;
-}
+} */
 
 .member{
   width: 600rpx;
@@ -33,48 +33,30 @@ page{
   margin-left:25%;
   margin-top:5%;
   margin-bottom: 3%;
+  text-align: center;
   background-color: pink
 }
 .names{
-  width:560rpx;
+  width:600rpx;
   height:65rpx;
-  left:3.3%;
   background-color:pink;
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  flex-direction: row
 }
-.name1{
-  width:81rpx;
+/* .name{
+  width:150rpx;
   height:65rpx;
-  left: 4.8%;
-  background-color: white;
-  position: absolute;
-}
-.name2{
-  width:121.5rpx;
-  height:65rpx;
-  left: 22.9%;
-  background-color: white;
-  position: absolute;
-}
-.name3{
-  width:121.5rpx;
-  height:65rpx;
-  left: 48.2%;
-  background-color: white;
-  position: absolute;
-}
-.name4{
-  width:121.5rpx;
-  height:65rpx;
-  right: 4.8%;
-  background-color: white;
-  position: absolute;
-}
+} */
+
 
 .contact{
   width: 600rpx;
   height: 200rpx;
   top:65%;
+  text-align: center;
   position: absolute;
 }
 .CU{
@@ -98,5 +80,6 @@ page{
   height: 65rpx;
   top:85%;
   position: absolute;
+  text-align: center;
   background-color: pink;
 }
