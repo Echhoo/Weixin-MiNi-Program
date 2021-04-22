@@ -3,21 +3,25 @@
   <view class="pic-container">
     <image src="{{teamUrl}}" class="pic"></image>
   </view>
+  <view class = "teamname">
+    <view class="TM">|🎐团队名称🎐|</view>
+    <view class="names">两只老虎爱跳舞</view>
+  </view>
   <view class="member">
-    <view class="TM"></view>
+    <view class="TM">|——团队成员——|</view>
     <view class="names">
-      <view class="name1"></view>
-      <view class="name2"></view>
-      <view class="name3"></view>
-      <view class="name4"></view>
+      <view class="name">刘茵</view>
+      <view class="name">马斓轩</view>
+      <view class="name">王子旭</view>
+      <view class="name">曹沛鑫</view>
     </view>
   </view>
   <view class="contact">
-    <view class="CU"></view>
-    <view class="email"></view>
+    <view class="CU">|——联系我们——|</view>
+    <view class="email">nkuliuyin@163.com</view>
   </view>
 
-  <view class="feedback">
-
-  </view>
+  <button class="feed" open-type='feedback'>
+ |意见反馈|
+  </button>
 </view>

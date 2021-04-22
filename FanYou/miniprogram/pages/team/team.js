@@ -6,16 +6,15 @@ Page({
   onLoad: function (options) {
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/team/teamPic.jpg'
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/team/teamPic.jpg',
     ],
       success: res => {
         this.setData({
-          teamUrl:res.fileList[0].tempFileURL
+          teamUrl:res.fileList[0].tempFileURL,
         })
       },
     })
-
-  },
+   },
 
   onReady: function () {
 
