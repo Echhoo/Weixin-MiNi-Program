@@ -1,47 +1,27 @@
 // pages/team/team.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    teamUrl:"",
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/team/teamPic.jpg'
+      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/team/teamPic.jpg',
     ],
       success: res => {
         this.setData({
-          teamUrl:res.fileList[0].tempFileURL
+          teamUrl:res.fileList[0].tempFileURL,
         })
       },
     })
+   },
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },

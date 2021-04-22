@@ -1,27 +1,14 @@
 {
   "pages": [
     "pages/festival/festival",
-
-
-    "pages/team/team",
-    "pages/book/catagory",  
     "pages/index/index",
-    "pages/city/city",
-    "pages/person/person",
-    
+  
+    "pages/book/catagory",
 
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room"
+
+  
+    "pages/city/city",
+    "pages/person/person"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
