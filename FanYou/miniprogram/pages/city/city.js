@@ -1,3 +1,4 @@
+
 var that
 var list = []
 const db = wx.cloud.database();
@@ -201,3 +202,4 @@ onTapNavigateTo(e){
   })
 },
 })
+
