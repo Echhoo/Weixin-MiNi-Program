@@ -1,0 +1,73 @@
+/* pages/collect/collect.wxss */
+
+
+page {
+  background: #F0F0F0;
+}
+
+.container {
+  padding-top: 20rpx;
+}
+
+.mrys {
+  /* 一列卡片 */
+  margin: 36rpx;
+  margin-bottom: 40rpx;
+  padding: 10rpx;
+  border: 2rpx solid #707b8b;
+  /* border-radius: 2rpx; */
+  border-bottom-left-radius: 25rpx;
+  border-bottom-right-radius: 25rpx;
+  border-top-right-radius:25rpx;
+  border-top-left-radius: 25rpx;
+  box-shadow: 8rpx 4rpx 4rpx #707b8b;
+  position: relative;
+  background-color: #FCFCFC;
+  /* 两列卡片 */
+    
+  /* width: 48%;
+  margin: 2% 1%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;  */
+ 
+}
+
+.mrys .image {
+  width: 520rpx;
+  height: 340rpx;
+  margin-top: 40rpx;
+  margin-left: 80rpx;
+  margin-right:70rpx;
+  margin-bottom: 70rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  border-top-right-radius:20rpx;
+  border-top-left-radius: 20rpx;
+  background-color: #eee;
+}
+
+.mrys .title {
+  
+  right: 0;
+  top: 0;
+  margin-top: 50rpx;
+  margin-left: 70rpx;
+  font-size: 15pt;
+  font-weight: bolder;
+  color: 	#004B97;
+  z-index: 1;
+}
+
+.mrys .content {
+  font-size: 13pt;
+  color:#004B97;
+  display: -webkit-box;
+  margin-bottom: 30rpx;
+  margin-right: 50rpx;
+  margin-left: 70rpx;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-indent: 20pt;
+}

@@ -13,12 +13,6 @@
     "miniprogram": {
       "list": [
         {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
-        },
-        {
           "name": "pages/book/catagory",
           "pathName": "pages/book/catagory",
           "query": "",
@@ -31,13 +25,9 @@
           "scene": null
         },
         {
-          "name": "pages/collect/collect",
-          "pathName": "pages/collect/collect",
-          "scene": null
-        },
-        {
-          "name": "pages/city/city",
-          "pathName": "pages/index/index",
+          "name": "pages/festival/festival",
+          "pathName": "pages/festival/festival",
+          "query": "",
           "scene": null
         }
       ]
