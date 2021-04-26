@@ -13,7 +13,11 @@ Page(
     iconUrl:"",
     tiger:""
   },
-    
+    toBook: function() {
+      wx.navigateTo({
+        url: '../book/catagory',
+      })
+    },
   onLoad: function (options) {
     this.setData({
       height: wx.getSystemInfoSync().windowHeight,
@@ -83,7 +87,5 @@ Page(
       }
     })
   },
-
-  
 
 })
