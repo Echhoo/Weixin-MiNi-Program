@@ -1,0 +1,21 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="carousel">
+    <swiper class="swiper-block" previous-margin="90rpx" next-margin="90rpx" 
+            current="0" bindchange="swiperChange" circular="{{true}}">
+      <block wx:for="{{imgUrls}}" wx:index="{{index}}">
+        <swiper-item class="swiper-item">
+          <image mode="scaleToFill" src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="intro">
+    <view class="intro-title"></view>
+    <view class="intro-text"></view>
+  </view>
+  <view class="function">
+    <view class="share"></view>
+    <view class="collect"></view>
+  </view>
+</view>
