@@ -1,6 +1,8 @@
 {
   "pages": [
 
+    "pages/collect/collect",
+    "pages/collecttest/collecttest",
     "pages/city_test/city_test",
     "pages/city/city",
     "pages/index/index",
@@ -21,4 +23,5 @@
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
+  
 }
