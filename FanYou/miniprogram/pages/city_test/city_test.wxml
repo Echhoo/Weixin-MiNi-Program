@@ -1,4 +1,13 @@
-
+<view class="place">
+    <swiper class="swiper-block" previous-margin="200rpx" next-margin="120rpx" 
+            current="0" bindchange="swiperChange" circular="{{true}}">
+      <block wx:for="{{number}}" wx:index="{{index}}">
+        <swiper-item class="swiper-item">
+          <!-- <image mode="scaleToFill" src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/> -->
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 <!-- 省市二级联动选择器 -->
 <view class="picker-content">
   <view class="picker-name">选择城市</view>
