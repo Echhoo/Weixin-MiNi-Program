@@ -29,6 +29,19 @@ Page({
   onLoad: function (options) {
 
   },
+  onShareAppMessage: function(res) {
+    let that = this;
+    return {
+      title: "发送给好友",
+      success: function(res) {
+        console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        console.log(res, "转发失败")
+      }
+    }
+
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

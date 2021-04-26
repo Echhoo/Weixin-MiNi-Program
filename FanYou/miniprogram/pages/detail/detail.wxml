@@ -1,7 +1,7 @@
 <!--pages/detail/detail.wxml-->
 <view class="container">
   <view class="carousel">
-    <swiper class="swiper-block" previous-margin="90rpx" next-margin="90rpx" 
+    <swiper class="swiper-block" previous-margin="210rpx" next-margin="210rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{imgUrls}}" wx:index="{{index}}">
         <swiper-item class="swiper-item">
@@ -15,7 +15,15 @@
     <view class="intro-text"></view>
   </view>
   <view class="function">
-    <view class="share"></view>
-    <view class="collect"></view>
+    <view class="share">
+      <button hover-class="none" size="mini" open-type="share">
+        <text class="share-font">分享</text>
+      </button>
+    </view>
+    <view class="collect">
+      <button hover-class="none" size="mini">
+        <text class="collect-font">收藏</text>
+      </button>
+    </view>
   </view>
 </view>
