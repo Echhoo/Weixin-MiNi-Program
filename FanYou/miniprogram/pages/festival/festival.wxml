@@ -1,2 +1,20 @@
-<!--pages/festival/festival.wxml-->
-<text>pages/festival/festival.wxml</text>
+<view class="container">
+  <view class="title"></view>
+  <view class="place">
+    <swiper class="swiper-block" previous-margin="200rpx" next-margin="120rpx" 
+            current="0" bindchange="swiperChange" circular="{{true}}">
+      <block wx:for="{{imgUrls}}" wx:index="{{index}}">
+        <swiper-item class="swiper-item">
+          <image mode="scaleToFill" src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 初始bottom为负，点击后使用css3 animation效果 -->
+  <view class="introcard">
+    <image class = "intro-pic" src="{{bgUrl}}"></image>
+  </view>
+  
+
+</view>

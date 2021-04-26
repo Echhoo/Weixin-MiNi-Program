@@ -34,6 +34,11 @@
           "name": "pages/collect/collect",
           "pathName": "pages/collect/collect",
           "scene": null
+        },
+        {
+          "name": "pages/city/city",
+          "pathName": "pages/index/index",
+          "scene": null
         }
       ]
     }

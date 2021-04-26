@@ -1,10 +1,10 @@
-
 var that
 var list = []
 const db = wx.cloud.database();
 var touch = [0,0];
 Page({
   data: {
+    number:[1,2,3,4,5,6,7,8,9],
     //自己写的省市二级联动
     multiIndex:[0,0],
     multiArray: [['北京', '安徽', "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "河南", "黑龙江", "湖北", "湖南", "吉林", "江苏", "江西", "辽宁", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "上海", "四川", "天津", "西藏", "新疆", "云南", "浙江", "重庆", "香港", "澳门", "台湾"], ['北京']],
@@ -195,7 +195,6 @@ moveCard(direction) {
     viewDistance: viewDistance,
   })
 },
-
 onTapNavigateTo(e){
   var str_currentView = JSON.stringify(this.data.currentView);
   wx.navigateTo({
@@ -203,5 +202,3 @@ onTapNavigateTo(e){
   })
 },
 })
-
-

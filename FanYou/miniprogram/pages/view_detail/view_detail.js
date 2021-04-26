@@ -1,18 +1,23 @@
-// pages/chooseLib/chooseLib.js
+// pages/view_detail/view_detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    currentView: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var currentView = JSON.parse(options.currentView)
+    that.setData({
+      currentView: currentView,
+    })
+    console.log("Pass from City: ", this.data.currentView)
   },
 
   /**
