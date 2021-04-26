@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "pages/detail/detail",
     "pages/collect/collect",
     "pages/collecttest/collecttest",
     "pages/city_test/city_test",
