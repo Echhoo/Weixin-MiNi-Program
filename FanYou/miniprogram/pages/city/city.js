@@ -195,6 +195,7 @@ moveCard(direction) {
     viewDistance: viewDistance,
   })
 },
+
 onTapNavigateTo(e){
   var str_currentView = JSON.stringify(this.data.currentView);
   wx.navigateTo({
@@ -202,4 +203,5 @@ onTapNavigateTo(e){
   })
 },
 })
+
 
