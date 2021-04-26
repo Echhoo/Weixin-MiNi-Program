@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/detail/detail",
+
     "pages/festival/festival",
 
 
