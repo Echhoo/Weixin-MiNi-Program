@@ -1,9 +1,16 @@
 <view class="container">
-  <view class="title"></view>
-  <view class="place">
+  <view class="title">
+    <!-- 按钮 -->
+    <view bindtap="show" class=" icon-show">
+      <icon class="iconfont icon-caidan"></icon>
+    </view>
+    <!-- 这里放节日名字 -->
+    <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
+  </view>
+ <view class="place">
     <swiper class="swiper-block" previous-margin="200rpx" next-margin="120rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
-      <block wx:for="{{imgUrls}}" wx:index="{{index}}">
+      <block wx:for="{{imgUrls}}" wx:key="id" wx:index="{{index}}">
         <swiper-item class="swiper-item">
           <image mode="scaleToFill" src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
         </swiper-item>
@@ -15,6 +22,61 @@
   <view class="introcard">
     <image class = "intro-pic" src="{{bgUrl}}"></image>
   </view>
-  
+</view>
+<!-- 侧边栏 -->
+
+<view class="filtrate {{filtrate? '':'none'}}">
+    <!-- 右侧填充 -->
+  <view class="f_box" bindtap="none"></view>
+  <!-- 左侧 -->
+  <view class="f_con">
+    <view class="con_box">
+      <view class="nav">
+        <view class="nav1">春天</view>
+        <view class="nav2">
+          <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==0||index==1}}">
+            <view class="n2_name {{selidx==index ? 'activespring':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="nav">
+        <view class="nav1">夏天</view>
+        <view class="nav2">
+          <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==2||index==3}}">
+            <view class="n2_name {{selidx==index ? 'activesummer':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="nav">
+        <view class="nav1">秋天</view>
+        <view class="nav2">
+          <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==4||index==5||index==6}}">
+            <view class="n2_name {{selidx==index ? 'activeautumn':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="nav">
+        <view class="nav1">冬天</view>
+        <view class="nav2">
+          <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==7||index==8}}">
+            <view class="n2_name {{selidx==index ?'activewinter':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="nav">
+        <view class="nav1">其他</view>
+        <view class="nav2">
+          <view class="" wx:for="{{nav4}}" wx:key="id" wx:if="{{index==9||index==10}}">
+            <view class="n2_name {{item.isSel? 'active':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+    <view class="btn">
+      <view>
+        <view bindtap="queren">确定</view>
+      </view>
+    </view>
+  </view>
 
 </view>

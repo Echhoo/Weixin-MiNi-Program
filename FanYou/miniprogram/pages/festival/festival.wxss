@@ -18,8 +18,37 @@ page{
 .title{
     width:100%;
     height:10%;
-    position:absolute;  
-    background-color: tomato;
+    display: flex;
+    flex-direction : row;
+}
+.title .fesName{
+  width:100%;
+  font-size: 40rpx;
+  color: #888;
+  justify-content: center;  
+  text-align: center
+}
+.title .icon-show{
+  width:30%;
+}
+.page-slidebar {
+  height: 100%;
+  width: 750rpx;
+  position: fixed;
+  background-color:white;
+  z-index: 0;
+}
+
+/* 控制侧边栏的内容距离顶部的距离 */
+.page-content {
+  padding-top: 60rpx;
+}
+
+/* 侧边栏内容的 css 样式 */
+.wc {
+  color:black;
+  padding: 30rpx 0 30rpx 150rpx;
+  border-bottom: 1px solid #eee; 
 }
 
 .place{
@@ -28,6 +57,7 @@ page{
   top:30%;
   position:absolute;  
 }
+
 .swiper-block{
   height: 480rpx;
   width: 100%;
@@ -62,4 +92,150 @@ z-index: 20;
 }
 .intro-pic{
   width:100%;
+}
+
+.filtrate {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+}
+
+.filtrate .con_box{
+  margin-bottom: 160rpx;
+}
+
+.filtrate .f_box {
+  width: 40%;
+  background: #333;
+  opacity: 0.2;
+}
+
+.filtrate .f_con {
+  width: 60%;
+  background: white;
+  overflow: auto;
+  /* position: relative; */
+}
+
+.filtrate .nav {
+  padding: 20rpx;
+}
+
+.filtrate .nav:first-child {
+  padding-top: 0rpx;
+}
+
+.filtrate .con_box>view>view:first-child {
+  font-size: 28rpx;
+  color: #888;
+  margin: 20rpx 0;
+}
+
+.filtrate .nav2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filtrate .nav2>view {
+  width: 33.3%;
+  color: #333;
+  height: 80rpx;
+  padding: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filtrate .nav2 .n2_name{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background: #eee;
+  color: #888;
+}
+
+.filtrate .nav2 .activespring{
+  background: #ff9f9f;
+  color: white
+}
+.filtrate .nav2 .activesummer{
+  background: 	#7FFF00;
+  color: white
+}
+.filtrate .nav2 .activeautumn{
+  background:#fab25c;
+  color: white
+}
+.filtrate .nav2 .activewinter{
+  background:#AFEEEE;
+  color: white
+}
+
+
+.btn {
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff9f9;
+  z-index: 999
+}
+
+.btn>view {
+  display: flex;
+  width: 60%;
+  height: 60rpx;
+}
+
+.btn>view view {
+  width: 40%;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+.btn>view view{
+  position: absolute;
+  right: 0;
+  border-radius: 40rpx 0 0 40rpx;
+  background: linear-gradient(to right, #ebb2b2 , #ff8e8e);
+  color: white;
+}
+/* ?? */
+.price_box{
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.price_box .price{
+  width: 50%;
+  background: #eee;
+  border-radius: 60rpx;
+  text-align: center;
+  height: 50rpx;
+}
+
+.price_box text{
+  color: rgb(175, 175, 175);
+  height: 50rpx;
+  line-height: 50rpx;
+  margin: 0 10rpx;
+}
+
+
+
+
+.none {
+  display: none;
 }
