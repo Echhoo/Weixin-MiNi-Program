@@ -1,16 +1,23 @@
 {
   "pages": [
+    "pages/festival/festival",
+    "pages/city/city",
+
+
+
+
+
     "pages/detail/detail",
 
-    "pages/festival/festival",
     "pages/index/index",
-  
+    "pages/city_test/city_test",
+    "pages/collect/collect",
+
+    "pages/collecttest/collecttest",
+
+    "pages/view_detail/view_detail",
     "pages/book/catagory",
-
-
-  
-    "pages/city/city",
-    "pages/person/person"
+    "pages/team/team"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -22,4 +29,5 @@
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
+  
 }

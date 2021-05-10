@@ -1,0 +1,13 @@
+<view class="main-image-wrapper">
+  <image class="view-image" src="{{currentView.image}}"/>
+</view>
+<view class="detail-wrapper">
+  <view class="title">
+    {{currentView.title}}
+  </view>
+  <view>
+    {{currentView.description}}
+  </view>
+</view>
+
+

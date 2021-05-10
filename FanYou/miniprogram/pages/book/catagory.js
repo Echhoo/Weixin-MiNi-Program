@@ -48,7 +48,7 @@ Page({
   },
   personView: function(e){
     wx.navigateTo({ 
-      url: '../person/person',       
+      url: '../collect/collect',       
     })
   },
   teamView: function(e){
