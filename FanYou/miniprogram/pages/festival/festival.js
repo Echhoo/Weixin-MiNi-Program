@@ -1,4 +1,4 @@
-const app = getApp()
+// const app = getApp()
 // const Url = app.data.URL ?什么后台地址
 let number = 1
 let Datalist = []
@@ -19,17 +19,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=20&spn=0&di=70290&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2321266479%2C1415249797&os=4137256782%2C448888690&simid=3382893114%2C283668392&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.art138.com%2Fmerchant%2F2019%2F10%2F12%2FeyuEmYtjDKaifxnVEzrxWOth.jpeg%26refer%3Dhttp%3A%2F%2Fimg.art138.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D9369edbe7a52d9eb0c9a58ab0a9e910f&fromurl=ippr_z2C%24qAzdH3FAzdH3Fgjof_z%26e3Bw6px7g_z%26e3Bv54AzdH3F8m88bmc_z%26e3Bfip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
-      'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=25&spn=0&di=21560&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2106082601%2C3840237878&os=4070455972%2C3467574397&simid=3333726078%2C400171719&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1557385287734903.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3Dac0381cfe707aa93a7a5279e36c2cc56&fromurl=ippr_z2C%24qAzdH3FAzdH3Fk5k5_z%26e3Bvs7k_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8lacb0cn0_z%26e3Bip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
-      'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=49&spn=0&di=225170&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=3741749664%2C2740830265&os=3957064320%2C3367492878&simid=4153804425%2C573518045&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1555552782133146.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D622aa8adf4f8585420018f0b2569d99b&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8la9b9dam_z%26e3Bip4s&gsm=5a&rpstart=0&rpnum=0&islist=&querylist=&force=undefined'
+    bannerCurrent: 0, // 当前显示的banner
+    bannerData: [
+      {
+        'id': 1, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-1.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s1.jpg', 'title': '阿丽塔：战斗天使', 'isOpenFilp': false, 'lines': '“我们应该到那里去，我们属于那里。” \n“不，我们不属于任何地方，除了彼此身边。”', 'score': '7.6', 'releaseDate': '2019/02/22', 'otherInfo':'Alita: Battle Angel' },
+      {
+        'id': 2, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-2.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s2.jpg', 'title': '我不是药神', 'isOpenFilp': false, 'lines': '你是不是看不起我？ \n\n是…以前是…', 'score': '9.0', 'releaseDate': '2018/07/05', 'otherInfo': 'Dying to Survive'  },
+      { 'id': 3, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-3.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s3.jpg', 'title': '风语咒', 'isOpenFilp': false, 'lines': '人法地法天法道法自然，传说中的神功根本就不是练出来的，人与自然本就是一体的。\n\n我即是自然，自然即是我。\n我在驭风，风在驭我。', 'score': '6.9', 'releaseDate': '2018/08/03', 'otherInfo': 'The Wind Guardians' },
+      { 'id': 4, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-4.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s4.jpg', 'title': '飞驰人生', 'isOpenFilp': false, 'lines': '巴音布鲁克，1462道弯，109公里。耍小聪明，赢得了一百米，赢不了一百公里。\n\n你问我绝招？\n绝招只有两个字：奉献。\n就是把你的全部奉献给你所热爱的一切。\n你并不是征服了这片土地，你只是战胜了你的对手。', 'score': '7.2', 'releaseDate': '2019/02/05', 'otherInfo': 'Pegasus'  },
+      {
+        'id': 5, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-5.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s5.jpg', 'title': '大黄蜂', 'isOpenFilp': false, 'lines': '"You kissed me!" \n"On the cheek."\n"Still counts, still counts."', 'score': '7.0', 'releaseDate': '2019/01/04', 'otherInfo': 'Bumblebee'  },
     ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
-    bgUrl: "",
+    // imgUrls: [
+    //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=20&spn=0&di=70290&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2321266479%2C1415249797&os=4137256782%2C448888690&simid=3382893114%2C283668392&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.art138.com%2Fmerchant%2F2019%2F10%2F12%2FeyuEmYtjDKaifxnVEzrxWOth.jpeg%26refer%3Dhttp%3A%2F%2Fimg.art138.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D9369edbe7a52d9eb0c9a58ab0a9e910f&fromurl=ippr_z2C%24qAzdH3FAzdH3Fgjof_z%26e3Bw6px7g_z%26e3Bv54AzdH3F8m88bmc_z%26e3Bfip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
+    //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=25&spn=0&di=21560&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2106082601%2C3840237878&os=4070455972%2C3467574397&simid=3333726078%2C400171719&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1557385287734903.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3Dac0381cfe707aa93a7a5279e36c2cc56&fromurl=ippr_z2C%24qAzdH3FAzdH3Fk5k5_z%26e3Bvs7k_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8lacb0cn0_z%26e3Bip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
+    //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=49&spn=0&di=225170&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=3741749664%2C2740830265&os=3957064320%2C3367492878&simid=4153804425%2C573518045&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1555552782133146.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D622aa8adf4f8585420018f0b2569d99b&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8la9b9dam_z%26e3Bip4s&gsm=5a&rpstart=0&rpnum=0&islist=&querylist=&force=undefined'
+    // ],
+    // indicatorDots: false,
+    // autoplay: false,
+    // interval: 5000,
+    // duration: 1000,
     goodsList: '',
+    // bgUrl:"",
     searchStatus: false,
     user_id: '',
     filtrate: false,
@@ -64,32 +75,53 @@ Page({
     ],
   },
 
-  swiperChange(e) {
-    const that = this;
-    that.setData({
-      swiperIndex: e.detail.current,
-    })
-  },
+  // swiperChange(e) {
+  //   const that = this;
+  //   that.setData({
+  //     swiperIndex: e.detail.current,
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.cloud.getTempFileURL({
-      fileList: [
-        'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
-        'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png',
-        'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/yinzhang.png'
-      ],
-      success: res => {
-        this.setData({
-          bgUrl: res.fileList[0].tempFileURL,
-          iconUrl: res.fileList[1].tempFileURL,
-          tiger: res.fileList[2].tempFileURL
-        })
-        console.log(res.fileList[1].tempFileURL)
-      },
-    })
+  // onLoad: function (options) {
+  //   wx.cloud.getTempFileURL({
+  //     fileList: [
+  //       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
+  //       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png',
+  //       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/yinzhang.png'
+  //     ],
 
+  //     success: res => {
+  //       console.log(res.fileList[0].tempFileURL),
+  //       this.setData({
+  //         bgUrl: res.fileList[0].tempFileURL,
+  //         iconUrl: res.fileList[1].tempFileURL,
+  //         tiger: res.fileList[2].tempFileURL
+  //       })
+  //       console.log(res.fileList[1].tempFileURL)
+  //     },
+  //   })
+
+  // },
+  // bannerSwiper
+  bannerSwiper(e) {
+    const that = this, bannerCurrent = e.detail.current;
+    that.setData({
+      bannerCurrent
+    })
+  },
+
+  // 卡牌切换
+  switchFlip: function (e) {
+    const that = this;
+    const index = e.currentTarget.dataset.index;
+    const bannerData = that.data.bannerData;
+    const isOpenFilp = that.data.bannerData[index].isOpenFilp ? false : true;
+    bannerData[index].isOpenFilp = isOpenFilp;
+    that.setData({
+      bannerData
+    });
   },
   show: function () {
     this.setData({
@@ -138,18 +170,18 @@ Page({
     //   }
     // })
   },
-  onLoad: function (options) {
-    let that = this
-    wx.getStorage({
-      key: 'info',
-      success: function (res) {
-        that.setData({
-          user_id: res.data.user_id
-        })
-      },
-    })
+  // onLoad: function (options) {
+  //   let that = this
+  //   wx.getStorage({
+  //     key: 'info',
+  //     success: function (res) {
+  //       that.setData({
+  //         user_id: res.data.user_id
+  //       })
+  //     },
+  //   })
 
-  },
+  // },
 
   onReady: function () {
 

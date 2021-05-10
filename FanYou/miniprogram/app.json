@@ -2,12 +2,19 @@
   "pages": [
     "pages/city/city",
     "pages/festival/festival",
+    "pages/city/city",
+
+
+
+
+
+    "pages/detail/detail",
+
     "pages/index/index",
     "pages/city_test/city_test",
     "pages/collect/collect",
-    "pages/detail/detail",
+
     "pages/collecttest/collecttest",
-    
     "pages/view_detail/view_detail",
     "pages/book/catagory",
     "pages/team/team"

@@ -7,8 +7,8 @@
     <!-- 这里放节日名字 -->
     <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
   </view>
- <view class="place">
-    <swiper class="swiper-block" previous-margin="200rpx" next-margin="120rpx" 
+ <!-- <view class="place">
+    <swiper class="swiper-block" previous-margin="90rpx" next-margin="90rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{imgUrls}}" wx:key="id" wx:index="{{index}}">
         <swiper-item class="swiper-item">
@@ -18,10 +18,76 @@
     </swiper>
  </view>
 
-  <!-- 初始bottom为负，点击后使用css3 animation效果 -->
   <view class="introcard">
     <image class = "intro-pic" src="{{bgUrl}}"></image>
-  </view>
+  </view> -->
+  <view class="swiper">
+
+<swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper">
+      
+      <swiper-item class="item" wx:for="{{ bannerData }}" wx:key="{{ index }}">
+        <view class="swiper-item">
+          <view class='boxItem column'>
+            <!-- 卡牌 -->
+            <view class="flipGroup  {{ item.isOpenFilp ? 'on':''}}" catchtap='switchFlip' data-index='{{ index }}'>
+              <view class="flipBox">
+                <!-- 正面内容 -->
+                <view class="sideWrap front">
+                  <!-- 卡片 -->
+                  <view class='posterGroup'>
+                    <view class='imgWrap'>
+                      <image class='img' src="{{ item.focus }}" mode="aspectFill"></image>
+                      <view class='detailBox'>
+                        <view class='mSmall f14 relative mb10'>《 {{ item.title }} 》</view>
+                        <view class='mSmall relative'>· {{ item.releaseDate }} ·</view>
+                      </view>
+                    </view>
+                  </view>
+                  <!-- / 卡片 -->
+                </view>
+                <!-- 背面内容 -->
+                <view class="sideWrap back">
+                  <!-- detail -->
+                  <view class='backGroup'>
+                    <image class='img' src="{{ item.img }}" mode="widthFix"></image>
+                    <view class='textWrap'>
+                      <image class='iconFlag' src="{{ iconFlag }}" mode="widthFix"></image>
+                      <view class='mt10'>
+                        <text class='mTitle cf45 mb40'>{{ item.lines }}</text>
+                      </view>
+                    </view>
+                  </view>
+                  <view class='otherInfo'>
+                    <view class='movTitle'>
+                      《 {{ item.title }} / {{ item.otherInfo }} 》
+                      <text class='score'>{{ item.score }}</text>
+                    </view>
+                    <view class='copyright'>
+                      <view class='copyrightGrid'>
+                        <image class='logo' src='{{ logo }}' mode='widthFix'></image>
+                        <text class='span'>{{ copyrightText }}</text>
+                      </view>
+                    </view>
+                  </view>
+
+
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </swiper-item>
+
+      
+  </swiper>
+</view>
+<!-- 海报背景 -->
+<view class='poster'>
+<view class='bgImg' style=" background: url({{ bannerData[bannerCurrent].focus }}); background-size:cover;"></view>
+<view class='cover'></view>
+</view>
+
 </view>
 <!-- 侧边栏 -->
 
