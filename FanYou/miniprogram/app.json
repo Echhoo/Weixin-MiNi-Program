@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/city/city",
     "pages/festival/festival",
     "pages/city/city",
 
@@ -16,7 +17,6 @@
     "pages/collect/collect",
 
     "pages/collecttest/collecttest",
-
     "pages/view_detail/view_detail",
     "pages/book/catagory",
     "pages/team/team"
