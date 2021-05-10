@@ -22,9 +22,7 @@
     <image class = "intro-pic" src="{{bgUrl}}"></image>
   </view> -->
   <view class="swiper">
-
-<swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper">
-      
+    <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" circular="{{true}}">
       <swiper-item class="item" wx:for="{{ bannerData }}" wx:key="{{ index }}">
         <view class="swiper-item">
           <view class='boxItem column'>
@@ -69,28 +67,31 @@
                       </view>
                     </view>
                   </view>
-
-
                 </view>
               </view>
             </view>
-
+          </view>
+          <!-- 转发收藏icon -->
+          <view class='functionIcon'>
+            <view class='forwardIcon'>
+              <image class='forward-pic'src="../../images/forward.png"></image>
+            </view>
+            <view class='favoriteIcon'>
+              <image class='forward-pic'src="../../images/favorites-fill.png"></image>
+            </view>
           </view>
         </view>
-      </swiper-item>
+      </swiper-item>      
+    </swiper>
+  </view>
+  <!-- 海报背景 -->
+  <view class='poster'>
+    <view class='bgImg' style=" background: url({{ bannerData[bannerCurrent].focus }}); background-size:cover;"></view>
+    <view class='cover'></view>
+  </view>
+</view>
 
-      
-  </swiper>
-</view>
-<!-- 海报背景 -->
-<view class='poster'>
-<view class='bgImg' style=" background: url({{ bannerData[bannerCurrent].focus }}); background-size:cover;"></view>
-<view class='cover'></view>
-</view>
-
-</view>
 <!-- 侧边栏 -->
-
 <view class="filtrate {{filtrate? '':'none'}}">
     <!-- 右侧填充 -->
   <view class="f_box" bindtap="none"></view>
@@ -144,5 +145,4 @@
       </view>
     </view>
   </view>
-
 </view>
