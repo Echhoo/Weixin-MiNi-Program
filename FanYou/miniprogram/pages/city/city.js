@@ -13,41 +13,26 @@ Page({
   
 
     //view-card-list:
-    currentIndex: 0,
+    swiperIndex: "0",
     currentView: {},
-    viewDistance: 0,
-    classArray: ['active', 'next'],
     viewData: [],
   },
   onLoad(options){
-    //云函数方法
-    // wx.cloud.callFunction({
-    //   name: "getViewData",
-    //   data:{
-    //     // city: this.data.multiArray[1][this.data.multiIndex[1]]+"市"
-    //     city: "邯郸市"
-    //   }
-    // }).then(res=>{
-    //   // console.log("Call CloudFunc Result:",res)
-    // })
-
-
     //小程序端
     that = this;
-    db.collection('city_view').where({
-      city: this.data.multiArray[1][this.data.multiIndex[1]]+"市"
+    db.collection('attractions').where({
+      city: this.data.multiArray[1][this.data.multiIndex[1]]
     }).get()
     .then(res => {
-      // console.log("Get from db:",res);
-      this.setData({
-        viewData: res.data[0].view,
+      console.log(res.data);
+      var _data = res.data;
+      that.setData({
+        viewData: _data
       })
       //必须在加载完 viewData 后设置
       this.setData({
-        currentIndex: 0,
         currentView: this.data.viewData[0],
-        classArray: ['active', 'next'],
-        viewDistance: 0
+        swiperIndex: "0"
       })
     }) 
   },
@@ -60,20 +45,18 @@ Page({
       "multiIndex[1]": e.detail.value[1]
     })
     //根据**市信息来查询云数据库信息，并展示新的卡片列表
-    db.collection('city_view').where({
-      city: this.data.multiArray[1][this.data.multiIndex[1]]+"市"
+    db.collection('attractions').where({
+      city: this.data.multiArray[1][this.data.multiIndex[1]]
     }).get()
     .then(res => {
       //先加载新的数据
       this.setData({
-        viewData: res.data[0].view,
+        viewData: res.data,
       })
       //后初始化wxml显示第一张卡片
       this.setData({
-        currentIndex: 0,
+        swiperIndex: 0,
         currentView: this.data.viewData[0],
-        classArray: ['active', 'next'],
-        viewDistance: 0,
       })
     })
     .catch(err => {
@@ -83,9 +66,7 @@ Page({
       this.setData({
         viewData: [],
         currentView: {},
-        currentIndex: 0,
-        classArray: [],
-        viewDistance: 0,
+        swiperIndex: 0,
       })
     })
   },
@@ -106,96 +87,15 @@ Page({
         })
     }
   },
-// 开始滑动
-onTouchStart(e) {
-  touch[0] = e.touches[0].clientX;  // touch为全局变量
-},
-// 结束滑动
-onTouchEnd(e) {
-  touch[1] = e.changedTouches[0].clientX;
-  if (touch[0] - touch[1] > 5) {  // 
-    this.addClassName('left');
-  } else if (touch[1] - touch[0] > 5) {
-    this.addClassName('right');
-  }
-},
-addClassName(direction) {
-  // 当前景点序号
-  let currentIndex = this.data.currentIndex;
-  // 当前景点信息
-  let currentView = {};
-  // 所有景点信息
-  let viewData = this.data.viewData;
-  let length = viewData.length;
-  // 样式列表
-  let classArray = new Array(length);
 
-  if (direction === 'left') {  // 向左滑动
-    // 最后一项左滑后到第一张卡片
-    if (++currentIndex >= length){
-      console.log("Last Page!")
-      console.log("Show the first page")
-      this.setData({
-        currentIndex: 0,
-        currentView: this.data.viewData[0],
-        classArray: ['active', 'next'],
-        viewDistance: 0
-      })
-      return;
-    }
-    // 不是最后一页面则更改样式至样式数组（classArray）
-    /* 样式数组与view视图中的卡片class绑定，可以实现数据动态更新*/
-    classArray[currentIndex] = 'active';
-    classArray[currentIndex - 1] = 'prev';
-    // 是否存在下一张卡片，存在则为其添加样式
-    if (currentIndex + 1 < length) {
-      classArray[currentIndex + 1] = 'next';
-    }
-  } else if (direction === 'right') {  // 向右滑动
-    // 如果滑倒最后一张则返回第一张
-    if (--currentIndex < 0) {
-      var new_classArray = new Array(length);
-      new_classArray[length-1] = "active";
-      new_classArray[length-2]  = "prev";
-      console.log("New ClassArray:",new_classArray)
-      this.setData({
-        currentIndex: length-1,
-        currentView: this.data.viewData[length-1],
-        classArray: new_classArray,
-        viewDistance: -1*(length-1)*549,
-      })
-      return
-    }
-   //否则继续滑动到下一张
-    if (currentIndex - 1 >= 0) {
-      classArray[currentIndex - 1] = 'prev';
-    }
-    classArray[currentIndex] = 'active';
-    classArray[currentIndex + 1] = 'next';
-  }
-
-  currentView = viewData[currentIndex];
-  this.moveCard(direction);  // 动画操作
-  /* 更新当前显示景点序列号，样式数组以及当前景点信息（该项用于用户点击时，查看景点详情信息）*/
-  this.setData({
-    currentIndex: currentIndex,
-    classArray: classArray,
-    currentView: currentView,
-  })
-},
-// 卡片移动
-moveCard(direction) {
-  let viewDistance = this.data.viewDistance;
-  if (direction === 'left') {
-    viewDistance -= 549;
-  } else if (direction === 'right') {
-    viewDistance += 549;
-  }
-  this.setData({
-    viewDistance: viewDistance,
-  })
-},
-
+  swiperChange(e) {
+    that = this;
+    const swiperIndex = e.detail.current;
+    that.setData({
+      swiperIndex: swiperIndex,
+      currentView: that.data.viewData[swiperIndex]
+    })
+  },
 onTapNavigateTo(e){
   var str_currentView = JSON.stringify(this.data.currentView);
   wx.navigateTo({

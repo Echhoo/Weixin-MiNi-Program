@@ -16,7 +16,7 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
+ </view>
 
   <view class="introcard">
     <image class = "intro-pic" src="{{bgUrl}}"></image>
