@@ -3,6 +3,8 @@ page{
   overflow: hidden;
   background-image: url(https://i.loli.net/2021/04/17/zR1NjUXCJfDWEvF.png);
   }
+
+  /* 选择器 */
 .picker-content{
   padding: 30rpx;
   text-align: center;
@@ -28,7 +30,42 @@ page{
   height: 105vh;
 }
 
-.card-box{
+/* 轮播 */
+.place{
+  width:100%;
+  height:850rpx;
+  position:absolute;  
+}
+
+.swiper-block{
+  height: 760rpx;
+  width: 100%;
+}
+.swiper-item{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+overflow:unset;
+}
+.slide-image{
+  height:480rpx;
+  width:480rpx;
+  border-radius: 9rpx;
+  box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
+  margin: 0rpx 30rpx;
+  z-index: 1;
+  border-radius: 10%;
+  }
+  .active{
+  transform: scale(1.14);
+  transition:all .2s ease-in 0s;
+  z-index: 20;
+  }
+
+
+
+/* .card-box{
   display: inline-block;
 }
 
@@ -43,7 +80,7 @@ page{
   font-size: 40px;
   background: #F8F2DC;
   border-radius: 4px;
-}
+} */
 
 
 .view-list-wrapper {
@@ -51,7 +88,7 @@ page{
   height: 850rpx;
 }
 
-.view-list{
+/* .view-list{
   position: fixed;
   left: 0;
   margin-top: 20rpx;
@@ -64,10 +101,10 @@ page{
   align-items: center;
   flex-wrap: nowrap;
   transition: transform 0.5s ease;
-}
+} */
 
-.nav-item {
-  box-sizing: border-box;
+
+/* .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,9 +119,9 @@ page{
   z-index: 1;
   transform: scale(0.6) translateY(-2rem);
   word-break: break-all;
-}
+} */
 
-.active {
+/* .active {
   transform: scale(1) translateY(0) translateX(0);
   opacity: 1;
 }
@@ -108,13 +145,15 @@ page{
   width: 480rpx;
   height: 480rpx;
   border-radius: 30rpx;
-}
+} */
 
 .view-info {
   text-align: center;
+  top: 30rpx;
   margin: 25rpx;
   line-height: 1;
   color: #342158;
+  display: inline-block;
 }
 
 .view-title {

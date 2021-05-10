@@ -16,7 +16,7 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
+ </view>
 
   <!-- 初始bottom为负，点击后使用css3 animation效果 -->
   <view class="introcard">
