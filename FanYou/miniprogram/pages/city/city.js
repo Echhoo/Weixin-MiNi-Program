@@ -24,7 +24,7 @@ Page({
       city: this.data.multiArray[1][this.data.multiIndex[1]]
     }).get()
     .then(res => {
-      console.log(res.data);
+      console.log("该城市的数据", res.data);
       var _data = res.data;
       that.setData({
         viewData: _data
