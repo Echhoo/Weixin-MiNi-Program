@@ -58,18 +58,16 @@ Page(
       width: wx.getSystemInfoSync().windowWidth,
     })
     wx.cloud.init({
-      env: 'cloud1-4gt82x70cccbf17e'
+      env: 'wzx-cloudbase-1grg51bs80e42788'
     })
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/yinzhang.png'
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/fanyou.png',
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/tiger.png',
     ],
       success: res => {
         this.setData({bgUrl:res.fileList[0].tempFileURL,
           iconUrl:res.fileList[1].tempFileURL,
-          tiger:res.fileList[2].tempFileURL
         })
         console.log(res.fileList[1].tempFileURL)
       },
