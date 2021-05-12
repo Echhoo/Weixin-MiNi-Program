@@ -26,8 +26,8 @@ Page({
     }
     const db = wx.cloud.database();
     let { pageIndex, pageSize } = this.data;
-    db.collection('city_view').where({
-
+    db.collection('attractions').where({
+      collect : "true"
     }).limit(pageSize * pageIndex).get({
       success: res => {
         wx.stopPullDownRefresh();

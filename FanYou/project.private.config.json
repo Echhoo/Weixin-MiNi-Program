@@ -33,11 +33,19 @@
         {
           "name": "pages/collect/collect",
           "pathName": "pages/collect/collect",
+          "query": "",
           "scene": null
         },
         {
           "name": "pages/city/city",
-          "pathName": "pages/index/index",
+          "pathName": "pages/city/city",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fetstival/festival",
+          "pathName": "pages/festival/festival",
+          "query": "",
           "scene": null
         }
       ]
