@@ -1,36 +1,49 @@
 
 <!-- 省市二级联动选择器 -->
-<view class="picker-content">
-  <view class="picker-name">选择城市</view>
-  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-    <view class="picker-detail">
+<!-- <view class="picker-content">
+  <view >
+    <image class="picker-img" mode="scaleToFill" src="https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/city/%E6%9F%A5%E6%89%BE%E5%9F%8E%E5%B8%82.png?sign=32c5ca96dd93538598dd9a9ad0f9b038&t=1620893773"></image>
+  </view>
+  <picker class="picker-row" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker-detail" style="width: 276rpx; height: 90rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
       {{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}市
     </view>
   </picker>
-</view>
+</view> -->
+<!-- 新省市选择器 -->
+<button bindtap="showPicker">省市选择器</button>
+<picker
+	isShowPicker="{{is_show_picker}}"
+	keyWordsOfShow="name"
+	bindsure="sureCallBack"
+	bindcancle="cancleCallBack"
+	scrollType="link"
+	listData="{{province_city_list}}"
+></picker>
 
 <!--外层容器用于定位 -->
 <view class='view-list-wrapper'>
     <!--用于存放卡片的容器 -->
     <view class="place">
-    <swiper class="swiper-block" previous-margin="100rpx" next-margin="60rpx" 
+    <swiper class="swiper-block" previous-margin="80rpx" next-margin="60rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{viewData}}" wx:key="id" wx:index="{{index}}">
-        <swiper-item class="swiper-item">
+        <swiper-item class="swiper-item" style="width: 502rpx; height: 90rpx; display: flex; box-sizing: content-box; left: 0rpx; top: 0rpx">
           <image mode="scaleToFill" src="{{item.img_url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
           <view class='view-info'>
-                <view class='view-title {{item.site_name.length>9 ? "text-small" : ""}}'>{{item.site_name}}</view>
-                <!-- <view class='view-type'>{{item.category}}</view> -->
+                <view class='view-title {{item.site_name.length>9 ? "text-small" : ""}}' style="width: 514rpx; height: 66rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.site_name}}</view>
             </view>
-            <view class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}'>景点详情</view>
+            
         </swiper-item>
       </block>
     </swiper>
  </view>
 </view>
 
-<view class="view-description-wrapper">
-  <view class="item-title">景点简介</view>
-  <view class="view-description">{{currentView.introduction}}</view>
+<view class="view-description-wrapper" style="width: 592rpx; height: 449rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+  <view class="view-description" style="width: 576rpx; height: 246rpx; display: -webkit-box; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+    <text space="emsp">  "{{currentView.introduction}}</text>
+  </view>
+  <view class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}' style="width: 208rpx; height: 92rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">景点详情</view>
 </view>
 

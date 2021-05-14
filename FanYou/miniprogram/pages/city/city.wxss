@@ -1,7 +1,7 @@
 page{
   background-color: #efeff4;
   overflow: hidden;
-  background-image: url(https://i.loli.net/2021/04/17/zR1NjUXCJfDWEvF.png);
+  /* background-image: url(https://i.loli.net/2021/04/17/zR1NjUXCJfDWEvF.png); */
   }
 
   /* 选择器 */
@@ -9,12 +9,24 @@ page{
   padding: 30rpx;
   text-align: center;
   display: flex;
+  flex-direction:row;
+  align-content: center;
 }
+.picker-row{
+  width: 200rpx;
+  width: 50rpx;
+}
+
 .picker-name{
   height: 80rpx;
   width: 200rpx;
   line-height: 80rpx;
   font-size: 25rpx;
+}
+.picker-img{
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 20%;
 }
 .picker-detail{
   height: 80rpx;
@@ -44,108 +56,31 @@ page{
 .swiper-item{
 display: flex;
 flex-direction: column;
-justify-content: center;
-align-items: flex-start;
+justify-content: space-around;
+align-items: center;
 overflow:unset;
 }
 .slide-image{
-  height:480rpx;
-  width:480rpx;
+  height:550rpx;
+  width:550rpx;
   border-radius: 9rpx;
   box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
   margin: 0rpx 30rpx;
   z-index: 1;
-  border-radius: 10%;
+  border-radius: 5%;
   }
   .active{
-  transform: scale(1.14);
+  transform: scale(1.06);
   transition:all .2s ease-in 0s;
   z-index: 20;
   }
 
-
-
-/* .card-box{
-  display: inline-block;
-}
-
-.card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  height: 60vh;
-  width: 80vw;
-  margin: 5vh 10vw;
-  font-size: 40px;
-  background: #F8F2DC;
-  border-radius: 4px;
-} */
-
-
 .view-list-wrapper {
   width: 750rpx;
-  height: 850rpx;
+  height: 700rpx;
+  margin-top: 50rpx;
+  margin-bottom: 30rpx;
 }
-
-/* .view-list{
-  position: fixed;
-  left: 0;
-  margin-top: 20rpx;
-  padding: 0 100rpx;
-  color: #999;
-  height: 760rpx;
-  width: calc(550rpx*30);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  transition: transform 0.5s ease;
-} */
-
-
-/* .nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 550rpx;
-  height: 800rpx;
-  background-color: #ffffff;
-  border-radius: 45rpx;
-  box-shadow: 3rpx 3rpx 15rpx 3rpx rgba(0, 0, 0, 0.1);
-  transition: all 0.5s;
-  position: relative;
-  z-index: 1;
-  transform: scale(0.6) translateY(-2rem);
-  word-break: break-all;
-} */
-
-/* .active {
-  transform: scale(1) translateY(0) translateX(0);
-  opacity: 1;
-}
-
-.next, .prev {
-  transform: scale(0.8) translateY(-1rem) translateX(0);
-  opacity: 0.6;
-}
-
-.nav-item:first-child {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.nav-item:last-child {
-  margin-right: 0;
-  padding-right: 0;
-}
-
-.view-image {
-  width: 480rpx;
-  height: 480rpx;
-  border-radius: 30rpx;
-} */
 
 .view-info {
   text-align: center;
@@ -173,18 +108,22 @@ overflow:unset;
 
 .view-detail {
   box-sizing: border-box;
-  color: #3285bd;
+  color: #342158;
   display: block;
   width: 350rpx;
   height: 80rpx;
-  font-size: 35rpx;
+  margin: 10% 30%;
+  font-size: 40rpx;
   line-height: 76rpx;
   text-align: center;
-  border-radius: 40rpx;
-  border: 2rpx solid #3285bd;
+  border-radius: 10rpx;
+  border: 2rpx solid #342158;
 }
 
 .view-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   margin: auto;
   width: 550rpx;
   height: 450rpx;
@@ -197,14 +136,16 @@ overflow:unset;
 }
 
 .view-description {
+  
   margin-top: 10rpx;
   height: 320rpx;
-  font-size: 25rpx;
+  font-size: 30rpx;
   line-height: 2;
   color: #342158;
-  -webkit-line-clamp: 3; /* 设置超出多少行隐藏 */
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4; /* 设置超出多少行隐藏 */
   -webkit-box-orient: vertical;
   overflow: hidden;
-  /* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
-  display: -webkit-inline-box;
 } 
