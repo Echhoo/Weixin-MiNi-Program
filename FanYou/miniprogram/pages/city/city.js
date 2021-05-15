@@ -43,7 +43,6 @@ Page({
       })
     }) 
   },
-
   //新省市选择器相关函数
   showPicker: function () {
     this.setData({
@@ -178,8 +177,7 @@ saveImg1(url){
       console.log(res);
     }
   })
-},
-
+}
 })
 
 
