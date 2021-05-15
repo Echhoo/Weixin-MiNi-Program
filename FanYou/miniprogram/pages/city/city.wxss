@@ -5,6 +5,14 @@ page{
   }
 
   /* 选择器 */
+.picker-button{
+  height: 100rpx;
+  width: 200rpx;
+  background-color: #efeff4;
+  margin-top: 50rpx;
+  margin-bottom: 0%;
+  font-size: 35rpx;
+}
 .picker-content{
   padding: 30rpx;
   text-align: center;
@@ -149,3 +157,32 @@ overflow:unset;
   -webkit-box-orient: vertical;
   overflow: hidden;
 } 
+
+/* 背景图 */
+.poster {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(10px);
+  transform: scale(1.2);
+  overflow: hidden;
+}
+
+.poster .cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .6);
+}
+
+.poster .bgImg {
+  width: 100%;
+  height: 100%;
+}
