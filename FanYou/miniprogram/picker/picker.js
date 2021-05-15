@@ -19,11 +19,6 @@ Component({
         const tempArr = [...new Array(newVal.length).keys()].map(() => 0)
         this.data.lastValue = this.data.tempValue = tempArr
         this._setDefault()
-
-        // let {defaultPickData} = this.properties;
-        // if(newVal.length === 0) return;
-        //
-        // this._setDefault(newVal, defaultPickData)
       }
     },
     defaultPickData: {
@@ -52,7 +47,7 @@ Component({
     },
     titleText: {// 标题文案
       type: String,
-      value: '标题'
+      value: '请选择您想查询的城市'
     },
     cancelText: {// 取消按钮文案
       type: String,
