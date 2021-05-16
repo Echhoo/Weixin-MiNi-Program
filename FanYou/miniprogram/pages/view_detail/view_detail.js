@@ -18,7 +18,13 @@ Page({
    */
   onLoad: function (options) {
     // var that = this;
+    console.log(options)
     var currentView = JSON.parse(options.currentView)
+    var img_url = options.img;
+    var introduction = options.introduction;
+    console.log("Intro: ", introduction)
+    currentView["img_url"] = img_url;
+    currentView["introduction"] = introduction;
     if_collect = currentView.collect
     if_like = currentView.like  
     ID = currentView._id

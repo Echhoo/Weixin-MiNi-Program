@@ -75,6 +75,9 @@ Page({
         name: "元宵"
       },
     ],
+    // 当前节日的对象列表
+    currentFestivalViews: []
+
   },
 
   // swiperChange(e) {
@@ -94,14 +97,31 @@ Page({
       this.setData({        
         bannerData: res.data,
       })
+<<<<<<< HEAD
       console.log(res.data)
       console.log(this.data.bannerData[0].fes_pic[selidx])
       console.log(this.data.bannerData[0].fes_intro[selidx])
+=======
+     console.log("bannerData",this.data.bannerData)
+     var i = 0;
+     var len = this.data.bannerData.length;
+     var views = []
+     for(i; i<len; i++){
+      var aCurrentFesView = this.data.bannerData[i];
+      aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
+      aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
+      views[i] = aCurrentFesView;
+     }
+     
+      // this.setData({
+      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
+      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
+      // })
+>>>>>>> 4cd7afbc83ca3d19f17266ef1424e53c812a6d62
       this.setData({
-        bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
-        bannerIntro: this.data.bannerData[0].fes_intro[selidx]
+        bannerData: views
       })
-      
+      console.log("Views: ",this.data.bannerData)
     })
   },
   // bannerSwiper
