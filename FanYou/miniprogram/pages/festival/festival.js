@@ -94,6 +94,7 @@ Page({
       this.setData({        
         bannerData: res.data,
       })
+      console.log(res.data)
       console.log(this.data.bannerData[0].fes_pic[selidx])
       console.log(this.data.bannerData[0].fes_intro[selidx])
       this.setData({
