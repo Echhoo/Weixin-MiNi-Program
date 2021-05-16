@@ -2,7 +2,8 @@
   "pages": [
     "pages/festival/festival",
     "pages/city/city",
-    
+    "pages/detail/detail",
+
     "pages/index/index",
     "pages/detail/detail",
     
