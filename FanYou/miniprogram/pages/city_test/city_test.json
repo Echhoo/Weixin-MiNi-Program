@@ -1,8 +1,0 @@
-{
-  "usingComponents": {},
-    "navigationBarTitleText": "城市风物",
-    "backgroundColor": "#0D1740",
-    "navigationBarBackgroundColor": "#0D1740",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
-} 

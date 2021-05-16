@@ -18,24 +18,56 @@ Page(
         url: '../book/catagory',
       })
     },
+    login() {
+      wx.getUserProfile({
+        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (file) => {
+          console.log(file)
+          wx.login({
+            success: (res) => {
+              console.log(res);
+              wx.request({
+                url: 'code获取openid的接口',
+                data: {
+                  code: res.code
+                },
+                success: (open) => {
+                  console.log(open.data);
+                  wx.request({
+                    url: '授权登陆接口',
+                    data: {
+                      openid: open.data.openid,
+                      NickName: file.userInfo.nickName,
+                      HeadUrl: file.userInfo.avatarUrl
+                    },
+                    success(data) {
+                      console.log(data.data);
+                    }
+                  })
+                }
+              })
+            }
+          })
+          this.toBook();
+        }
+      })
+    },
   onLoad: function (options) {
     this.setData({
       height: wx.getSystemInfoSync().windowHeight,
       width: wx.getSystemInfoSync().windowWidth,
     })
     wx.cloud.init({
-      env: 'cloud1-4gt82x70cccbf17e'
+      env: 'wzx-cloudbase-1grg51bs80e42788'
     })
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png',
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/yinzhang.png'
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/fanyou.png',
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/tiger.png',
     ],
       success: res => {
         this.setData({bgUrl:res.fileList[0].tempFileURL,
           iconUrl:res.fileList[1].tempFileURL,
-          tiger:res.fileList[2].tempFileURL
         })
         console.log(res.fileList[1].tempFileURL)
       },

@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<view class="container" catchtap="toBook">
+<view class="container"  bindtap="login" >
+   
     <!-- <image  class="Img" src="{{bgUrl}} "mode="widthFix"></image> -->
     <image  class="Img" src="{{bgUrl}}" mode='aspectFill' style="height:{{height}}px;width:{{width}}px"></image>
     <image class="Icon" src="{{iconUrl}}"></image>
