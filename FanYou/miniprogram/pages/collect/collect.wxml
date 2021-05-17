@@ -1,12 +1,16 @@
 
-
 <view class='container'>
-  <view class='mrys' wx:for="{{storyList}}" wx:key="id">
+  <view class='mrys' wx:for="{{storyList}}" wx:key="id" >
     <view class='title'>{{item.city}}</view>
-    <image class='image' src='{{item.img_url}}' mode='aspectFill'></image>
+    <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
     
     <view class='content'>{{item.introduction}}</view>
-  </view>
 
+  </view>
+  <!-- <view class='poster'>
+    <view class='bgImg' style=" background: url({{item.img_url}}); background-size:cover;"></view>
+    <view class='cover'></view>
+  </view> -->
+  
 
 </view>

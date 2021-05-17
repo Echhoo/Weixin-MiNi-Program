@@ -47,8 +47,9 @@ page {
   background-color: #eee;
 }
 
+
 .mrys .title {
-  
+
   right: 0;
   top: 0;
   margin-top: 50rpx;
@@ -70,4 +71,32 @@ page {
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-indent: 20pt;
+}
+
+/* 背景图 */
+.container .poster {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(10px);
+  transform: scale(1.2);
+  overflow: hidden;
+}
+
+.container .poster .cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .6);
+}
+.container .poster .bgImg {
+  width: 100%;
+  height: 100%;
 }

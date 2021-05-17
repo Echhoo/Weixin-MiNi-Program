@@ -8,6 +8,9 @@ Page({
     pageSize: 8,
     storyList: [],
     loading: true,
+    currentView: {},
+    viewData: [],
+    viewDataToPass : {},
   },
 
   /**
@@ -34,7 +37,8 @@ Page({
         let list = this.data.storyList.concat(res.data);
         this.setData({
           storyList: res.data,
-          loading: res.data.length == (pageSize * pageIndex)
+          loading: res.data.length == (pageSize * pageIndex),
+          // currentView: this.data.viewData[0],
         })
         console.log('[数据库] [查询记录] 成功: ', res)
       },
@@ -68,5 +72,42 @@ Page({
       pageIndex: pageIndex
     })
     this.loadMrysData();
-  }
+  },
+
+  onTapNavigateTo(e){
+    var id = e.currentTarget.dataset.id
+   wx.cloud.database().collection('attractions').where({
+    _id : id
+  }).get({
+    success: res => {
+      this.setData({
+        viewData: res.data,
+      })
+      console.log('[数据库] [查询记录] 成功: ', res)
+      var viewDataToPass = {}
+      viewDataToPass["_id"] = this.data.viewData[0]._id;
+      viewDataToPass["site_name"] = this.data.viewData[0].site_name;
+      viewDataToPass["city"] = this.data.viewData[0].city;
+      viewDataToPass["collect"] = this.data.viewData[0].collect;
+      viewDataToPass["like"] = this.data.viewData[0].like;
+     var str_currentView = JSON.stringify(viewDataToPass);
+     var str_img_url = this.data.viewData[0].img_url;
+     var str_introduction = this.data.viewData[0].introduction;
+     wx.navigateTo({
+       url: '../view_detail/view_detail?currentView='+str_currentView 
+       +'&img='+str_img_url
+       +'&introduction='+str_introduction
+     })
+    },
+    fail: err => {
+      wx.showToast({
+        icon: 'none',
+        title: '查询记录失败'
+      })
+      console.error('[数据库] [查询记录] 失败：', err)
+    }
+  })
+
+  },
 })
+
