@@ -11,6 +11,8 @@ Page({
     currentView: {},
     viewData: [],
     viewDataToPass : {},
+    currentTab: 0,
+
   },
 
   /**
@@ -107,7 +109,43 @@ Page({
       console.error('[数据库] [查询记录] 失败：', err)
     }
   })
-
   },
+
+  swichNav: function (e) {
+ 
+    console.log(e);
+     
+    var that = this;
+     
+    if (this.data.currentTab === e.target.dataset.current) {
+     
+    return false;
+     
+    } else {
+     
+    that.setData({
+     
+    currentTab: e.target.dataset.current,
+     
+    })
+     
+    }
+     
+    },
+     
+    swiperChange: function (e) {
+     
+    console.log(e);
+     
+    this.setData({
+     
+    currentTab: e.detail.current,
+     
+    })
+     
+     
+    },
+
+
 })
 

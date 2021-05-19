@@ -1,5 +1,8 @@
 // const app = getApp()
 // const Url = app.data.URL ?什么后台地址
+let if_collect= 'false'
+let if_like= 'false'
+let ID = ''
 let number = 1
 let Datalist = []
 let navlist = []
@@ -184,6 +187,9 @@ Page({
         bannerData: views
       })
     })
+  },
+  click_collect(){
+    console.log("here!!!",bannerData)
   },
 
   queren: function (e) {

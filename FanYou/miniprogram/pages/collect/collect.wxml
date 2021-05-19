@@ -1,16 +1,43 @@
 
-<view class='container'>
-  <view class='mrys' wx:for="{{storyList}}" wx:key="id" >
-    <view class='title'>{{item.city}}</view>
-    <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
-    
-    <view class='content'>{{item.introduction}}</view>
-
+<!-- <view class='container'>
+  <view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
+    <view class='box ' >
+      <view class='title'>{{item.city}}</view>
+      <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
+      <view class='content'>{{item.introduction}}</view>
+    </view>   
   </view>
-  <!-- <view class='poster'>
-    <view class='bgImg' style=" background: url({{item.img_url}}); background-size:cover;"></view>
-    <view class='cover'></view>
-  </view> -->
-  
+</view> -->
 
+
+<view class="page">
+<view class="swiper-tab">
+ <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">City</view>
+ <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">Festival</view> 
+ </view>
+ <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+ 
+ <swiper-item>
+  <view class='container'>
+  <view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
+    <view class='box ' >
+      <view class='title'>{{item.city}}</view>
+      <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
+      <view class='content'>{{item.introduction}}</view>
+    </view>   
+  </view>
+</view>
+ </swiper-item>
+ <swiper-item> 
+  <view class='container'>
+  <view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
+    <view class='box ' >
+      <view class='title'>{{item.city}}</view>
+      <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
+      <view class='content'>{{item.introduction}}</view>
+    </view>   
+  </view>
+</view>
+ </swiper-item> 
+ </swiper>
 </view>
