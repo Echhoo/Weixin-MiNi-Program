@@ -40,6 +40,7 @@
   "appid": "wxcc58e78c6d1029e1",
   "projectname": "FanYou",
   "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []

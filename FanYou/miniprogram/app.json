@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/city/city",
     "pages/index/index",
+    "pages/city/city",
     "pages/festival/festival",
+   
     "pages/detail/detail",
     "pages/collect/collect",
     "pages/collecttest/collecttest",
@@ -21,4 +22,4 @@
   "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
   
-}
+} 

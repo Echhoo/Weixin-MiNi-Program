@@ -3,7 +3,7 @@
 let number = 1
 let Datalist = []
 let navlist = []
-let selidx = -1
+let selidx = 0
 let seldata = ""
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -11,16 +11,15 @@ Array.prototype.remove = function (val) {
     this.splice(index, 1);
   }
 };
-
+const db = wx.cloud.database();
 // pages/festival/festival.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     bannerCurrent: 0, // 当前显示的banner
-    bannerData: [
+    bannerData2: [
       {
         'id': 1, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-1.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s1.jpg', 'title': '阿丽塔：战斗天使', 'isOpenFilp': false, 'lines': '“我们应该到那里去，我们属于那里。” \n“不，我们不属于任何地方，除了彼此身边。”', 'score': '7.6', 'releaseDate': '2019/02/22', 'otherInfo':'Alita: Battle Angel' },
       {
@@ -30,7 +29,9 @@ Page({
       {
         'id': 5, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-5.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s5.jpg', 'title': '大黄蜂', 'isOpenFilp': false, 'lines': '"You kissed me!" \n"On the cheek."\n"Still counts, still counts."', 'score': '7.0', 'releaseDate': '2019/01/04', 'otherInfo': 'Bumblebee'  },
     ],
-    
+    bannerData:[],
+    bannerFrontPage:'',
+    bannerIntro:'',
     // imgUrls: [
     //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=20&spn=0&di=70290&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2321266479%2C1415249797&os=4137256782%2C448888690&simid=3382893114%2C283668392&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.art138.com%2Fmerchant%2F2019%2F10%2F12%2FeyuEmYtjDKaifxnVEzrxWOth.jpeg%26refer%3Dhttp%3A%2F%2Fimg.art138.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D9369edbe7a52d9eb0c9a58ab0a9e910f&fromurl=ippr_z2C%24qAzdH3FAzdH3Fgjof_z%26e3Bw6px7g_z%26e3Bv54AzdH3F8m88bmc_z%26e3Bfip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
     //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=25&spn=0&di=21560&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2106082601%2C3840237878&os=4070455972%2C3467574397&simid=3333726078%2C400171719&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1557385287734903.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3Dac0381cfe707aa93a7a5279e36c2cc56&fromurl=ippr_z2C%24qAzdH3FAzdH3Fk5k5_z%26e3Bvs7k_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8lacb0cn0_z%26e3Bip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
@@ -74,6 +75,9 @@ Page({
         name: "元宵"
       },
     ],
+    // 当前节日的对象列表
+    currentFestivalViews: []
+
   },
 
   // swiperChange(e) {
@@ -85,26 +89,35 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  // onLoad: function (options) {
-  //   wx.cloud.getTempFileURL({
-  //     fileList: [
-  //       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/fanyou.png',
-  //       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/tiger.png',
-  //       'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/tiger/yinzhang.png'
-  //     ],
-
-  //     success: res => {
-  //       console.log(res.fileList[0].tempFileURL),
-  //       this.setData({
-  //         bgUrl: res.fileList[0].tempFileURL,
-  //         iconUrl: res.fileList[1].tempFileURL,
-  //         tiger: res.fileList[2].tempFileURL
-  //       })
-  //       console.log(res.fileList[1].tempFileURL)
-  //     },
-  //   })
-
-  // },
+  onLoad: function (options) {
+     db.collection("new_attractions").where({
+      ['festival.'+[selidx]]: true
+    }).get()
+    .then(res=>{
+      this.setData({        
+        bannerData: res.data,
+      })
+     console.log("bannerData",this.data.bannerData)
+     var i = 0;
+     var len = this.data.bannerData.length;
+     var views = []
+     for(i; i<len; i++){
+      var aCurrentFesView = this.data.bannerData[i];
+      aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
+      aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
+      views[i] = aCurrentFesView;
+     }
+     
+      // this.setData({
+      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
+      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
+      // })
+      this.setData({
+        bannerData: views
+      })
+      console.log("Views: ",this.data.bannerData)
+    })
+  },
   // bannerSwiper
   bannerSwiper(e) {
     const that = this, bannerCurrent = e.detail.current;
@@ -115,6 +128,7 @@ Page({
 
   // 卡牌切换
   switchFlip: function (e) {
+    console.log(e);
     const that = this;
     const index = e.currentTarget.dataset.index;
     const bannerData = that.data.bannerData;
@@ -135,13 +149,40 @@ Page({
     })
   },
   choose: function (e) {
-    let index = e.currentTarget.dataset.index
-    let name = e.currentTarget.dataset.name
-    console.log(name)
+    let _index = e.currentTarget.dataset.index
+    let _name = e.currentTarget.dataset.name
+    selidx = _index
     this.setData({
-      selidx: index,
-      fesName: name,
+      fesName: _name,
       filtrate: false,
+    })
+    console.log("五一", selidx)
+    db.collection("new_attractions").where({
+      ['festival.'+[selidx]]: true
+    }).get()
+    .then(res=>{
+      console.log("RES 51", res)
+      this.setData({        
+        bannerData: res.data,
+      })
+     console.log("bannerData",this.data.bannerData)
+     var i = 0;
+     var len = this.data.bannerData.length;
+     var views = []
+     for(i; i<len; i++){
+      var aCurrentFesView = this.data.bannerData[i];
+      aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
+      aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
+      views[i] = aCurrentFesView;
+     }
+     
+      // this.setData({
+      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
+      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
+      // })
+      this.setData({
+        bannerData: views
+      })
     })
   },
 

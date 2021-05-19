@@ -23,7 +23,7 @@
   </view> -->
   <view class="swiper">
     <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" circular="{{true}}">
-      <swiper-item class="item" wx:for="{{ bannerData }}" wx:key="{{ index }}">
+      <swiper-item class="item" wx:for="{{ bannerData }}"  wx:key="index" >
         <view class="swiper-item">
           <view class='boxItem column'>
             <!-- 卡牌 -->
@@ -34,10 +34,10 @@
                   <!-- 卡片 -->
                   <view class='posterGroup'>
                     <view class='imgWrap'>
-                      <image class='img' src="{{ item.focus }}" mode="aspectFill"></image>
+                      <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <view class='mSmall f14 relative mb10'>《 {{ item.title }} 》</view>
-                        <view class='mSmall relative'>· {{ item.releaseDate }} ·</view>
+                        <view class='mSmall f14 relative mb10'>《 {{ item.site_name }} 》</view>
+                        <view class='mSmall relative'>· {{ item.fes_intro }} ·</view>
                       </view>
                     </view>
                   </view>
@@ -46,7 +46,7 @@
                 <!-- 背面内容 -->
                 <view class="sideWrap back">
                   <!-- detail -->
-                  <view class='backGroup'>
+                  <!-- <view class='backGroup'>
                     <image class='img' src="{{ item.img }}" mode="widthFix"></image>
                     <view class='textWrap'>
                       <image class='iconFlag' src="{{ iconFlag }}" mode="widthFix"></image>
@@ -54,7 +54,7 @@
                         <text class='mTitle cf45 mb40'>{{ item.lines }}</text>
                       </view>
                     </view>
-                  </view>
+                  </view> -->
                   <view class='otherInfo'>
                     <view class='movTitle'>
                       《 {{ item.title }} / {{ item.otherInfo }} 》
@@ -86,7 +86,7 @@
   </view>
   <!-- 海报背景 -->
   <view class='poster'>
-    <view class='bgImg' style=" background: url({{ bannerData[bannerCurrent].focus }}); background-size:cover;"></view>
+    <view class='bgImg' style=" background: url({{ bannerData[bannerCurrent].fes_pic }}); background-size:cover;"></view>
     <view class='cover'></view>
   </view>
 </view>
