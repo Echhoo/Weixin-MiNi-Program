@@ -115,20 +115,8 @@ Page({
   },
   //跳转到详情介绍页
  onTapNavigateTo(e){
-   var viewDataToPass = {}
-   viewDataToPass["_id"] = this.data.currentView._id;
-   viewDataToPass["site_name"] = this.data.currentView.site_name;
-   viewDataToPass["city"] = this.data.currentView.city;
-   viewDataToPass["collect"] = this.data.currentView.collect;
-   viewDataToPass["like"] = this.data.viewData.like;
-  var str_currentView = JSON.stringify(viewDataToPass);
-  var str_img_url = this.data.currentView.img_url;
-  var str_introduction = this.data.currentView.introduction;
-  // console.log("String currentView: ", str_currentView)
   wx.navigateTo({
-    url: '../view_detail/view_detail?currentView='+str_currentView 
-    +'&img='+str_img_url
-    +'&introduction='+str_introduction
+    url: '../view_detail/view_detail?currentViewID='+this.data.currentView._id
   })
  },
  // 图片单击放大预览
@@ -188,7 +176,7 @@ saveImg1(url){
       console.log(res);
     }
   })
-}
+},
 })
 
 
