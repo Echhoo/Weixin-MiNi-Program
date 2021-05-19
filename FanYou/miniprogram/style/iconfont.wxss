@@ -22,19 +22,4 @@
 .icon-caidan:before {
   content: "\e680";
 }
-.icon-020-climb:before {
-  content: "\e672";
-}
-
-.icon-032-temple:before {
-  content: "\e671";
-}
-
-.icon-bamboo-svgrepo-com:before {
-  content: "\e70e";
-}
-
-.icon-bushes-bush-svgrepo-com:before {
-  content: "\e711";
-}
 
