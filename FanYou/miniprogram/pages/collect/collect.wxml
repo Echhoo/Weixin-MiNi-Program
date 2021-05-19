@@ -28,6 +28,7 @@
   </view>
 </view>
  </swiper-item>
+ 
  <swiper-item> 
   <view class='container'>
   <view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
