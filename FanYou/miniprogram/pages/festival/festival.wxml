@@ -5,7 +5,7 @@
       <icon class="iconfont icon-caidan"></icon>
     </view>
     <!-- 这里放节日名字 -->
-    <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
+    <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
   </view>
  <!-- <view class="place">
     <swiper class="swiper-block" previous-margin="90rpx" next-margin="90rpx" 
