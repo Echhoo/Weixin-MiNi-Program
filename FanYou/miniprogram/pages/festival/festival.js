@@ -149,13 +149,40 @@ Page({
     })
   },
   choose: function (e) {
-    let index = e.currentTarget.dataset.index
-    let name = e.currentTarget.dataset.name
-    console.log(name)
+    let _index = e.currentTarget.dataset.index
+    let _name = e.currentTarget.dataset.name
+    selidx = _index
     this.setData({
-      selidx: index,
-      fesName: name,
+      fesName: _name,
       filtrate: false,
+    })
+    console.log("五一", selidx)
+    db.collection("new_attractions").where({
+      ['festival.'+[selidx]]: true
+    }).get()
+    .then(res=>{
+      console.log("RES 51", res)
+      this.setData({        
+        bannerData: res.data,
+      })
+     console.log("bannerData",this.data.bannerData)
+     var i = 0;
+     var len = this.data.bannerData.length;
+     var views = []
+     for(i; i<len; i++){
+      var aCurrentFesView = this.data.bannerData[i];
+      aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
+      aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
+      views[i] = aCurrentFesView;
+     }
+     
+      // this.setData({
+      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
+      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
+      // })
+      this.setData({
+        bannerData: views
+      })
     })
   },
 
