@@ -65,6 +65,7 @@ Page({
           collect_img_url: if_collect== true ? "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏_1.png": "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png",
         })
       })
+      
       //获取ViewID和OpenID后，设定当前view的喜欢状态
       db.collection("likes").where({
         ViewID: this.data.ID,
@@ -84,7 +85,7 @@ Page({
           like_img_url: if_like== true ? "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢_1.png": "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png",
         })
       })
-
+   
     })
   },
 
@@ -132,39 +133,38 @@ click_collect(){
 },
 
 click_like(){
-  if(if_like=='true'){
+  if(if_like==true){
     this.setData({
       like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png"
     })
-    if_like = 'false'
-    wx.cloud.callFunction({
-      name:"like",
-      data:{
-        id:ID,
-        like: if_like
-      }
-    }).then(res=>{
-      console.log("改变点赞状态成功", res)
+    if_like = false
+    db.collection("likes").where({
+      ViewID: this.data.ID,
+      OpenID: this.data.OPENID
+    })
+    .remove()
+    .then(res=>{
+      console.log("取消喜欢成功", res)
     })
     .catch(res=>{
-      console.log("改变点赞状态失败", res)
+      console.log("取消喜欢失败", res)
     })
   }else{
     this.setData({
       like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢_1.png"
     })
-    if_like = 'true'
-    wx.cloud.callFunction({
-      name:"like",
+    if_like = true
+    db.collection("likes").add({
       data:{
-        id:ID,
-        like: if_like
+        ViewID: this.data.ID,
+        OpenID: this.data.OPENID
       }
-    }).then(res=>{
-      console.log("改变点赞状态成功", res)
+    })
+    .then(res=>{
+      console.log("增加点赞成功", res)
     })
     .catch(res=>{
-      console.log("改变点赞状态失败", res)
+      console.log("增加点赞失败", res)
     })
   }
   
