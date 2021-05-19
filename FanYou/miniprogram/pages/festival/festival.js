@@ -75,8 +75,6 @@ Page({
         name: "元宵"
       },
     ],
-    // 当前节日的对象列表
-    currentFestivalViews: []
 
   },
 
