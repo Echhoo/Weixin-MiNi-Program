@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/festival/festival",
     "pages/city/city",
+    "pages/festival/festival",
+   
     "pages/index/index",
-
-    "pages/detail/detail",
     
+    
+    "pages/detail/detail",
     "pages/collect/collect",
-
     "pages/collecttest/collecttest",
     "pages/view_detail/view_detail",
     "pages/book/catagory",
@@ -24,4 +24,4 @@
   "style": "v2",
   "requiredBackgroundModes": ["audio", "location"]
   
-}
+} 
