@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "disableScroll": true
+  "disableScroll": true,
+  "navigationBarTitleText": "佳节出游"
 }

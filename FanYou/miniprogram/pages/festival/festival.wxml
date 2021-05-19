@@ -5,7 +5,7 @@
       <icon class="iconfont icon-caidan"></icon>
     </view>
     <!-- 这里放节日名字 -->
-    <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
+    <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
   </view>
  <!-- <view class="place">
     <swiper class="swiper-block" previous-margin="90rpx" next-margin="90rpx" 
@@ -37,7 +37,7 @@
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
                         <view class='mSmall f14 relative mb10'>《 {{ item.site_name }} 》</view>
-                        <view class='mSmall relative'>· {{ item.fes_intro }} ·</view>
+                        <!-- <view class='mSmall relative'>· {{ item.fes_intro }} ·</view> -->
                       </view>
                     </view>
                   </view>
@@ -46,24 +46,24 @@
                 <!-- 背面内容 -->
                 <view class="sideWrap back">
                   <!-- detail -->
-                  <!-- <view class='backGroup'>
-                    <image class='img' src="{{ item.img }}" mode="widthFix"></image>
+                  <view class='backGroup'>
+                    <image class='img' src="{{ item.img_url }}" mode="widthFix"></image>
                     <view class='textWrap'>
                       <image class='iconFlag' src="{{ iconFlag }}" mode="widthFix"></image>
                       <view class='mt10'>
-                        <text class='mTitle cf45 mb40'>{{ item.lines }}</text>
+                        <text class='mTitle cf45 mb40'>{{ item.fes_intro }}</text>
                       </view>
                     </view>
-                  </view> -->
+                  </view>
                   <view class='otherInfo'>
                     <view class='movTitle'>
-                      《 {{ item.title }} / {{ item.otherInfo }} 》
-                      <text class='score'>{{ item.score }}</text>
+                      《 {{ item.site_name }} · {{ item.city }} 》
+                      <text class='score'>{{ item.score }} / 5.0</text>
                     </view>
                     <view class='copyright'>
                       <view class='copyrightGrid'>
-                        <image class='logo' src='{{ logo }}' mode='widthFix'></image>
-                        <text class='span'>{{ copyrightText }}</text>
+                        <!-- <image class='logo' src='{{ logo }}' mode='widthFix'></image> -->
+                        <text class='span'>fanyou-两只老虎爱跳舞</text>
                       </view>
                     </view>
                   </view>
