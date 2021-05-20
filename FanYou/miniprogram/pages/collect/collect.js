@@ -12,13 +12,23 @@ Page({
     viewData: [],
     viewDataToPass : {},
     currentTab: 0,
-
+    //cityViewIDList: 存放该用户所有收藏的view_id
+    cityViewIDList: [],
+    OPENID: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight - 37
+        });
+      }
+    })
     this.loadMrysData();
   },
 
@@ -30,27 +40,48 @@ Page({
       return;
     }
     const db = wx.cloud.database();
+    const _ = db.command;
     let { pageIndex, pageSize } = this.data;
-    db.collection('attractions').where({
-      collect : "true"
-    }).limit(pageSize * pageIndex).get({
-      success: res => {
-        wx.stopPullDownRefresh();
-        let list = this.data.storyList.concat(res.data);
+    // 根据openid，获取viewIDList,并查询attractions中的数据
+    wx.cloud.callFunction({
+      name: "getOPENID"
+    })
+    .then(res=>{
+      db.collection("collections").where({
+        OpenID: res.result.openid
+      })
+      .get()
+      .then(res=>{
+        console.log("根据OpenID获取的数据：",res)
+        let data_list = res.data
         this.setData({
-          storyList: res.data,
-          loading: res.data.length == (pageSize * pageIndex),
-          // currentView: this.data.viewData[0],
+          cityViewIDList: data_list.map(obj=>{return obj.ViewID})
         })
-        console.log('[数据库] [查询记录] 成功: ', res)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
+        //在完成设置viewIDList才能继续进行
+        db.collection("attractions").where({
+          _id: _.in(this.data.cityViewIDList)
         })
-        console.error('[数据库] [查询记录] 失败：', err)
-      }
+        .limit(pageSize * pageIndex)
+        .get({
+          success: res => {
+            wx.stopPullDownRefresh();
+            let list = this.data.storyList.concat(res.data);
+            this.setData({
+              storyList: res.data,
+              loading: res.data.length == (pageSize * pageIndex),
+              // currentView: this.data.viewData[0],
+            })
+            console.log('[数据库] [查询记录] 成功: ', res)
+          },
+          fail: err => {
+            wx.showToast({
+              icon: 'none',
+              title: '查询记录失败'
+            })
+            console.error('[数据库] [查询记录] 失败：', err)
+          }
+        })
+      })
     })
   },
 
@@ -145,7 +176,5 @@ Page({
      
      
     },
-
-
 })
 
