@@ -12,4 +12,6 @@
   <image class='like_image' src = '{{like_img_url}}' bindtap = 'click_like'></image>
 </view>
 
+<view>ViewID: {{ID}} OPENID: {{OPENID}}</view>
+
 
