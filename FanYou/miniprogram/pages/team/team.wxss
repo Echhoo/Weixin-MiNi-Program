@@ -87,10 +87,9 @@ page{
 }
 
 .feed{
-  height: 69rpx;
+  height: 160rpx;
   left:15%;
-  top:67.5%;
+  top:63.5%;
   background-color: transparent;
   position: absolute;
-  text-align: center;
 }
