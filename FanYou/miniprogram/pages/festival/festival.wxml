@@ -34,9 +34,8 @@
                 <view class="sideWrap back">
                   <!-- detail -->
                   <view class='backGroup'>
-                    <image class='img' src="{{ item.img_url }}" mode="widthFix"></image>
+                    <image class='img' src="{{ item.img_url }}" mode="aspectFill"></image>
                     <view class='textWrap'>
-                      <image class='iconFlag' src="{{ iconFlag }}" mode="widthFix"></image>
                       <view class='mt10'>
                         <text class='mTitle cf45 mb40'>{{ item.fes_intro }}</text>
                       </view>
