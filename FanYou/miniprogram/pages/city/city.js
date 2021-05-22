@@ -18,7 +18,6 @@ Page({
     viewData: [],
   },
   onLoad(options){
-    //云端
     that = this;
     var _city = this.data.picker_data[1]["name"]
     this.setData({
