@@ -62,14 +62,11 @@ Page(
     })
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/fanyou.png',
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/tiger.png',
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/face.png',
     ],
       success: res => {
         this.setData({bgUrl:res.fileList[0].tempFileURL,
-          iconUrl:res.fileList[1].tempFileURL,
         })
-        console.log(res.fileList[1].tempFileURL)
       },
     })
   },

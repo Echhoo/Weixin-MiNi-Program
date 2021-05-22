@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container"  bindtap="login" >
-   
+    <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
     <!-- <image  class="Img" src="{{bgUrl}} "mode="widthFix"></image> -->
-    <image  class="Img Icon" src="{{bgUrl}}" mode='aspectFill' style="height:{{height}}px;width:{{width}}px"></image>
+    <!-- <image  class="Img Icon" src="{{bgUrl}}" mode='aspectFill'></image> -->
 </view>
