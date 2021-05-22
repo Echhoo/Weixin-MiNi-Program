@@ -1,27 +1,37 @@
-// pages/team/team.js
+// pages/catalogue/catalogue.js
 Page({
-  data: {
-    teamUrl:"",
-  },
-  onLoad: function (options) {
-    wx.cloud.getTempFileURL({
-      fileList: [
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/team/bottom2.png',
-    ],
-      success: res => {
-        this.setData({
-          teamUrl:res.fileList[0].tempFileURL,
-        })
-      },
-    })
-   },
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   onReady: function () {
 
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
   onShow: function () {
 
   },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
   onHide: function () {
 
   },

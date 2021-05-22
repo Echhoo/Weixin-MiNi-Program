@@ -91,7 +91,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     db.collection("new_attractions").where({
+     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
@@ -158,7 +158,7 @@ Page({
       filtrate: false,
     })
     console.log("五一", selidx)
-    db.collection("new_attractions").where({
+    db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{

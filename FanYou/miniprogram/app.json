@@ -1,16 +1,18 @@
 {
   "pages": [
+    "pages/team/team",
     "pages/book/catagory",
+    "pages/catalogue/catalogue",
+    "pages/festival/festival",
+
     "pages/city/city",
     "pages/index/index",
-    "pages/festival/festival",
+
    
     "pages/detail/detail",
     "pages/collect/collect",
     "pages/collecttest/collecttest",
-    "pages/view_detail/view_detail",
-
-    "pages/team/team"
+    "pages/view_detail/view_detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
