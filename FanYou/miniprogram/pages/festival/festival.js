@@ -7,6 +7,7 @@ let number = 1
 let Datalist = []
 let navlist = []
 let selidx = 0
+let indexx=0
 let seldata = ""
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -71,7 +72,7 @@ Page({
       this.setData({        
         bannerData: res.data,
       })
-     console.log("bannerData",this.data.bannerData)
+    //  console.log("bannerData",this.data.bannerData)
      var i = 0;
      var len = this.data.bannerData.length;
      var views = []
@@ -84,7 +85,7 @@ Page({
       this.setData({
         bannerData: views
       })
-      console.log("Views: ",this.data.bannerData)
+      // console.log("Views: ",this.data.bannerData)
     })
   },
   // bannerSwiper
@@ -97,7 +98,7 @@ Page({
 
   // 卡牌切换
   switchFlip: function (e) {
-    console.log(e);
+    // console.log(e);
     const that = this;
     const index = e.currentTarget.dataset.index;
     const bannerData = that.data.bannerData;
@@ -117,23 +118,24 @@ Page({
       filtrate: false
     })
   },
-  choose: function (e) {
+  choose: function (e) {      
     let _index = e.currentTarget.dataset.index
     let _name = e.currentTarget.dataset.name
     selidx = _index
+    // indexx=_index
     this.setData({
       fesName: _name,
-      filtrate: false,
+      // filtrate: false,
     })
     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
-      console.log("RES 51", res)
+      // console.log("RES 51", res)
       this.setData({        
         bannerData: res.data,
       })
-     console.log("bannerData",this.data.bannerData)
+    //  console.log("bannerData",this.data.bannerData)
      var i = 0;
      var len = this.data.bannerData.length;
      var views = []
@@ -160,7 +162,7 @@ Page({
   queren: function (e) {
     let that = this
     let name = e.seldata
-    console.log(name)
+    // console.log(name)
     that.setData({
       fesName:seldata,
       filtrate: false,
@@ -183,18 +185,6 @@ Page({
     //   }
     // })
   },
-  // onLoad: function (options) {
-  //   let that = this
-  //   wx.getStorage({
-  //     key: 'info',
-  //     success: function (res) {
-  //       that.setData({
-  //         user_id: res.data.user_id
-  //       })
-  //     },
-  //   })
-
-  // },
 
   onReady: function () {
 

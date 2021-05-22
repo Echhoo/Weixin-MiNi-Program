@@ -2,12 +2,11 @@
   <view class="title">
     <!-- 按钮 -->
     <view bindtap="show" class=" icon-show">
-      <icon class="iconfont icon-caidan"></icon>
+      <icon class="iconfont {{filtrate? 'icon-cebianlan' : 'icon-cebianlan1'}}" style='font-size:50rpx'></icon>
     </view>
     <!-- 这里放节日名字 -->
     <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
   </view>
-  
   <view class="swiper">
     <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" circular="{{true}}">
       <swiper-item class="item" wx:for="{{ bannerData }}"  wx:key="index" >
@@ -60,10 +59,12 @@
           <!-- 转发收藏icon -->
           <view class='functionIcon'>
             <view class='forwardIcon'>
-              <image class='forward-pic'src="../../images/forward.png"></image>
+              <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
+              <icon class="iconfont forward-pic fenxiang" style='font-size:50rpx'></icon>
             </view>
             <view class='favoriteIcon'>
-              <image class='forward-pic'src="../../images/favorites-fill.png" bindtap = 'click_collect'></image>
+              <image class='forward-pic'src="../../images/favorites-fill.png"></image>
+              <!-- <icon class="iconfont aixin" style='font-size:50rpx'></icon> -->
             </view>
           </view>
         </view>
