@@ -7,10 +7,6 @@ Page({
   data: {
 
     bgUrl:"",
-    button1Url:"",
-    button2Url:"",
-    button3Url:"",
-    button4Url:""
   },
 
   /**
