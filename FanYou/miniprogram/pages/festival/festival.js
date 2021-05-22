@@ -1,5 +1,8 @@
 // const app = getApp()
 // const Url = app.data.URL ?什么后台地址
+let if_collect= 'false'
+let if_like= 'false'
+let ID = ''
 let number = 1
 let Datalist = []
 let navlist = []
@@ -75,8 +78,6 @@ Page({
         name: "元宵"
       },
     ],
-    // 当前节日的对象列表
-    currentFestivalViews: []
 
   },
 
@@ -90,7 +91,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     db.collection("new_attractions").where({
+     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
@@ -184,6 +185,9 @@ Page({
         bannerData: views
       })
     })
+  },
+  click_collect(){
+    console.log("here!!!",bannerData)
   },
 
   queren: function (e) {

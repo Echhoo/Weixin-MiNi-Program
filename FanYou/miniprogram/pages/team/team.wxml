@@ -1,6 +1,7 @@
 <!--pages/team/team.wxml-->
 <view class="container">
-  <view class="pic-container">
+  <image src="{{teamUrl}}" class="bgImage" mode="aspectFill"></image>
+  <!-- <view class="pic-container">
     <image src="{{teamUrl}}" class="pic"></image>
   </view>
   <view class = "teamname">
@@ -19,9 +20,9 @@
   <view class="contact">
     <view class="CU">|——联系我们——|</view>
     <view class="email">nkuliuyin@163.com</view>
-  </view>
+  </view> -->
 
-  <button class="feed" open-type='feedback'>
+  <!-- <button class="feed" open-type='feedback'>
  |意见反馈|
-  </button>
+  </button> -->
 </view>

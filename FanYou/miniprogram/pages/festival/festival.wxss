@@ -19,7 +19,7 @@ page {
 
 .title {
   width: 100%;
-  height: 10%;
+  height: 6%;
   position: relative;
 }
 
@@ -193,7 +193,7 @@ swiper,
   width: 100%;
   height: 80%;
   padding-top:50rpx;
-  padding-bottom: 300rpx;
+  padding-bottom: 100rpx;
   overflow-wrap: break-word;
   word-wrap: break-word;
   overflow: hidden;

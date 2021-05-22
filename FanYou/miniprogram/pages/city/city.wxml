@@ -36,7 +36,7 @@
 </view>
 
 <view class='poster'>
-    <view class='bgImg' style=" background: url({{ currentView.img_url}}); background-size:cover;"></view>
+    <view class='bgImg' style=" background: url({{currentView.img_url}}); background-size:cover;"></view>
     <view class='cover'></view>
 </view>
 

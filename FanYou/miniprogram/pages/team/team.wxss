@@ -10,6 +10,13 @@ page{
   margin: 0;
   position: relative;
 } 
+.bgImage{
+  width: 100%;
+  height:100%;
+  position:fixed;
+  background-size: 100% 100%;
+  z-index:-1;
+}
 
 .pic-container{
   width:600rpx;
