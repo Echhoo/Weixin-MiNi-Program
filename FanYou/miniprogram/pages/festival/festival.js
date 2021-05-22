@@ -154,7 +154,9 @@ Page({
       fesName: _name,
       // filtrate: false,
     })
-    // console.log("五一", selidx)
+    this.changeFes;
+  },
+  changeFes:function(){
     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
@@ -182,7 +184,7 @@ Page({
         bannerData: views
       })
     })
-  },
+  }
   click_collect(){
     console.log("here!!!",bannerData)
   },
