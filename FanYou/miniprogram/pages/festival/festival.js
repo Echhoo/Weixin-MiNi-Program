@@ -184,7 +184,7 @@ Page({
         bannerData: views
       })
     })
-  }
+  },
   click_collect(){
     console.log("here!!!",bannerData)
   },
