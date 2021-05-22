@@ -1,19 +1,10 @@
 {
   "pages": [
-<<<<<<< HEAD
     "pages/festival/festival",
     "pages/book/catagory",
     "pages/city/city",
 
    
-=======
-    "pages/team/team",
-    "pages/book/catagory",
-    "pages/catalogue/catalogue",
-    "pages/festival/festival",
-
-    "pages/city/city",
->>>>>>> 30258421c2da8ec650e972f18211c2ee4094fb1b
     "pages/index/index",
 
    
