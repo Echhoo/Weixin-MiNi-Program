@@ -7,6 +7,7 @@ let number = 1
 let Datalist = []
 let navlist = []
 let selidx = 0
+let indexx=0
 let seldata = ""
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -108,11 +109,6 @@ Page({
       aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
       views[i] = aCurrentFesView;
      }
-     
-      // this.setData({
-      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
-      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
-      // })
       this.setData({
         bannerData: views
       })
@@ -153,12 +149,13 @@ Page({
     let _index = e.currentTarget.dataset.index
     let _name = e.currentTarget.dataset.name
     selidx = _index
+    // indexx=_index
     this.setData({
       fesName: _name,
       // filtrate: false,
     })
     // console.log("五一", selidx)
-    db.collection("new_attractions").where({
+    db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
