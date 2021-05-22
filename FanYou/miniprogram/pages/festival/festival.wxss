@@ -280,11 +280,13 @@ swiper,
 
 .backGroup .img {
   border-radius: 8rpx;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
+  padding-bottom: 70rpx;
 }
 
 .backGroup .textWrap {
-  padding: 10rpx 20rpx;
+  padding-left:20rpx;
+  padding-right: 20rpx;
 }
 
 .flagTips {

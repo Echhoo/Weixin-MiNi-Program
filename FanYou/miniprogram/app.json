@@ -1,15 +1,13 @@
 {
   "pages": [
-    "pages/festival/festival",
-    "pages/book/catagory",
-    "pages/city/city",
 
-   
     "pages/index/index",
-
-   
+    "pages/book/catagory",
+    "pages/festival/festival",
+    "pages/city/city",
+     "pages/collect/collect",
+    "pages/team/team",   
     "pages/detail/detail",
-    "pages/collect/collect",
     "pages/collecttest/collecttest",
     "pages/view_detail/view_detail"
   ],
