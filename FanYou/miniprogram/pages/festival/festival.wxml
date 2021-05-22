@@ -7,20 +7,6 @@
     <!-- 这里放节日名字 -->
     <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
   </view>
- <!-- <view class="place">
-    <swiper class="swiper-block" previous-margin="90rpx" next-margin="90rpx" 
-            current="0" bindchange="swiperChange" circular="{{true}}">
-      <block wx:for="{{imgUrls}}" wx:key="id" wx:index="{{index}}">
-        <swiper-item class="swiper-item">
-          <image mode="scaleToFill" src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
-        </swiper-item>
-      </block>
-    </swiper>
- </view>
-
-  <view class="introcard">
-    <image class = "intro-pic" src="{{bgUrl}}"></image>
-  </view> -->
   <view class="swiper">
     <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" circular="{{true}}">
       <swiper-item class="item" wx:for="{{ bannerData }}"  wx:key="index" >
