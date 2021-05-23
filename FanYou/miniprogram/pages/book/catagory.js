@@ -7,10 +7,6 @@ Page({
   data: {
 
     bgUrl:"",
-    button1Url:"",
-    button2Url:"",
-    button3Url:"",
-    button4Url:""
   },
 
   /**
@@ -19,19 +15,11 @@ Page({
   onLoad: function (options) {
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/com.png',
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/button1.png',
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/button2.png',
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/button3.png',
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/button4.png'
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/com.png'
     ],
       success: res => {
         this.setData({
-          bgUrl:res.fileList[0].tempFileURL,
-          button1Url:res.fileList[1].tempFileURL,
-          button2Url:res.fileList[2].tempFileURL,
-          button3Url:res.fileList[3].tempFileURL,
-          button4Url:res.fileList[4].tempFileURL
+          bgUrl:res.fileList[0].tempFileURL
         })
       },
     })

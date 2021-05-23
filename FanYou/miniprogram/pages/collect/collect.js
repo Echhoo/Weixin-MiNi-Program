@@ -1,3 +1,5 @@
+const db = wx.cloud.database();
+const _ = db.command;
 Page({
 
   /**
@@ -41,8 +43,6 @@ Page({
     if (!this.data.loading) {
       return;
     }
-    const db = wx.cloud.database();
-    const _ = db.command;
     let { pageIndex, pageSize } = this.data;
     // 根据openid，获取viewIDList,并查询attractions中的数据
     wx.cloud.callFunction({
@@ -50,12 +50,13 @@ Page({
     })
     .then(res=>{
       //获取city部分的数据
-      db.collection("collections").where({
+      db.collection("collections")
+      .where({
         OpenID: res.result.openid
       })
       .get()
       .then(res=>{
-        console.log("根据OpenID获取的数据：",res)
+        console.log("CITY根据OpenID获取的数据：",res)
         let data_list = res.data
         this.setData({
           cityViewIDList: data_list.map(obj=>{return obj.ViewID})
@@ -68,61 +69,31 @@ Page({
         .get({
           success: res => {
             wx.stopPullDownRefresh();
-            // let list = this.data.storyList.concat(res.data);
             this.setData({
               storyList: res.data,
               loading: res.data.length == (pageSize * pageIndex),
               // currentView: this.data.viewData[0],
             })
-            console.log('[数据库] [查询记录] 成功: ', res)
           },
-          fail: err => {
-            wx.showToast({
-              icon: 'none',
-              title: '查询记录失败'
-            })
-            console.error('[数据库] [查询记录] 失败：', err)
-          }
         })
       })
       //获取festival的数据
       db.collection("festival_collections").where({
         OpenID: res.result.openid
       })
-      .get()
-      .then(res=>{
-        console.log("根据OpenID获取的数据：",res)
-        let data_list = res.data
-        this.setData({
-          festivalViewIDList: data_list.map(obj=>{return obj.ViewID})
-        })
-        //在完成设置viewIDList才能继续进行
-        db.collection("attractions").where({
-          _id: _.in(this.data.festivalViewIDList)
-        })
-        .limit(pageSize * pageIndex)
-        .get({
-          success: res => {
-            wx.stopPullDownRefresh();
-            // let list = this.data.storyList.concat(res.data);
-            this.setData({
-              festivalViewList: res.data,
-              loading: res.data.length == (pageSize * pageIndex),
-              // currentView: this.data.viewData[0],
-            })
-            console.log('fesivalViewList', res.data)
-          },
-          fail: err => {
-            wx.showToast({
-              icon: 'none',
-              title: '查询记录失败'
-            })
-            console.error('[数据库] [查询记录] 失败：', err)
-          }
-        })
+      .limit(pageSize * pageIndex)
+      .get({
+        success: res => {
+          wx.stopPullDownRefresh();
+          // let list = this.data.storyList.concat(res.data);
+          this.setData({
+            festivalViewList: res.data,
+            loading: res.data.length == (pageSize * pageIndex),
+            // currentView: this.data.viewData[0],
+          })
+          console.log('fesivalViewList', res.data)
+        }
       })
-
-
     })
   },
 

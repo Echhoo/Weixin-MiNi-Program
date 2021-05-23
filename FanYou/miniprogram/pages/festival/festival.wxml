@@ -2,7 +2,7 @@
   <view class="title">
     <!-- 按钮 -->
     <view bindtap="show" class=" icon-show">
-      <icon class="iconfont icon-caidan"></icon>
+      <icon class="iconfont {{filtrate? 'icon-cebianlan' : 'icon-cebianlan1'}}" style='font-size:50rpx'></icon>
     </view>
     <!-- 这里放节日名字 -->
     <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
@@ -33,9 +33,8 @@
                 <view class="sideWrap back">
                   <!-- detail -->
                   <view class='backGroup'>
-                    <image class='img' src="{{ item.img_url }}" mode="widthFix"></image>
+                    <image class='img' src="{{ item.img_url }}" mode="aspectFill"></image>
                     <view class='textWrap'>
-                      <image class='iconFlag' src="{{ iconFlag }}" mode="widthFix"></image>
                       <view class='mt10'>
                         <text class='mTitle cf45 mb40'>{{ item.fes_intro }}</text>
                       </view>
@@ -60,7 +59,8 @@
           <!-- 转发收藏icon -->
           <view class='functionIcon'>
             <view class='forwardIcon'>
-              <image class='forward-pic'src="../../images/forward.png"></image>
+              <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
+              <icon class="iconfont forward-pic fenxiang" style='font-size:50rpx'></icon>
             </view>
             <view class='favoriteIcon'>
               <image class='forward-pic'src="{{collect_img_url}}" bindtap = 'click_collect'></image>
