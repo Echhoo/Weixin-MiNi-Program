@@ -68,7 +68,7 @@ Page({
         .where({
           ViewID: this.data.ID,
           OpenID: this.data.OPENID,
-          Festival: selidx
+          Festival: fes_name_list[selidx]
         })
         .get()
         .then(res=>{
@@ -217,7 +217,7 @@ Page({
       db.collection("festival_collections").where({
         OpenID: this.data.OPENID,
         ViewID: this.data.ID,
-        Festival: selidx
+        Festival: fes_name_list[selidx]
       })
       .remove()
       .then(res=>{
