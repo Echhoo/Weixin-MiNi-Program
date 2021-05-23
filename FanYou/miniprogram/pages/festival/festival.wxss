@@ -517,7 +517,7 @@ swiper,
   /* bottom:5%; */
   height:15%;
   position:relative;
-  background-color:red;
+  /* background-color:red; */
 }
 
 .forwardIcon{

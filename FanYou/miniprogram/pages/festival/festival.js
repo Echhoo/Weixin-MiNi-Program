@@ -1,8 +1,8 @@
 // const app = getApp()
 // const Url = app.data.URL ?什么后台地址
-let if_collect= 'false'
-let if_like= 'false'
-let ID = ''
+let if_collect= false
+// let if_like= 'false'
+let fes_name_list = ["清明" ,"五一", "端午", "儿童节", "中秋", "七夕", "国庆", "春节","元宵"]
 let number = 1
 let Datalist = []
 let navlist = []
@@ -22,6 +22,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ID: '',
+    OPENID: '',
+    collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
     bannerCurrent: 0, // 当前显示的banner
     bannerData:[],
     goodsList: '',
@@ -59,13 +62,39 @@ Page({
     ],
 
   },
+  //设定当前卡片的被收藏的情况
+  setCollectIcon: function(){
+    db.collection("festival_collections")
+        .where({
+          ViewID: this.data.ID,
+          OpenID: this.data.OPENID,
+          Festival: selidx
+        })
+        .get()
+        .then(res=>{
+        //根据数据库中的情况，来设定收藏情况
+          console.log("收藏：",res)
+          var len = res.data.length
+          if(len == 0){
+            if_collect = false;
+          }else{
+            if_collect = true;
+          }
+          this.setData({
+            collect_img_url: if_collect== true ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
+          })
+        })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     selidx = 0;
-     db.collection("attractions").where({
+    //查询指定节日的数据
+    db.collection("attractions")
+    .where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
@@ -73,6 +102,7 @@ Page({
         bannerData: res.data,
       })
     //  console.log("bannerData",this.data.bannerData)
+    //改造bannerData数据的fes_pic和fes_intro
      var i = 0;
      var len = this.data.bannerData.length;
      var views = []
@@ -85,7 +115,22 @@ Page({
       this.setData({
         bannerData: views
       })
-      // console.log("Views: ",this.data.bannerData)
+
+      //获取当前view的id，和用户的openid
+      var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
+      wx.cloud.callFunction({
+        name: "getOPENID"
+      })
+      .then(res=>{
+        this.setData({
+          OPENID: res.result.openid,
+          ID: currentViewID
+        })
+        console.log("ViewID: ",this.data.ID)
+        console.log("OpenID: ", this.data.OPENID)
+        //获取ViewID和OpenID后，设定当前view的收藏状态
+        this.setCollectIcon()
+      }) 
     })
   },
   // bannerSwiper
@@ -94,6 +139,12 @@ Page({
     that.setData({
       bannerCurrent
     })
+    this.setData({
+      ID: this.data.bannerData[this.data.bannerCurrent]._id,
+    })
+    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    //设定当前view的收藏状态
+    this.setCollectIcon()
   },
 
   // 卡牌切换
@@ -107,6 +158,13 @@ Page({
     that.setData({
       bannerData
     });
+
+    this.setData({
+      ID: this.data.bannerData[this.data.bannerCurrent]._id,
+    })
+    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    //设定当前view的收藏状态
+    this.setCollectIcon()
   },
   show: function () {
     this.setData({
@@ -127,12 +185,6 @@ Page({
       fesName: _name,
       // filtrate: false,
     })
-<<<<<<< HEAD
-    this.changeFes;
-  },
-  changeFes:function(){
-=======
->>>>>>> mlx
     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
@@ -151,18 +203,52 @@ Page({
       aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
       views[i] = aCurrentFesView;
      }
-     
-      // this.setData({
-      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
-      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
-      // })
       this.setData({
         bannerData: views
       })
     })
   },
   click_collect(){
-    console.log("here!!!",bannerData)
+    if(if_collect == true){
+      this.setData({
+        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588"
+      })
+      if_collect = false;
+      db.collection("festival_collections").where({
+        OpenID: this.data.OPENID,
+        ViewID: this.data.ID,
+        Festival: selidx
+      })
+      .remove()
+      .then(res=>{
+        console.log("取消收藏成功", res)
+      })
+      .catch(res=>{
+        console.log("取消收藏失败", res)
+      })
+    }
+    else{
+      this.setData({
+        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561"
+      })
+      if_collect = true;
+      db.collection("festival_collections").add({
+        data:{
+          ViewID: this.data.ID,
+          OpenID: this.data.OPENID,
+          Festival: fes_name_list[selidx],
+          SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
+          FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
+          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro
+        }
+      })
+      .then(res=>{
+        console.log("增加收藏成功", res)
+      })
+      .catch(res=>{
+        console.log("增加收藏失败", res)
+      })
+    }
   },
 
   queren: function (e) {

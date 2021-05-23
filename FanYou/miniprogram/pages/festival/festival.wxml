@@ -63,8 +63,7 @@
               <icon class="iconfont forward-pic fenxiang" style='font-size:50rpx'></icon>
             </view>
             <view class='favoriteIcon'>
-              <image class='forward-pic'src="../../images/favorites-fill.png"></image>
-              <!-- <icon class="iconfont aixin" style='font-size:50rpx'></icon> -->
+              <image class='forward-pic'src="{{collect_img_url}}" bindtap = 'click_collect'></image>
             </view>
           </view>
         </view>
