@@ -29,15 +29,15 @@
 </scroll-view>
  </swiper-item>
  <swiper-item> 
-  <view class='container'>
-  <view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
+  <scroll-view class='container' scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
+  <scroll-view class='mrys'  wx:for="{{festivalViewList}}" wx:key="id" >
     <view class='box ' >
       <view class='title'>{{item.city}}</view>
       <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
       <view class='content'>{{item.introduction}}</view>
     </view>   
-  </view>
-</view>
+  </scroll-view>
+</scroll-view>
  </swiper-item> 
  </swiper>
 </view>

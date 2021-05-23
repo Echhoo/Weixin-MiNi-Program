@@ -63,7 +63,7 @@
               <image class='forward-pic'src="../../images/forward.png"></image>
             </view>
             <view class='favoriteIcon'>
-              <image class='forward-pic'src="../../images/favorites-fill.png" bindtap = 'click_collect'></image>
+              <image class='forward-pic'src="{{collect_img_url}}" bindtap = 'click_collect'></image>
             </view>
           </view>
         </view>

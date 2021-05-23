@@ -7,6 +7,7 @@ Page({
     pageIndex: 1,
     pageSize: 8,
     storyList: [],
+    festivalViewList: [],
     loading: true,
     currentView: {},
     viewData: [],
@@ -14,6 +15,7 @@ Page({
     currentTab: 0,
     //cityViewIDList: 存放该用户所有收藏的view_id
     cityViewIDList: [],
+    festivalViewIDList: [],
     OPENID: '',
   },
 
@@ -25,7 +27,7 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
-          clientHeight: res.windowHeight - 37
+          clientHeight: res.windowHeight 
         });
       }
     })
@@ -47,6 +49,7 @@ Page({
       name: "getOPENID"
     })
     .then(res=>{
+      //获取city部分的数据
       db.collection("collections").where({
         OpenID: res.result.openid
       })
@@ -65,7 +68,7 @@ Page({
         .get({
           success: res => {
             wx.stopPullDownRefresh();
-            let list = this.data.storyList.concat(res.data);
+            // let list = this.data.storyList.concat(res.data);
             this.setData({
               storyList: res.data,
               loading: res.data.length == (pageSize * pageIndex),
@@ -82,6 +85,44 @@ Page({
           }
         })
       })
+      //获取festival的数据
+      db.collection("festival_collections").where({
+        OpenID: res.result.openid
+      })
+      .get()
+      .then(res=>{
+        console.log("根据OpenID获取的数据：",res)
+        let data_list = res.data
+        this.setData({
+          festivalViewIDList: data_list.map(obj=>{return obj.ViewID})
+        })
+        //在完成设置viewIDList才能继续进行
+        db.collection("attractions").where({
+          _id: _.in(this.data.festivalViewIDList)
+        })
+        .limit(pageSize * pageIndex)
+        .get({
+          success: res => {
+            wx.stopPullDownRefresh();
+            // let list = this.data.storyList.concat(res.data);
+            this.setData({
+              festivalViewList: res.data,
+              loading: res.data.length == (pageSize * pageIndex),
+              // currentView: this.data.viewData[0],
+            })
+            console.log('fesivalViewList', res.data)
+          },
+          fail: err => {
+            wx.showToast({
+              icon: 'none',
+              title: '查询记录失败'
+            })
+            console.error('[数据库] [查询记录] 失败：', err)
+          }
+        })
+      })
+
+
     })
   },
 
@@ -161,6 +202,7 @@ Page({
     })
      
     }
+    console.log("currentTab: ", this.data.currentTab)
      
     },
      
