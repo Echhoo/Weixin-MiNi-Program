@@ -521,17 +521,18 @@ swiper,
 }
 
 .forwardIcon{
-  width:50%;
-  height:100%;
+  width:40%;
+  left:10%;
   position:absolute;
-  color:#333333;
+  background-color:#333333;
 }
 .forward-pic{
-  width:30%;
+  width:35%;
   height:100rpx;
 }
 .favoriteIcon{
-  width:50%;
+  width:40%;
   position:absolute;
-  left:50%;
+  right:10%;
+  background-color: teal;
 }
