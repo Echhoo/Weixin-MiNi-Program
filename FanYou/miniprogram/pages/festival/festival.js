@@ -281,7 +281,42 @@ Page({
     //   }
     // })
   },
-
+  //分享功能
+  // onShareAppMessage(res){
+  //     let a = getCurrentPages()[getCurrentPages().length - 1]
+  //     let path = a.__route__
+  //     let shareFrom = this.getShareData()
+  //     path += '?productId=' + this.productId
+  //     if (path.indexOf('?') > 0) {
+  //       path += '&scene=!' + this.gainPValue()
+  //     } else {
+  //       path += '?scene=!' + this.gainPValue()
+  //     }
+  //     if (shareFrom) {
+  //       if (path.indexOf('?') > 0) {
+  //         path += '&shareFrom=' + encodeURIComponent(JSON.stringify(shareFrom))
+  //       } else {
+  //         path += '?shareFrom=' + encodeURIComponent(JSON.stringify(shareFrom))
+  //       }
+  //     }
+  //     let shareObj = {
+  //       title: "转发测试",
+  //       path: path
+  //     }
+  //     return shareObj
+  // },
+   //分享功能
+   onShareAppMessage(res){
+    //判断触发的方式是否为按钮
+    if(res.from=="button"){
+      //参数
+      let uid = "111";
+      return{
+        title:"标题",
+        path:"/pages/festival/festival?uid="+uid
+      }
+    }
+  },
   onReady: function () {
 
   },

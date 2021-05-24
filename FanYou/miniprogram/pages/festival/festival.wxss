@@ -102,7 +102,7 @@ z-index: 20;
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .poster .bgImg {
