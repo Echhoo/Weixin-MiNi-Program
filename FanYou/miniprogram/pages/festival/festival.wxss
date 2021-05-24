@@ -516,11 +516,12 @@ swiper,
   color:#333333;
 }
 .forward-pic{
-  width:30%;
+  width:35%;
   height:100rpx;
 }
 .favoriteIcon{
-  width:50%;
+  width:40%;
   position:absolute;
-  left:50%;
+  right:10%;
+  background-color: teal;
 }
