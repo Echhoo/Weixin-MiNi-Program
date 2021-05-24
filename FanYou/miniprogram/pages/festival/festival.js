@@ -94,8 +94,8 @@ Page({
    */
   onLoad: function (options) {
     selidx = 0;
-    console.log(options)
-    if(options != null){
+    console.log("options: ",options)
+    if(JSON.stringify(options) != "{}"){
       var i = 0;
       for(i; i<9; i++){
         if(fes_name_list[i] == options.fes){
@@ -106,6 +106,7 @@ Page({
       this.setData({
         bannerCurrent: parseInt(options.index)
       })
+
     }
     
     //查询指定节日的数据
