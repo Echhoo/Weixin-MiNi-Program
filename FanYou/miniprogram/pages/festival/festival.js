@@ -23,7 +23,6 @@ Page({
   data: {
     ID: '',
     OPENID: '',
-    collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
     bannerCurrent: 0, // 当前显示的banner
     bannerData:[],
     goodsList: '',
@@ -72,16 +71,13 @@ Page({
         .get()
         .then(res=>{
         //根据数据库中的情况，来设定收藏情况
-          console.log("收藏：",res)
+          // console.log("收藏：",res)
           var len = res.data.length
           if(len == 0){
             if_collect = false;
           }else{
             if_collect = true;
           }
-          this.setData({
-            collect_img_url: if_collect== true ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
-          })
         })
   },
 
@@ -125,8 +121,8 @@ Page({
           OPENID: res.result.openid,
           ID: currentViewID
         })
-        console.log("ViewID: ",this.data.ID)
-        console.log("OpenID: ", this.data.OPENID)
+        // console.log("ViewID: ",this.data.ID)
+        // console.log("OpenID: ", this.data.OPENID)
         //获取ViewID和OpenID后，设定当前view的收藏状态
         this.setCollectIcon()
       }) 
@@ -141,7 +137,7 @@ Page({
     this.setData({
       ID: this.data.bannerData[this.data.bannerCurrent]._id,
     })
-    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    // console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
     //设定当前view的收藏状态
     this.setCollectIcon()
   },
@@ -161,7 +157,7 @@ Page({
     this.setData({
       ID: this.data.bannerData[this.data.bannerCurrent]._id,
     })
-    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    // console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
     //设定当前view的收藏状态
     this.setCollectIcon()
   },
@@ -214,9 +210,6 @@ Page({
   },
   click_collect(){
     if(if_collect == true){
-      this.setData({
-        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588"
-      })
       if_collect = false;
       db.collection("festival_collections").where({
         OpenID: this.data.OPENID,
@@ -226,15 +219,14 @@ Page({
       .remove()
       .then(res=>{
         console.log("取消收藏成功", res)
+        console.log(if_collect)
       })
       .catch(res=>{
         console.log("取消收藏失败", res)
+
       })
     }
     else{
-      this.setData({
-        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561"
-      })
       if_collect = true;
       db.collection("festival_collections").add({
         data:{
@@ -248,6 +240,7 @@ Page({
       })
       .then(res=>{
         console.log("增加收藏成功", res)
+        console.log(if_collect)
       })
       .catch(res=>{
         console.log("增加收藏失败", res)
@@ -255,6 +248,7 @@ Page({
     }
   },
 
+<<<<<<< HEAD
   queren: function (e) {
     let that = this
     let name = e.seldata
@@ -317,6 +311,9 @@ Page({
       }
     }
   },
+=======
+
+>>>>>>> 8cff3bf205c224ea589e760f23b24121f1330479
   onReady: function () {
 
   },
