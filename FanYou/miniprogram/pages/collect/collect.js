@@ -109,7 +109,7 @@ Page({
 
   onCityTapNavigateTo(e){
      wx.navigateTo({
-       url: '../view_detail/view_detail?currentViewID='+e.currentTarget.dataset.id
+       url: '../detail/detail?currentViewID='+e.currentTarget.dataset.id
      })
   },
 
