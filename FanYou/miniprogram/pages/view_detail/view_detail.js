@@ -32,6 +32,7 @@ Page({
       this.setData({
         currentView: res.result.data,
       })
+      console.log("CURRENTVIEW: ", this.data.currentView)
     })
 
     //设定ID 和 OPENID  
@@ -47,7 +48,7 @@ Page({
       console.log("ViewID: ",this.data.ID)
       console.log("OpenID: ", this.data.OPENID)
       //获取ViewID和OpenID后，设定当前view的收藏状态
-      db.collection("collections").where({
+      db.collection("city_collections").where({
         ViewID: this.data.ID,
         OpenID: this.data.OPENID
       })
@@ -96,7 +97,7 @@ click_collect(){
       collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png"
     })
     if_collect = false
-    db.collection("collections").where({
+    db.collection("city_collections").where({
       OpenID: this.data.OPENID,
       ViewID: this.data.ID
     })
@@ -117,10 +118,14 @@ click_collect(){
     })
     if_collect = true
 
-    db.collection("collections").add({
+    db.collection("city_collections").add({
       data:{
         ViewID: this.data.ID,
-        OpenID: this.data.OPENID
+        OpenID: this.data.OPENID,
+        SiteName: this.data.currentView.site_name,
+        City: this.data.currentView.city,
+        CityImg: this.data.currentView.img_url,
+        CityIntro: this.data.currentView.introduction
       }
     })
     .then(res=>{

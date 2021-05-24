@@ -92,6 +92,20 @@ Page({
    */
   onLoad: function (options) {
     selidx = 0;
+    console.log(options)
+    if(options != null){
+      var i = 0;
+      for(i; i<9; i++){
+        if(fes_name_list[i] == options.fes){
+          selidx = i;
+          break;
+        }
+      }
+      this.setData({
+        bannerCurrent: parseInt(options.index)
+      })
+    }
+    
     //查询指定节日的数据
     db.collection("attractions")
     .where({
@@ -117,6 +131,7 @@ Page({
       })
 
       //获取当前view的id，和用户的openid
+      console.log("bbbbbbb",this.data.bannerCurrent)
       var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
       wx.cloud.callFunction({
         name: "getOPENID"
@@ -239,7 +254,8 @@ Page({
           Festival: fes_name_list[selidx],
           SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
           FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
-          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro
+          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro,
+          Index: this.data.bannerCurrent
         }
       })
       .then(res=>{

@@ -8,7 +8,7 @@
     <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
   </view>
   <view class="swiper">
-    <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" circular="{{true}}">
+    <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" current="{{bannerCurrent}}" circular="{{true}}">
       <swiper-item class="item" wx:for="{{ bannerData }}"  wx:key="index" >
         <view class="swiper-item">
           <view class='boxItem column'>
