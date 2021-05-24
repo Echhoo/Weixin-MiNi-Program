@@ -472,14 +472,15 @@ swiper,
   position:absolute;
   z-index:999;
   color:#333333;
+  
 }
 .forward-pic{
   width:35%;
   height:100rpx;
+  font-size:60rpx;
 }
 .favoriteIcon{
   width:40%;
   position:absolute;
   right:10%;
-  background-color: teal;
 }
