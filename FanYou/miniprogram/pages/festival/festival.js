@@ -247,34 +247,6 @@ Page({
       })
     }
   },
-
-<<<<<<< HEAD
-  queren: function (e) {
-    let that = this
-    let name = e.seldata
-    // console.log(name)
-    that.setData({
-      fesName:seldata,
-      filtrate: false,
-    });
-    //传数据
-    // wx.request({
-    //   // url: Url + 'product/pagelist?keywords=' + that.data.keyword + '&material[]=' + data1 + '&technology[]=' + data2 + '&SurfaceEffect[]=' + data3 + '&design[]=' + data4 + '&style[]=' + data5 + '&priceMin=' + priceMin + '&priceMax=' + priceMax + '&priceFlag=' + datas + "&userid=" + that.data.user_id,
-    //   method: 'post',
-    //   success(res){
-
-    //     that.setData({
-    //       fesName:seldata,
-    //       filtrate: false,
-    //     });
-    //     if (res.hasNext == false) {
-    //       that.data.setData({
-    //         moretxt2: "已加载全部"
-    //       })
-    //     }
-    //   }
-    // })
-  },
   //分享功能
   // onShareAppMessage(res){
   //     let a = getCurrentPages()[getCurrentPages().length - 1]
@@ -311,9 +283,7 @@ Page({
       }
     }
   },
-=======
 
->>>>>>> 8cff3bf205c224ea589e760f23b24121f1330479
   onReady: function () {
 
   },
