@@ -523,8 +523,8 @@ swiper,
 .forwardIcon{
   width:40%;
   left:10%;
+  top:20rpx;
   position:absolute;
-  background-color:#333333;
 }
 .forward-pic{
   width:35%;
@@ -534,5 +534,4 @@ swiper,
   width:40%;
   position:absolute;
   right:10%;
-  background-color: teal;
 }
