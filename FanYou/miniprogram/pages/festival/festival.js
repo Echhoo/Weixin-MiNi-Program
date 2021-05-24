@@ -7,7 +7,6 @@ let number = 1
 let Datalist = []
 let navlist = []
 let selidx = 0
-let indexx=0
 let seldata = ""
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -181,9 +180,14 @@ Page({
     let _name = e.currentTarget.dataset.name
     selidx = _index
     // indexx=_index
+    var timeOut=setTimeout(
+      function() 
+      { filtrate: false }, 2000)
     this.setData({
       fesName: _name,
-      // filtrate: false,
+      timeOut,
+      filtrate:false
+      
     })
     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
