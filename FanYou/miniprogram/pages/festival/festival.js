@@ -29,6 +29,7 @@ Page({
     searchStatus: false,
     user_id: '',
     filtrate: false,
+    fav_icon:false,
     background: '#eee',
     color: '#333',
     select: '',
@@ -75,8 +76,14 @@ Page({
           var len = res.data.length
           if(len == 0){
             if_collect = false;
+            this.setData({
+              fav_icon:false
+            })
           }else{
             if_collect = true;
+            this.setData({
+              fav_icon:true
+            })
           }
         })
   },
@@ -126,7 +133,6 @@ Page({
       })
 
       //获取当前view的id，和用户的openid
-      console.log("bbbbbbb",this.data.bannerCurrent)
       var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
       wx.cloud.callFunction({
         name: "getOPENID"
@@ -225,6 +231,9 @@ Page({
   },
   click_collect(){
     if(if_collect == true){
+      // this.setData({
+      //   fav_icon:false
+      // })
       if_collect = false;
       db.collection("festival_collections").where({
         OpenID: this.data.OPENID,
@@ -234,7 +243,6 @@ Page({
       .remove()
       .then(res=>{
         console.log("取消收藏成功", res)
-        console.log(if_collect)
       })
       .catch(res=>{
         console.log("取消收藏失败", res)
@@ -242,6 +250,9 @@ Page({
       })
     }
     else{
+      this.setData({
+        fav_icon:true
+      })
       if_collect = true;
       db.collection("festival_collections").add({
         data:{
