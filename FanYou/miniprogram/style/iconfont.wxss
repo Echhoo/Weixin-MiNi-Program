@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont';  /* Project id 2565221 */
-  src: url('//at.alicdn.com/t/font_2565221_ktel8dpp9pl.woff2?t=1621692360006') format('woff2'),
-       url('//at.alicdn.com/t/font_2565221_ktel8dpp9pl.woff?t=1621692360006') format('woff'),
-       url('//at.alicdn.com/t/font_2565221_ktel8dpp9pl.ttf?t=1621692360006') format('truetype');
+  src: url('//at.alicdn.com/t/font_2565221_9t9gtaey8s6.woff2?t=1621859032231') format('woff2'),
+       url('//at.alicdn.com/t/font_2565221_9t9gtaey8s6.woff?t=1621859032231') format('woff'),
+       url('//at.alicdn.com/t/font_2565221_9t9gtaey8s6.ttf?t=1621859032231') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chengshi:before {
+  content: "\e68a";
+}
+
+.icon-chengshi1:before {
+  content: "\e601";
+}
+
+.icon-005-image:before {
+  content: "\e68c";
+}
+
+.icon-008-maps:before {
+  content: "\e68e";
 }
 
 .icon-cebianlan:before {
@@ -40,4 +56,3 @@
 .icon-aixin:before {
   content: "\e618";
 }
-
