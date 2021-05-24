@@ -22,7 +22,7 @@
                     <view class='imgWrap'>
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <view class='mSmall f14 relative mb10'>《 {{ item.site_name }} 》</view>
+                        <view class='mSmall f14 relative mb10'> {{ item.site_name }} </view>
                         <!-- <view class='mSmall relative'>· {{ item.fes_intro }} ·</view> -->
                       </view>
                     </view>
@@ -60,10 +60,11 @@
           <view class='functionIcon'>
             <view class='forwardIcon'>
               <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
-              <icon class=" forward-pic iconfont fenxiang" style='font-size:50rpx'></icon>
+              <icon class="iconfont forward-pic icon-fenxiang1" ></icon>
             </view>
-            <view class='favoriteIcon'>
-              <image class='forward-pic'src="{{collect_img_url}}"  bindtap = 'click_collect'></image>
+            <view class='favoriteIcon' bindtap = 'click_collect'>
+              <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
+              <icon class="iconfont forward-pic {{fav-icon? 'icon-aixin-copy':'icon-aixin'}}" ></icon>
             </view>
           </view>
         </view>

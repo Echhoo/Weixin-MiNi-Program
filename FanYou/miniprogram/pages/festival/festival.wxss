@@ -18,6 +18,8 @@ page {
 }
 
 .title {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 6%;
   padding-top: 20rpx;
@@ -39,49 +41,6 @@ page {
   left:10%;
 }
 
-/* .place{
-  width:100%;
-  height:40%;
-  top:30%;
-  position:absolute;  
-}
-
-.swiper-block{
-  height: 480rpx;
-  width: 100%;
-}
-.swiper-item{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-overflow:unset;
-}
-.slide-image{
-height:320rpx;
-width: 500rpx;
-border-radius: 9rpx;
-box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
-margin: 0rpx 30rpx;
-z-index: 1;
-}
-.active{
-transform: scale(1.14);
-transition:all .2s ease-in 0s;
-z-index: 20;
-}
-
-.introcard{
-  width:70%;
-  height:60%;
-  left:15%;
-  bottom:20%;
-  position:absolute;  
-}
-.intro-pic{
-  width:100%;
-  height:100%;
-} */
 .poster {
   position: fixed;
   top: 0;
@@ -134,7 +93,7 @@ z-index: 20;
 }
 
 .mSmall {
-  font-size: 24rpx;
+  font-size: 30rpx;
   line-height: 28rpx;
   color: #eee;
 }
@@ -154,7 +113,9 @@ z-index: 20;
 }
 
 .mSmall.f14 {
-  font-size: 28rpx;
+  font-size: 50rpx;
+  font-family: SimSun;
+  font-weight: bold;
 }
 
 .mSmall.cfGreen {
@@ -213,7 +174,7 @@ swiper,
 /* 海报展示图 */
 .posterGroup {
   width: 600rpx;
-  min-height: 800rpx;
+  height:100%;
   text-align: left;
   padding: 20rpx;
   border-radius: 8rpx;
@@ -223,7 +184,7 @@ swiper,
 
 .posterGroup .img {
   width: 560rpx;
-  height: 857rpx;
+  height: 100%;
   /*height: 857rpx;*/
   border: 0;
   border-radius: 8rpx;
@@ -231,13 +192,14 @@ swiper,
 
 .posterGroup .imgWrap {
   position: relative;
+  height: 100%;
 }
 
 .posterGroup .detailBox {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 40rpx;
+  padding: 100rpx;
   text-align: center;
   width: 100%;
   overflow: hidden;
@@ -248,7 +210,8 @@ swiper,
 }
 
 .posterGroup .mSmall {
-  color: #fff;
+
+  color: white;
 }
 
 /* backGroup */
@@ -261,7 +224,7 @@ swiper,
 .backGroup .img {
   border-radius: 8rpx;
   /* margin-bottom: 20rpx; */
-  padding-bottom: 70rpx;
+  padding-bottom: 20rpx;
 }
 
 .backGroup .textWrap {
@@ -302,7 +265,7 @@ swiper,
 
 .flipGroup {
   width: 600rpx;
-  height: 897rpx;
+  height:90%;
   perspective: 3000rpx;
 }
 
@@ -472,14 +435,15 @@ swiper,
   position:absolute;
   z-index:999;
   color:#333333;
+  
 }
 .forward-pic{
   width:35%;
   height:100rpx;
+  font-size:60rpx;
 }
 .favoriteIcon{
   width:40%;
   position:absolute;
   right:10%;
-  background-color: teal;
 }
