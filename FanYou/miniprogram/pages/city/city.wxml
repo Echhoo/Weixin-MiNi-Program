@@ -1,9 +1,17 @@
 <view class="container">
 <!-- 新省市选择器 -->
-<view style="width: 750rpx; height: 122rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx; ">
+<!-- <view style="width: 750rpx; height: 122rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx; ">
   <image bindtap="showPicker" src="https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/city/%E5%9F%8E%E5%B8%82.png?sign=91903e0ba571b3068e0e71e6ae06d066&t=1621058412"  style="width: 90rpx; height: 90rpx; display: relative;margin-left: 10%"></image>
 <button class="picker-button" bindtap="showPicker" style="width: 456rpx; height: 90rpx; display: block; box-sizing: border-box; left: 18rpx; top: -140rpx; position: relative; background-color: transparent; border: none; font-size: 40rpx">当前城市: {{city}}</button>
-</view>
+</view> -->
+<view class="title" bindtap="showPicker">
+    <!-- 按钮 -->
+    <view  class=" icon-show">
+      <icon class="iconfont icon-chengshi" style='font-size:60rpx'></icon>
+    </view>
+    <!-- 这里放名字 -->
+    <view class="CityName">当前城市：{{city}}</view>
+  </view>
 <picker
 	isShowPicker="{{is_show_picker}}"
 	keyWordsOfShow="name"
