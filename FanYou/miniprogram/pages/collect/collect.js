@@ -19,6 +19,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight - 37
+        });
+      }
+    })
+
     this.loadMrysData();
   },
 
@@ -33,10 +42,11 @@ Page({
     let { pageIndex, pageSize } = this.data;
     db.collection('attractions').where({
       collect : "true"
-    }).limit(pageSize * pageIndex).get({
+    })
+    .limit(pageSize * pageIndex)
+    .get({
       success: res => {
-        wx.stopPullDownRefresh();
-        let list = this.data.storyList.concat(res.data);
+        wx.stopPullDownRefresh();   
         this.setData({
           storyList: res.data,
           loading: res.data.length == (pageSize * pageIndex),
@@ -112,38 +122,25 @@ Page({
   },
 
   swichNav: function (e) {
- 
-    console.log(e);
-     
-    var that = this;
-     
-    if (this.data.currentTab === e.target.dataset.current) {
-     
-    return false;
-     
-    } else {
-     
-    that.setData({
-     
-    currentTab: e.target.dataset.current,
-     
-    })
-     
-    }
-     
+    console.log(e);  
+    var that = this;   
+    if (this.data.currentTab === e.target.dataset.current) { 
+     // console.log("current",e.target.dataset.current)  
+      return false;  
+    } else {   
+      //console.log("current",e.target.dataset.current) 
+      that.setData({  
+      
+        currentTab: e.target.dataset.current,   
+      }) 
+    } 
     },
      
-    swiperChange: function (e) {
-     
-    console.log(e);
-     
-    this.setData({
-     
-    currentTab: e.detail.current,
-     
+    swiperChange: function (e) {    
+    console.log(e);    
+    this.setData({  
+    currentTab: e.detail.current,  
     })
-     
-     
     },
 
 

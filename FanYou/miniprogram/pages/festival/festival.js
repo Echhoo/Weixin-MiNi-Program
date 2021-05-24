@@ -2,7 +2,6 @@
 // const Url = app.data.URL ?什么后台地址
 let if_collect= 'false'
 let if_like= 'false'
-let ID = ''
 let number = 1
 let Datalist = []
 let navlist = []
@@ -127,6 +126,7 @@ Page({
     that.setData({
       bannerCurrent
     })
+    
   },
 
   // 卡牌切换
@@ -188,9 +188,6 @@ Page({
       })
     })
   },
-  click_collect(){
-    console.log("here!!!",bannerData)
-  },
 
   queren: function (e) {
     let that = this
@@ -218,6 +215,89 @@ Page({
     //   }
     // })
   },
+
+
+//收藏的click方法
+// click_collect(){
+//   if(if_collect == true){
+//     this.setData({
+//       collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png"
+//     })
+//     if_collect = false
+//     db.collection("collections").where({
+//       OpenID: this.data.OPENID,
+//       ViewID: this.data.bannerData[this.data.bannerCurrent]._id
+//     })
+//     .remove()
+//     .then(res=>{
+//       console.log("取消收藏成功", res)
+//     })
+//     .catch(res=>{
+//       console.log("取消收藏失败", res)
+//     })
+    
+
+//   }else{
+//   //如果用户没有收藏该景点且点击了收藏button则:
+//     //更改图片
+//     this.setData({
+//       collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏_1.png"
+//     })
+//     if_collect = true
+
+//     db.collection("collections").add({
+//       data:{
+//         ViewID: this.data.bannerData[this.data.bannerCurrent]._id,
+//         OpenID: this.data.OPENID
+//       }
+//     })
+//     .then(res=>{
+//       console.log("增加收藏成功", res)
+//     })
+//     .catch(res=>{
+//       console.log("增加收藏失败", res)
+//     })
+//   }
+// },
+
+// click_like(){
+//   if(if_like=='true'){
+//     this.setData({
+//       like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png"
+//     })
+//     if_like = 'false'
+//     wx.cloud.callFunction({
+//       name:"like",
+//       data:{
+//         id:ID,
+//         like: if_like
+//       }
+//     }).then(res=>{
+//       console.log("改变点赞状态成功", res)
+//     })
+//     .catch(res=>{
+//       console.log("改变点赞状态失败", res)
+//     })
+//   }else{
+//     this.setData({
+//       like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢_1.png"
+//     })
+//     if_like = 'true'
+//     wx.cloud.callFunction({
+//       name:"like",
+//       data:{
+//         id:ID,
+//         like: if_like
+//       }
+//     }).then(res=>{
+//       console.log("改变点赞状态成功", res)
+//     })
+//     .catch(res=>{
+//       console.log("改变点赞状态失败", res)
+//     })
+//   }
+  
+// },
   // onLoad: function (options) {
   //   let that = this
   //   wx.getStorage({

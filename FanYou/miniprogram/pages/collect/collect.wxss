@@ -109,5 +109,7 @@ page {
   color: blue;
   border-bottom: 5rpx solid blue;
   }
-
+  /* swiper-item {
+    overflow: scroll;
+  } */
 
