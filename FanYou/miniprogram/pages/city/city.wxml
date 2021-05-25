@@ -1,4 +1,4 @@
-
+<view class="container">
 <!-- 新省市选择器 -->
 <view style="width: 750rpx; height: 122rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx; ">
   <image bindtap="showPicker" src="https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/city/%E5%9F%8E%E5%B8%82.png?sign=91903e0ba571b3068e0e71e6ae06d066&t=1621058412"  style="width: 90rpx; height: 90rpx; display: relative;margin-left: 10%"></image>
@@ -16,8 +16,8 @@
  <!-- 存放景点信息列表 -->
 <view class='view-list-wrapper'>
     <!--用于存放卡片的容器 -->
-  <view class="place" style="width: 750rpx; height: 708rpx; display: block; box-sizing: border-box; left: 0rpx; top: 174rpx">
-    <swiper class="swiper-block" previous-margin="80rpx" next-margin="60rpx" 
+  <view class="place">
+    <swiper class="swiper-block" previous-margin="100rpx" next-margin="80rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{viewData}}" wx:key="id" wx:index="{{index}}">
         <swiper-item class="swiper-item" style="width: 502rpx; height: 90rpx; display: flex; box-sizing: content-box; left: 0rpx; top: 0rpx">
@@ -41,10 +41,10 @@
 </view>
 
 <!-- 景点介绍和详情按钮 -->
-<view class="view-description-wrapper" style="width: 590rpx; height: 449rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
-  <view class="view-description" style="width: 576rpx; height: 306rpx; display: -webkit-box; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+<view class="view-description-wrapper">
+  <view class="view-description">
     <text space="emsp" >  "{{currentView.introduction}}"</text>
   </view>
-  <view class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}' style="width: 208rpx; height: 92rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">景点详情</view>
+  <view class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}' style="width: 208rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">景点详情</view>
 </view>
-
+</view>

@@ -19,20 +19,22 @@ page {
 
 .title {
   width: 100%;
-  height: 10%;
+  height: 6%;
+  padding-top: 20rpx;
   position: relative;
 }
 
 .title .fesName {
   width: 100%;
-  font-size: 55rpx;
-  color: #888;
+  font-size: 50rpx;
+  color: #333333;
   justify-content: center;
   text-align: center
 }
 
 .title .icon-show {
-  width: 30%;
+  /* width: 35s%; */
+  color:#333333;
   position: absolute;
   left:10%;
 }
@@ -182,6 +184,7 @@ swiper,
   width: 100%;
   height: 100%;
   text-align: center;
+  position: relative;
 }
 
 .boxItem {
@@ -193,7 +196,7 @@ swiper,
   width: 100%;
   height: 80%;
   padding-top:50rpx;
-  padding-bottom: 300rpx;
+  padding-bottom: 0rpx;
   overflow-wrap: break-word;
   word-wrap: break-word;
   overflow: hidden;
@@ -277,11 +280,13 @@ swiper,
 
 .backGroup .img {
   border-radius: 8rpx;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
+  padding-bottom: 70rpx;
 }
 
 .backGroup .textWrap {
-  padding: 10rpx 20rpx;
+  padding-left:20rpx;
+  padding-right: 20rpx;
 }
 
 .flagTips {
@@ -509,22 +514,25 @@ swiper,
 }
 
 .functionIcon{
-  bottom:5%;
+  /* bottom:5%; */
+  height:15%;
   position:relative;
+  /* background-color:red; */
 }
 
 .forwardIcon{
-  width:50%;
-  height:100%;
+  width:40%;
+  left:10%;
   position:absolute;
+  background-color:#333333;
 }
 .forward-pic{
-  width:30%;
+  width:35%;
   height:100rpx;
 }
 .favoriteIcon{
-  width:50%;
-  height:100%;
+  width:40%;
   position:absolute;
-  left:50%;
+  right:10%;
+  background-color: teal;
 }

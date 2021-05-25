@@ -10,6 +10,13 @@ page{
   margin: 0;
   position: relative;
 } 
+.bgImage{
+  width: 100%;
+  height:100%;
+  position:fixed;
+  background-size: 100% 100%;
+  z-index:-1;
+}
 
 .pic-container{
   width:600rpx;
@@ -80,9 +87,9 @@ page{
 }
 
 .feed{
-  width: 300rpx;
-  height: 65rpx;
-  top:85%;
+  height: 160rpx;
+  left:15%;
+  top:63.5%;
+  background-color: transparent;
   position: absolute;
-  text-align: center;
 }

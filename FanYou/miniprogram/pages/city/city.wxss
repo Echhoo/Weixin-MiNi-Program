@@ -1,9 +1,15 @@
 page{
   background-color: #efeff4;
   overflow: hidden;
+  height: 100vh;
   /* background-image: url(https://i.loli.net/2021/04/17/zR1NjUXCJfDWEvF.png); */
   }
-
+  .container {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: relative;
+  }
   /* 选择器 */
 .picker-button{
   height: 100rpx;
@@ -53,15 +59,15 @@ page{
 /* 轮播 */
 .place{
   width:100%;
-  height:850rpx;
-  position:absolute;  
+  height:100%;
 }
 
 .swiper-block{
-  height: 760rpx;
+  height: 120%;
   width: 100%;
 }
 .swiper-item{
+
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -69,8 +75,8 @@ align-items: center;
 overflow:unset;
 }
 .slide-image{
-  height:550rpx;
-  width:550rpx;
+  height:480rpx;
+  width:85%;
   border-radius: 9rpx;
   box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
   margin: 0rpx 30rpx;
@@ -84,10 +90,9 @@ overflow:unset;
   }
 
 .view-list-wrapper {
-  width: 750rpx;
-  height: 700rpx;
-  margin-top: 50rpx;
-  margin-bottom: 30rpx;
+  width: 100%;
+  height: 45%;
+  position: absolute;
 }
 
 .view-info {
@@ -118,10 +123,11 @@ overflow:unset;
   box-sizing: border-box;
   color: #342158;
   display: block;
-  width: 350rpx;
-  height: 80rpx;
-  margin: 10% 30%;
-  font-size: 40rpx;
+  left:35%;
+  top:60%;
+  position: absolute;
+  /* margin: 10% 30%; */
+  font-size: 35rpx;
   line-height: 76rpx;
   text-align: center;
   border-radius: 10rpx;
@@ -129,12 +135,16 @@ overflow:unset;
 }
 
 .view-description-wrapper {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-content: center;
-  margin: auto;
-  width: 550rpx;
-  height: 450rpx;
+  margin: auto; */
+  width: 100%;
+  height: 40%;
+  /* left:10%; */
+  bottom:0;
+  position: absolute;
+
 }
 
 .item-title {
@@ -143,19 +153,22 @@ overflow:unset;
   color: #342158;
 }
 
-.view-description {
-  
+.view-description {  
   margin-top: 10rpx;
-  height: 320rpx;
+  margin-left:10%;
+  margin-right: 10%;
+  height: 50%;
+  top:0;
   font-size: 30rpx;
   line-height: 2;
   color: #342158;
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 4; /* 设置超出多少行隐藏 */
+  -webkit-line-clamp: 3; /* 设置超出多少行隐藏 */
   -webkit-box-orient: vertical;
   overflow: hidden;
+  position: absolute;
 } 
 
 /* 背景图 */

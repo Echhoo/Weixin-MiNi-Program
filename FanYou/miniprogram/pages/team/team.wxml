@@ -1,27 +1,5 @@
 <!--pages/team/team.wxml-->
 <view class="container">
-  <view class="pic-container">
-    <image src="{{teamUrl}}" class="pic"></image>
-  </view>
-  <view class = "teamname">
-    <view class="TM">|🎐团队名称🎐|</view>
-    <view class="names">两只老虎爱跳舞</view>
-  </view>
-  <view class="member">
-    <view class="TM">|——团队成员——|</view>
-    <view class="names">
-      <view class="name">刘茵</view>
-      <view class="name">马斓轩</view>
-      <view class="name">王子旭</view>
-      <view class="name">曹沛鑫</view>
-    </view>
-  </view>
-  <view class="contact">
-    <view class="CU">|——联系我们——|</view>
-    <view class="email">nkuliuyin@163.com</view>
-  </view>
-
-  <button class="feed" open-type='feedback'>
- |意见反馈|
-  </button>
+  <image src="{{teamUrl}}" class="bgImage" mode="aspectFill"></image>
+  <button class="feed" style="width: 200rpx;" open-type='feedback'></button>
 </view>

@@ -1,11 +1,13 @@
 // const app = getApp()
 // const Url = app.data.URL ?什么后台地址
-let if_collect= 'false'
-let if_like= 'false'
+let if_collect= false
+// let if_like= 'false'
+let fes_name_list = ["清明" ,"五一", "端午", "儿童节", "中秋", "七夕", "国庆", "春节","元宵"]
 let number = 1
 let Datalist = []
 let navlist = []
 let selidx = 0
+let indexx=0
 let seldata = ""
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -20,31 +22,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ID: '',
+    OPENID: '',
+    collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
     bannerCurrent: 0, // 当前显示的banner
-    bannerData2: [
-      {
-        'id': 1, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-1.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s1.jpg', 'title': '阿丽塔：战斗天使', 'isOpenFilp': false, 'lines': '“我们应该到那里去，我们属于那里。” \n“不，我们不属于任何地方，除了彼此身边。”', 'score': '7.6', 'releaseDate': '2019/02/22', 'otherInfo':'Alita: Battle Angel' },
-      {
-        'id': 2, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-2.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s2.jpg', 'title': '我不是药神', 'isOpenFilp': false, 'lines': '你是不是看不起我？ \n\n是…以前是…', 'score': '9.0', 'releaseDate': '2018/07/05', 'otherInfo': 'Dying to Survive'  },
-      { 'id': 3, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-3.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s3.jpg', 'title': '风语咒', 'isOpenFilp': false, 'lines': '人法地法天法道法自然，传说中的神功根本就不是练出来的，人与自然本就是一体的。\n\n我即是自然，自然即是我。\n我在驭风，风在驭我。', 'score': '6.9', 'releaseDate': '2018/08/03', 'otherInfo': 'The Wind Guardians' },
-      { 'id': 4, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-4.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s4.jpg', 'title': '飞驰人生', 'isOpenFilp': false, 'lines': '巴音布鲁克，1462道弯，109公里。耍小聪明，赢得了一百米，赢不了一百公里。\n\n你问我绝招？\n绝招只有两个字：奉献。\n就是把你的全部奉献给你所热爱的一切。\n你并不是征服了这片土地，你只是战胜了你的对手。', 'score': '7.2', 'releaseDate': '2019/02/05', 'otherInfo': 'Pegasus'  },
-      {
-        'id': 5, 'focus': 'https://www.duoguyu.com/dist/flip/flipImg-5.jpg', 'img': 'https://www.duoguyu.com/dist/flip/flipImg-s5.jpg', 'title': '大黄蜂', 'isOpenFilp': false, 'lines': '"You kissed me!" \n"On the cheek."\n"Still counts, still counts."', 'score': '7.0', 'releaseDate': '2019/01/04', 'otherInfo': 'Bumblebee'  },
-    ],
     bannerData:[],
-    bannerFrontPage:'',
-    bannerIntro:'',
-    // imgUrls: [
-    //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=20&spn=0&di=70290&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2321266479%2C1415249797&os=4137256782%2C448888690&simid=3382893114%2C283668392&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.art138.com%2Fmerchant%2F2019%2F10%2F12%2FeyuEmYtjDKaifxnVEzrxWOth.jpeg%26refer%3Dhttp%3A%2F%2Fimg.art138.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D9369edbe7a52d9eb0c9a58ab0a9e910f&fromurl=ippr_z2C%24qAzdH3FAzdH3Fgjof_z%26e3Bw6px7g_z%26e3Bv54AzdH3F8m88bmc_z%26e3Bfip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
-    //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=25&spn=0&di=21560&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=2106082601%2C3840237878&os=4070455972%2C3467574397&simid=3333726078%2C400171719&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1557385287734903.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3Dac0381cfe707aa93a7a5279e36c2cc56&fromurl=ippr_z2C%24qAzdH3FAzdH3Fk5k5_z%26e3Bvs7k_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8lacb0cn0_z%26e3Bip4s&gsm=14&rpstart=0&rpnum=0&islist=&querylist=&force=undefined',
-    //   'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=img&step_word=&hs=0&pn=49&spn=0&di=225170&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=3741749664%2C2740830265&os=3957064320%2C3367492878&simid=4153804425%2C573518045&adpicid=0&lpn=0&ln=1785&fr=&fmq=1618837020511_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fimg.zhux2.com%2Feditor1555552782133146.jpg%26refer%3Dhttp%3A%2F%2Fimg.zhux2.com%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1621429027%26t%3D622aa8adf4f8585420018f0b2569d99b&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bzi7x7gvg_z%26e3Bv54AzdH3Fw6ptvsjfAzdH3F8la9b9dam_z%26e3Bip4s&gsm=5a&rpstart=0&rpnum=0&islist=&querylist=&force=undefined'
-    // ],
-    // indicatorDots: false,
-    // autoplay: false,
-    // interval: 5000,
-    // duration: 1000,
     goodsList: '',
-    // bgUrl:"",
     searchStatus: false,
     user_id: '',
     filtrate: false,
@@ -81,25 +64,47 @@ Page({
     currentFestivalViews: []
 
   },
+  //设定当前卡片的被收藏的情况
+  setCollectIcon: function(){
+    db.collection("festival_collections")
+        .where({
+          ViewID: this.data.ID,
+          OpenID: this.data.OPENID,
+          Festival: fes_name_list[selidx]
+        })
+        .get()
+        .then(res=>{
+        //根据数据库中的情况，来设定收藏情况
+          console.log("收藏：",res)
+          var len = res.data.length
+          if(len == 0){
+            if_collect = false;
+          }else{
+            if_collect = true;
+          }
+          this.setData({
+            collect_img_url: if_collect== true ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
+          })
+        })
+  },
 
-  // swiperChange(e) {
-  //   const that = this;
-  //   that.setData({
-  //     swiperIndex: e.detail.current,
-  //   })
-  // },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     db.collection("new_attractions").where({
+    selidx = 0;
+    //查询指定节日的数据
+    db.collection("attractions")
+    .where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
       this.setData({        
         bannerData: res.data,
       })
-     console.log("bannerData",this.data.bannerData)
+    //  console.log("bannerData",this.data.bannerData)
+    //改造bannerData数据的fes_pic和fes_intro
      var i = 0;
      var len = this.data.bannerData.length;
      var views = []
@@ -109,15 +114,25 @@ Page({
       aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
       views[i] = aCurrentFesView;
      }
-     
-      // this.setData({
-      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
-      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
-      // })
       this.setData({
         bannerData: views
       })
-      console.log("Views: ",this.data.bannerData)
+
+      //获取当前view的id，和用户的openid
+      var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
+      wx.cloud.callFunction({
+        name: "getOPENID"
+      })
+      .then(res=>{
+        this.setData({
+          OPENID: res.result.openid,
+          ID: currentViewID
+        })
+        console.log("ViewID: ",this.data.ID)
+        console.log("OpenID: ", this.data.OPENID)
+        //获取ViewID和OpenID后，设定当前view的收藏状态
+        this.setCollectIcon()
+      }) 
     })
   },
   // bannerSwiper
@@ -126,12 +141,17 @@ Page({
     that.setData({
       bannerCurrent
     })
-    
+    this.setData({
+      ID: this.data.bannerData[this.data.bannerCurrent]._id,
+    })
+    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    //设定当前view的收藏状态
+    this.setCollectIcon()
   },
 
   // 卡牌切换
   switchFlip: function (e) {
-    console.log(e);
+    // console.log(e);
     const that = this;
     const index = e.currentTarget.dataset.index;
     const bannerData = that.data.bannerData;
@@ -140,6 +160,13 @@ Page({
     that.setData({
       bannerData
     });
+
+    this.setData({
+      ID: this.data.bannerData[this.data.bannerCurrent]._id,
+    })
+    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    //设定当前view的收藏状态
+    this.setCollectIcon()
   },
   show: function () {
     this.setData({
@@ -151,24 +178,24 @@ Page({
       filtrate: false
     })
   },
-  choose: function (e) {
+  choose: function (e) {      
     let _index = e.currentTarget.dataset.index
     let _name = e.currentTarget.dataset.name
     selidx = _index
+    // indexx=_index
     this.setData({
       fesName: _name,
-      filtrate: false,
+      // filtrate: false,
     })
-    console.log("五一", selidx)
-    db.collection("new_attractions").where({
+    db.collection("attractions").where({
       ['festival.'+[selidx]]: true
     }).get()
     .then(res=>{
-      console.log("RES 51", res)
+      // console.log("RES 51", res)
       this.setData({        
         bannerData: res.data,
       })
-     console.log("bannerData",this.data.bannerData)
+    //  console.log("bannerData",this.data.bannerData)
      var i = 0;
      var len = this.data.bannerData.length;
      var views = []
@@ -178,21 +205,58 @@ Page({
       aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
       views[i] = aCurrentFesView;
      }
-     
-      // this.setData({
-      //   bannerFrontPage: this.data.bannerData[0].fes_pic[selidx],
-      //   bannerIntro: this.data.bannerData[0].fes_intro[selidx]
-      // })
       this.setData({
         bannerData: views
       })
     })
   },
+  click_collect(){
+    if(if_collect == true){
+      this.setData({
+        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588"
+      })
+      if_collect = false;
+      db.collection("festival_collections").where({
+        OpenID: this.data.OPENID,
+        ViewID: this.data.ID,
+        Festival: fes_name_list[selidx]
+      })
+      .remove()
+      .then(res=>{
+        console.log("取消收藏成功", res)
+      })
+      .catch(res=>{
+        console.log("取消收藏失败", res)
+      })
+    }
+    else{
+      this.setData({
+        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561"
+      })
+      if_collect = true;
+      db.collection("festival_collections").add({
+        data:{
+          ViewID: this.data.ID,
+          OpenID: this.data.OPENID,
+          Festival: fes_name_list[selidx],
+          SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
+          FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
+          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro
+        }
+      })
+      .then(res=>{
+        console.log("增加收藏成功", res)
+      })
+      .catch(res=>{
+        console.log("增加收藏失败", res)
+      })
+    }
+  },
 
   queren: function (e) {
     let that = this
     let name = e.seldata
-    console.log(name)
+    // console.log(name)
     that.setData({
       fesName:seldata,
       filtrate: false,
@@ -215,101 +279,6 @@ Page({
     //   }
     // })
   },
-
-
-//收藏的click方法
-// click_collect(){
-//   if(if_collect == true){
-//     this.setData({
-//       collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png"
-//     })
-//     if_collect = false
-//     db.collection("collections").where({
-//       OpenID: this.data.OPENID,
-//       ViewID: this.data.bannerData[this.data.bannerCurrent]._id
-//     })
-//     .remove()
-//     .then(res=>{
-//       console.log("取消收藏成功", res)
-//     })
-//     .catch(res=>{
-//       console.log("取消收藏失败", res)
-//     })
-    
-
-//   }else{
-//   //如果用户没有收藏该景点且点击了收藏button则:
-//     //更改图片
-//     this.setData({
-//       collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏_1.png"
-//     })
-//     if_collect = true
-
-//     db.collection("collections").add({
-//       data:{
-//         ViewID: this.data.bannerData[this.data.bannerCurrent]._id,
-//         OpenID: this.data.OPENID
-//       }
-//     })
-//     .then(res=>{
-//       console.log("增加收藏成功", res)
-//     })
-//     .catch(res=>{
-//       console.log("增加收藏失败", res)
-//     })
-//   }
-// },
-
-// click_like(){
-//   if(if_like=='true'){
-//     this.setData({
-//       like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png"
-//     })
-//     if_like = 'false'
-//     wx.cloud.callFunction({
-//       name:"like",
-//       data:{
-//         id:ID,
-//         like: if_like
-//       }
-//     }).then(res=>{
-//       console.log("改变点赞状态成功", res)
-//     })
-//     .catch(res=>{
-//       console.log("改变点赞状态失败", res)
-//     })
-//   }else{
-//     this.setData({
-//       like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢_1.png"
-//     })
-//     if_like = 'true'
-//     wx.cloud.callFunction({
-//       name:"like",
-//       data:{
-//         id:ID,
-//         like: if_like
-//       }
-//     }).then(res=>{
-//       console.log("改变点赞状态成功", res)
-//     })
-//     .catch(res=>{
-//       console.log("改变点赞状态失败", res)
-//     })
-//   }
-  
-// },
-  // onLoad: function (options) {
-  //   let that = this
-  //   wx.getStorage({
-  //     key: 'info',
-  //     success: function (res) {
-  //       that.setData({
-  //         user_id: res.data.user_id
-  //       })
-  //     },
-  //   })
-
-  // },
 
   onReady: function () {
 

@@ -1,18 +1,10 @@
 <!--pages/book/catagory.wxml-->
 <view class="container">
-  <image src="{{bgUrl}}" class="bgImage" mode="scaleToFill"></image>
-  <view class="btn1-container">
-    <image src="{{button1Url}}" class="btn" bindtap="festivalView"></image>
-  </view>
-  <view class="btn2-container">
-    <image src="{{button2Url}}" class="btn" bindtap="cityView"></image>
-  </view>
-  <view class="btn3-container">
-    <image src="{{button3Url}}" class="btn" bindtap="personView"></image>
-  </view>
-  <view class="btn4-container">
-    <image src="{{button4Url}}" class="btn" bindtap="teamView"></image>
-  </view>
+  <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
+  <view class="btn1-container" bindtap="festivalView" ></view>
+  <view class="btn2-container" bindtap="cityView"></view>
+  <view class="btn3-container" bindtap="personView"></view>
+  <view class="btn4-container" bindtap="teamView"></view>
 </view>
 
   

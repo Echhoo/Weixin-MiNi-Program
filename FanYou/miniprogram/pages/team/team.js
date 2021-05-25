@@ -6,7 +6,7 @@ Page({
   onLoad: function (options) {
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://cloud1-4gt82x70cccbf17e.636c-cloud1-4gt82x70cccbf17e-1305568781/picture/team/teamPic.jpg',
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/team/bottom2.png',
     ],
       success: res => {
         this.setData({
