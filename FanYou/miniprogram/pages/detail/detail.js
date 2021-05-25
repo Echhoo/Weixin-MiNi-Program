@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png",
-    like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png",
+    collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不收藏.png",
+    like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不喜欢.png",
     currentView: {},
     //ID是当前景点的ID； OPENID则是当前用户的ID；
     ID: '',
@@ -22,7 +22,8 @@ Page({
       indicatorDots: false,
       autoplay: false,
       interval: 5000,
-      duration: 1000
+      duration: 1000,
+      swiperIndex: 0,
       },
       swiperChange(e) {
       const that = this;
@@ -96,7 +97,7 @@ Page({
           if_collect = true;
         }
         this.setData({
-          collect_img_url: if_collect== true ? "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏_1.png": "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png",
+          collect_img_url: if_collect== true ? "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/收藏.png": "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不收藏.png",
         })
       })
       
@@ -116,7 +117,7 @@ Page({
           if_like = true;
         }
         this.setData({
-          like_img_url: if_like== true ? "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢_1.png": "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png",
+          like_img_url: if_like== true ? "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/喜欢.png": "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不喜欢.png",
         })
       })
    
@@ -126,7 +127,7 @@ Page({
 click_collect(){
   if(if_collect == true){
     this.setData({
-      collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏.png"
+      collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不收藏.png"
     })
     if_collect = false
     db.collection("city_collections").where({
@@ -146,7 +147,7 @@ click_collect(){
   //如果用户没有收藏该景点且点击了收藏button则:
     //更改图片
     this.setData({
-      collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/收藏_1.png"
+      collect_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/收藏.png"
     })
     if_collect = true
 
@@ -172,7 +173,7 @@ click_collect(){
 click_like(){
   if(if_like==true){
     this.setData({
-      like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢.png"
+      like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不喜欢.png"
     })
     if_like = false
     db.collection("likes").where({
@@ -188,7 +189,7 @@ click_like(){
     })
   }else{
     this.setData({
-      like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/view_detail/喜欢_1.png"
+      like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/喜欢.png"
     })
     if_like = true
     db.collection("likes").add({

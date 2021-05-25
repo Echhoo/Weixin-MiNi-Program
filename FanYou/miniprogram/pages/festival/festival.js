@@ -150,8 +150,9 @@ Page({
       }) 
     })
   },
-  // bannerSwiper
+  //左右切换景点的动作
   bannerSwiper(e) {
+    console.log("Banner Swiper", e)
     const that = this, bannerCurrent = e.detail.current;
     that.setData({
       bannerCurrent
@@ -164,9 +165,8 @@ Page({
     this.setCollectIcon()
   },
 
-  // 卡牌切换
+  // 卡牌翻转
   switchFlip: function (e) {
-    // console.log(e);
     const that = this;
     const index = e.currentTarget.dataset.index;
     const bannerData = that.data.bannerData;
@@ -193,7 +193,7 @@ Page({
       filtrate: false
     })
   },
-  choose: function (e) {      
+  choose: function (e) {   
     let _index = e.currentTarget.dataset.index
     let _name = e.currentTarget.dataset.name
     selidx = _index
@@ -229,12 +229,13 @@ Page({
         bannerData: views
       })
     })
+    this.setCollectIcon()
   },
   click_collect(){
     if(if_collect == true){
-      // this.setData({
-      //   fav_icon:false
-      // })
+      this.setData({
+        fav_icon:false
+      })
       if_collect = false;
       db.collection("festival_collections").where({
         OpenID: this.data.OPENID,
