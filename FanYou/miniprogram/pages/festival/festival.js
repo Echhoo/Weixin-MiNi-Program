@@ -106,7 +106,8 @@ Page({
         }
       }
       this.setData({
-        bannerCurrent: parseInt(options.index)
+        bannerCurrent: parseInt(options.index),
+        fesName : options.fes
       })
 
     }
@@ -279,6 +280,28 @@ Page({
     }
   },
 
+  /**
+   * 用户分享功能
+   */
+  onShareAppMessage: function(res) {
+    let that = this;
+    console.log("Share",res);
+    console.log("Festival",fes_name_list[selidx]);
+    console.log("Index",this.data.bannerCurrent);
+    return {
+      title: "发送给好友",      
+      path: 'pages/festival/festival?fes='+fes_name_list[selidx]+
+      '&index='+this.data.bannerCurrent,
+      
+      success: function(res) {
+        console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        console.log(res, "转发失败")
+      }
+    }
+  },
+
 
   onReady: function () {
 
@@ -319,10 +342,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

@@ -114,7 +114,9 @@ Page({
   },
 
   onFesTapNavigateTo(e){
-    console.log("EEEE: ", e)
+    // console.log("EEEE: ", e)
+    // console.log("fes",e.currentTarget.dataset.item.Festival)
+    // console.log("index",e.currentTarget.dataset.item.Index)
     wx.navigateTo({
       url: '../festival/festival?fes='+e.currentTarget.dataset.item.Festival+
       '&index='+e.currentTarget.dataset.item.Index
