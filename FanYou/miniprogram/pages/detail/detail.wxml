@@ -1,7 +1,7 @@
 <!--pages/detail/detail.wxml-->
 <view class="container">
   <view class="carousel">
-    <swiper class="swiper-block" previous-margin="210rpx" next-margin="210rpx" 
+    <swiper class="swiper-block" previous-margin="200rpx" next-margin="200rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{imgUrls}}" wx:index="{{index}}">
         <swiper-item class="swiper-item">
@@ -11,19 +11,16 @@
     </swiper>
   </view>
   <view class="intro">
-    <view class="intro-title"></view>
-    <view class="intro-text"></view>
+    <view class="intro-title">{{currentView.city}} {{currentView.site_name}}</view>
+    <view class="intro-level_score" space="emsp">等级：{{currentView.level}}  评分：{{currentView.score}}</view>
+    <text  class="intro-text" space="emsp">  {{currentView.introduction}}</text>
   </view>
   <view class="function">
-    <view class="share">
-      <button hover-class="none" size="mini" open-type="share">
-        <text class="share-font">分享</text>
-      </button>
+    <view class="like">
+      <image class='collect_image' src = '{{like_img_url}}' bindtap = 'click_like' style="width: 120rpx; height: 120rpx; display: relative; "></image>
     </view>
     <view class="collect">
-      <button hover-class="none" size="mini">
-        <text class="collect-font">收藏</text>
-      </button>
+      <image class='collect_image' src = '{{collect_img_url}}' bindtap = 'click_collect' style="width: 120rpx; height: 120rpx; display: relative; "></image>
     </view>
   </view>
 </view>

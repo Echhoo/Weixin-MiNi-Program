@@ -7,7 +7,6 @@ let number = 1
 let Datalist = []
 let navlist = []
 let selidx = 0
-let indexx=0
 let seldata = ""
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -24,13 +23,13 @@ Page({
   data: {
     ID: '',
     OPENID: '',
-    collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
     bannerCurrent: 0, // 当前显示的banner
     bannerData:[],
     goodsList: '',
     searchStatus: false,
     user_id: '',
     filtrate: false,
+    fav_icon:false,
     background: '#eee',
     color: '#333',
     select: '',
@@ -75,16 +74,19 @@ Page({
         .get()
         .then(res=>{
         //根据数据库中的情况，来设定收藏情况
-          console.log("收藏：",res)
+          // console.log("收藏：",res)
           var len = res.data.length
           if(len == 0){
             if_collect = false;
+            this.setData({
+              fav_icon:false
+            })
           }else{
             if_collect = true;
+            this.setData({
+              fav_icon:true
+            })
           }
-          this.setData({
-            collect_img_url: if_collect== true ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588",
-          })
         })
   },
 
@@ -94,6 +96,21 @@ Page({
    */
   onLoad: function (options) {
     selidx = 0;
+    console.log("options: ",options)
+    if(JSON.stringify(options) != "{}"){
+      var i = 0;
+      for(i; i<9; i++){
+        if(fes_name_list[i] == options.fes){
+          selidx = i;
+          break;
+        }
+      }
+      this.setData({
+        bannerCurrent: parseInt(options.index)
+      })
+
+    }
+    
     //查询指定节日的数据
     db.collection("attractions")
     .where({
@@ -128,15 +145,16 @@ Page({
           OPENID: res.result.openid,
           ID: currentViewID
         })
-        console.log("ViewID: ",this.data.ID)
-        console.log("OpenID: ", this.data.OPENID)
+        // console.log("ViewID: ",this.data.ID)
+        // console.log("OpenID: ", this.data.OPENID)
         //获取ViewID和OpenID后，设定当前view的收藏状态
         this.setCollectIcon()
       }) 
     })
   },
-  // bannerSwiper
+  //左右切换景点的动作
   bannerSwiper(e) {
+    console.log("Banner Swiper", e)
     const that = this, bannerCurrent = e.detail.current;
     that.setData({
       bannerCurrent
@@ -144,14 +162,13 @@ Page({
     this.setData({
       ID: this.data.bannerData[this.data.bannerCurrent]._id,
     })
-    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    // console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
     //设定当前view的收藏状态
     this.setCollectIcon()
   },
 
-  // 卡牌切换
+  // 卡牌翻转
   switchFlip: function (e) {
-    // console.log(e);
     const that = this;
     const index = e.currentTarget.dataset.index;
     const bannerData = that.data.bannerData;
@@ -164,7 +181,7 @@ Page({
     this.setData({
       ID: this.data.bannerData[this.data.bannerCurrent]._id,
     })
-    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    // console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
     //设定当前view的收藏状态
     this.setCollectIcon()
   },
@@ -178,14 +195,19 @@ Page({
       filtrate: false
     })
   },
-  choose: function (e) {      
+  choose: function (e) {   
     let _index = e.currentTarget.dataset.index
     let _name = e.currentTarget.dataset.name
     selidx = _index
     // indexx=_index
+    var timeOut=setTimeout(
+      function() 
+      { filtrate: false }, 2000)
     this.setData({
       fesName: _name,
-      // filtrate: false,
+      timeOut,
+      filtrate:false
+      
     })
     db.collection("attractions").where({
       ['festival.'+[selidx]]: true
@@ -209,11 +231,12 @@ Page({
         bannerData: views
       })
     })
+    this.setCollectIcon()
   },
   click_collect(){
     if(if_collect == true){
       this.setData({
-        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill.png?sign=ab7d716740b147c4d0a6950600ad5da9&t=1621690588"
+        fav_icon:false
       })
       if_collect = false;
       db.collection("festival_collections").where({
@@ -227,11 +250,12 @@ Page({
       })
       .catch(res=>{
         console.log("取消收藏失败", res)
+
       })
     }
     else{
       this.setData({
-        collect_img_url: "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/festival/favorites-fill2.png?sign=2ea07dccedf57938660884518ee3fb04&t=1621690561"
+        fav_icon:true
       })
       if_collect = true;
       db.collection("festival_collections").add({
@@ -241,11 +265,13 @@ Page({
           Festival: fes_name_list[selidx],
           SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
           FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
-          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro
+          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro,
+          Index: this.data.bannerCurrent
         }
       })
       .then(res=>{
         console.log("增加收藏成功", res)
+        console.log(if_collect)
       })
       .catch(res=>{
         console.log("增加收藏失败", res)
@@ -253,32 +279,6 @@ Page({
     }
   },
 
-  queren: function (e) {
-    let that = this
-    let name = e.seldata
-    // console.log(name)
-    that.setData({
-      fesName:seldata,
-      filtrate: false,
-    });
-    //传数据
-    // wx.request({
-    //   // url: Url + 'product/pagelist?keywords=' + that.data.keyword + '&material[]=' + data1 + '&technology[]=' + data2 + '&SurfaceEffect[]=' + data3 + '&design[]=' + data4 + '&style[]=' + data5 + '&priceMin=' + priceMin + '&priceMax=' + priceMax + '&priceFlag=' + datas + "&userid=" + that.data.user_id,
-    //   method: 'post',
-    //   success(res){
-
-    //     that.setData({
-    //       fesName:seldata,
-    //       filtrate: false,
-    //     });
-    //     if (res.hasNext == false) {
-    //       that.data.setData({
-    //         moretxt2: "已加载全部"
-    //       })
-    //     }
-    //   }
-    // })
-  },
 
   onReady: function () {
 

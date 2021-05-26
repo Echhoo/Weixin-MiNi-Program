@@ -114,8 +114,11 @@ Page({
   },
   //跳转到详情介绍页
  onTapNavigateTo(e){
+  // wx.navigateTo({
+  //   url: '../view_detail/view_detail?currentViewID='+this.data.currentView._id
+  // })
   wx.navigateTo({
-    url: '../view_detail/view_detail?currentViewID='+this.data.currentView._id
+    url: '../detail/detail?currentViewID='+this.data.currentView._id
   })
  },
  // 图片单击放大预览

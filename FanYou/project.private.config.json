@@ -47,6 +47,12 @@
           "pathName": "pages/festival/festival",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
         }
       ]
     }

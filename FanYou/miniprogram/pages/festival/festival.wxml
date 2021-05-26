@@ -5,10 +5,10 @@
       <icon class="iconfont {{filtrate? 'icon-cebianlan' : 'icon-cebianlan1'}}" style='font-size:50rpx'></icon>
     </view>
     <!-- 这里放节日名字 -->
-    <view class="fesName" data-name="{{fesName}}">{{fesName}}佳节</view>
+    <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
   </view>
   <view class="swiper">
-    <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" circular="{{true}}">
+    <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" current="{{bannerCurrent}}" circular="{{true}}">
       <swiper-item class="item" wx:for="{{ bannerData }}"  wx:key="index" >
         <view class="swiper-item">
           <view class='boxItem column'>
@@ -22,7 +22,7 @@
                     <view class='imgWrap'>
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <view class='mSmall f14 relative mb10'>《 {{ item.site_name }} 》</view>
+                        <view class='mSmall f14 relative mb10'> {{ item.site_name }} </view>
                         <!-- <view class='mSmall relative'>· {{ item.fes_intro }} ·</view> -->
                       </view>
                     </view>
@@ -60,10 +60,11 @@
           <view class='functionIcon'>
             <view class='forwardIcon'>
               <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
-              <icon class="iconfont forward-pic fenxiang" style='font-size:50rpx'></icon>
+              <icon class="iconfont forward-pic icon-fenxiang1" ></icon>
             </view>
-            <view class='favoriteIcon'>
-              <image class='forward-pic'src="{{collect_img_url}}" bindtap = 'click_collect'></image>
+            <view class='favoriteIcon' bindtap = 'click_collect'>
+              <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
+              <icon class="iconfont forward-pic {{fav_icon? 'icon-aixin-copy':'icon-aixin'}}" ></icon>
             </view>
           </view>
         </view>
@@ -85,7 +86,7 @@
   <view class="f_con">
     <view class="con_box">
       <view class="nav">
-        <view class="nav1">春天</view>
+        <view class="nav1 " style="background: linear-gradient(to right, #ebb2b2, #ff8e8e);">春天</view>
         <view class="nav2">
           <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==0||index==1}}">
             <view class="n2_name {{selidx==index ? 'activespring':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
@@ -93,7 +94,7 @@
         </view>
       </view>
       <view class="nav">
-        <view class="nav1">夏天</view>
+        <view class="nav1" style=" background: linear-gradient(to right, #b4ec18, #07e619);">夏天</view>
         <view class="nav2">
           <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==2||index==3}}">
             <view class="n2_name {{selidx==index ? 'activesummer':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
@@ -101,7 +102,7 @@
         </view>
       </view>
       <view class="nav">
-        <view class="nav1">秋天</view>
+        <view class="nav1" style="background: linear-gradient(to right, #ecc518, #f38911);">秋天</view>
         <view class="nav2">
           <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==4||index==5||index==6}}">
             <view class="n2_name {{selidx==index ? 'activeautumn':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
@@ -109,7 +110,7 @@
         </view>
       </view>
       <view class="nav">
-        <view class="nav1">冬天</view>
+        <view class="nav1" style="background: linear-gradient(to right, #b5dee6, #58ade6);">冬天</view>
         <view class="nav2">
           <view class="" wx:for="{{nav1}}" wx:key="id" wx:if="{{index==7||index==8}}">
             <view class="n2_name {{selidx==index ?'activewinter':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
@@ -125,10 +126,10 @@
         </view>
       </view> -->
     </view>
-    <view class="btn">
+    <!-- <view class="btn">
       <view>
         <view bindtap="queren">确定</view>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>

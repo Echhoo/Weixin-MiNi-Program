@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/book/catagory",
     "pages/city/city",
     "pages/festival/festival",
     "pages/collect/collect",
-    "pages/index/index",
     "pages/detail/detail",
     "pages/collecttest/collecttest",
     "pages/view_detail/view_detail"

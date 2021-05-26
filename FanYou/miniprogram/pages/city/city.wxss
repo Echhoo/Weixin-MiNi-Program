@@ -10,6 +10,29 @@ page{
     margin: 0;
     position: relative;
   }
+
+  .title {
+    width: 100%;
+    height: 120rpx;
+    padding-top: 20rpx;
+    position: relative;
+    display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx; 
+  }
+  
+  .title .CityName {
+    width: 100%;
+    font-size: 50rpx;
+    color: #333333;
+    justify-content: center;
+    text-align: center
+  }
+  
+  .title .icon-show {
+    /* width: 35s%; */
+    color:#333333;
+    position: absolute;
+    left:10%;
+  }
   /* 选择器 */
 .picker-button{
   height: 100rpx;
@@ -192,7 +215,7 @@ overflow:unset;
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, .3);
 }
 
 .poster .bgImg {
