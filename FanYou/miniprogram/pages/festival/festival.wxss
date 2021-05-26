@@ -447,3 +447,8 @@ swiper,
   position:absolute;
   right:10%;
 }
+.share_button{
+  width: 20%;
+  position: absolute;
+  z-index: 999;
+}

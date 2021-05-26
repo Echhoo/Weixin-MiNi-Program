@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/festival/festival",
     "pages/index/index",
+    "pages/festival/festival",
     "pages/book/catagory",
-
     "pages/city/city",
      "pages/collect/collect",
     "pages/team/team",   

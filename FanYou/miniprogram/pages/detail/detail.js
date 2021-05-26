@@ -25,6 +25,7 @@ Page({
       duration: 1000,
       swiperIndex: 0,
       },
+      
       swiperChange(e) {
       const that = this;
       that.setData({

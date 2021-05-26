@@ -108,6 +108,9 @@ Page({
       })
 
     }
+    this.setData({
+      fesName: fes_name_list[selidx]
+    })
     
     //查询指定节日的数据
     db.collection("attractions")
@@ -277,7 +280,6 @@ Page({
     }
   },
 
-
   onReady: function () {
 
   },
@@ -321,6 +323,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '泛游邀你一起看',
+      desc: fes_name_list[selidx]+'佳节的'+this.data.bannerData[this.data.bannerCurrent].site_name,
+      path: '/pages/festival/festival?fes='+fes_name_list[selidx]+"&index="+this.data.bannerCurrent // 路径，传递参数到指定页面。
+  }
   }
 })
