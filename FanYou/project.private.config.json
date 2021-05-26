@@ -13,14 +13,14 @@
     "miniprogram": {
       "list": [
         {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
+          "name": "yaoyiyao",
+          "pathName": "pages/yaoyiyao/yaoyiyao",
+          "query": "",
+          "scene": null
         },
         {
-          "name": "pages/book/catagory",
-          "pathName": "pages/book/catagory",
+          "name": "pages/catagory/catagory",
+          "pathName": "pages/catagory/catagory",
           "query": "",
           "scene": null
         },

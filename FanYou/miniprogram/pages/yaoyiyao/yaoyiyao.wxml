@@ -1,0 +1,64 @@
+<view class="container">
+<view class="title">
+  <image class="yaoicon" src="https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/%E6%91%87%E4%B8%80%E6%91%87.png?sign=d79441e1975b3c696579d7f5938ed2b4&t=1622013933" ></image>
+  <view class="Name" >摇一摇 为你定制私人景点</view>
+  <!-- <view class="Name">为你定制私人景点</view> -->
+</view>
+
+  <view style="margin-top:30rpx;font-size:40rpx;color:black">{{shakeTip}}</view>
+  <view class="swiper-item" wx:for="{{ bannerData }}" wx:key="index">
+          <view class='boxItem column'>
+            <!-- 卡牌 -->
+            <view class="flipGroup  {{ item.isOpenFilp ? 'on':''}}" catchtap="{{isExecute?'switchFlip':''}}" data-index='{{ index }}'>
+              <view class="flipBox">
+                <!-- 正面内容 -->
+                <view class="sideWrap front">
+                  <!-- 卡片 -->
+                  <view class='posterGroup'>
+                    <view class='imgWrap'>
+                      <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
+                      <view class='detailBox'>
+                        <view class='mSmall f14 relative mb10'> HELLO </view>
+                        <view class='mSmall relative'>·  {{ item.site_name }} ·</view>
+                      </view>
+                    </view>
+                  </view>
+                  <!-- / 卡片 -->
+                </view>
+                <!-- 背面内容 -->
+                <view class="sideWrap back">
+                  <!-- detail -->
+                  <view class='backGroup'>
+                    <image class='img' src="{{ item.img }}" mode="aspectFill"></image>
+                    <view class='textWrap'>
+                      <view class='mt10'>
+                        <text class='mTitle cf45 mb40'>{{ item.fes_intro }}</text>
+                      </view>
+                    </view>
+                  </view>
+                  <view class='otherInfo'>
+                    <view class='movTitle'>
+                      《 {{ item.site_name }} · {{ item.city }} 》
+                      <text class='score'>{{ item.score }} / 5.0</text>
+                    </view>
+                    <view class='copyright'>
+                      <view class='copyrightGrid'>
+                        <!-- <image class='logo' src='{{ logo }}' mode='widthFix'></image> -->
+                        <text class='span'>fanyou-两只老虎爱跳舞</text>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 转发收藏icon -->
+          <view class='functionIcon'>
+            <!-- <view class='favoriteIcon' bindtap = 'click_collect'> -->
+              <view class='favoriteIcon' >
+              <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
+              <icon class="iconfont forward-pic {{fav_icon? 'icon-aixin-copy':'icon-aixin'}}" ></icon>
+            </view>
+          </view>
+        </view>
+</view>

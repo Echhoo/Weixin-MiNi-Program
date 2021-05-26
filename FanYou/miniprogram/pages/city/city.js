@@ -179,6 +179,40 @@ saveImg1(url){
     }
   })
 },
+login() {
+      wx.getUserProfile({
+        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (file) => {
+          console.log(file)
+          wx.login({
+            success: (res) => {
+              console.log(res);
+              wx.request({
+                url: 'code获取openid的接口',
+                data: {
+                  code: res.code
+                },
+                success: (open) => {
+                  console.log(open.data);
+                  wx.request({
+                    url: '授权登陆接口',
+                    data: {
+                      openid: open.data.openid,
+                      NickName: file.userInfo.nickName,
+                      HeadUrl: file.userInfo.avatarUrl
+                    },
+                    success(data) {
+                      console.log(data.data);
+                    }
+                  })
+                }
+              })
+            }
+          })
+          this.toBook();
+        }
+      })
+    },
 })
 
 
