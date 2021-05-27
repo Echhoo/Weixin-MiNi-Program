@@ -18,6 +18,7 @@
 const cloud = require('wx-server-sdk')
 let AirpImageClassifyClient = require('baidu-aip-sdk').imageClassify;
 
+
 // 设置APPID/AK/SK
 let APP_ID = "24250779"
 let API_KEY = "F3mih75YnY7TLlvoDWQZlhzG";

@@ -1,9 +1,10 @@
 {
   "cloud": true,
   "pages": [
+    "pages/festival/festival",
     "pages/sightrec/sightrec",
     "pages/sightget/sightget",
-    "pages/festival/festival",
+
     "pages/index/index",
     "pages/book/catagory",
     "pages/city/city",

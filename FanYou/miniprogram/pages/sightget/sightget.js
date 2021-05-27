@@ -23,7 +23,7 @@ Page({
         console.log('百度ai传回来的数据：', res);
         wx.hideLoading();
         this.setData({
-          pic: res.result.event.fileID
+          pic: res.result.val.result
         })
         console.log(this.data.pic);
       },

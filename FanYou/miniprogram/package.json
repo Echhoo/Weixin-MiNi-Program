@@ -1,7 +1,6 @@
 {
   "name": "miniprogram",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "baidu-aip-sdk": "file:baidu-aip-sdk",
     "miniprogram-sm-crypto": "^0.3.0"
-  }
+  },
+  "description": ""
 }
