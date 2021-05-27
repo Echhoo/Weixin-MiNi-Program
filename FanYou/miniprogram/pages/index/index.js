@@ -15,43 +15,10 @@ Page(
   },
     toBook: function() {
       wx.navigateTo({
-        url: '../book/catagory',
+        url: '../catagory/catagory',
       })
     },
-    login() {
-      wx.getUserProfile({
-        desc: '需要登陆才可以收藏和转发！', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-        success: (file) => {
-          console.log("Filse: ",file)
-          wx.login({
-            success: (res) => {
-              console.log(res);
-              wx.request({
-                url: 'code获取openid的接口',
-                data: {
-                  code: res.code
-                },
-                success: (open) => {
-                  console.log(open.data);
-                  wx.request({
-                    url: '授权登陆接口',
-                    data: {
-                      openid: open.data.openid,
-                      NickName: file.userInfo.nickName,
-                      HeadUrl: file.userInfo.avatarUrl
-                    },
-                    success(data) {
-                      console.log(data.data);
-                    }
-                  })
-                }
-              })
-            }
-          })
-          this.toBook();
-        }
-      })
-    },
+    
   onLoad: function (options) {
     this.setData({
       height: wx.getSystemInfoSync().windowHeight,
@@ -96,25 +63,25 @@ Page(
     }
   },
 
-  onGetOpenid: function() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
-        })
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
-      }
-    })
-  },
+//   onGetOpenid: function() {
+//     // 调用云函数
+//     wx.cloud.callFunction({
+//       name: 'login',
+//       data: {},
+//       success: res => {
+//         console.log('[云函数] [login] user openid: ', res.result.openid)
+//         app.globalData.openid = res.result.openid
+//         wx.navigateTo({
+//           url: '../userConsole/userConsole',
+//         })
+//       },
+//       fail: err => {
+//         console.error('[云函数] [login] 调用失败', err)
+//         wx.navigateTo({
+//           url: '../deployFunctions/deployFunctions',
+//         })
+//       }
+//     })
+//   },
 
 })

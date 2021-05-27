@@ -1,8 +1,8 @@
 // const app = getApp()
 // const Url = app.data.URL ?什么后台地址
-let if_collect= false
+let if_collect = false
 // let if_like= 'false'
-let fes_name_list = ["清明" ,"五一", "端午", "儿童节", "中秋", "七夕", "国庆", "春节","元宵"]
+let fes_name_list = ["清明", "五一", "端午", "儿童节", "中秋", "七夕", "国庆", "春节", "元宵"]
 let number = 1
 let Datalist = []
 let navlist = []
@@ -24,12 +24,12 @@ Page({
     ID: '',
     OPENID: '',
     bannerCurrent: 0, // 当前显示的banner
-    bannerData:[],
+    bannerData: [],
     goodsList: '',
     searchStatus: false,
     user_id: '',
     filtrate: false,
-    fav_icon:false,
+    fav_icon: false,
     background: '#eee',
     color: '#333',
     select: '',
@@ -63,31 +63,33 @@ Page({
     currentFestivalViews: []
 
   },
+
+
   //设定当前卡片的被收藏的情况
-  setCollectIcon: function(){
+  setCollectIcon: function () {
     db.collection("festival_collections")
-        .where({
-          ViewID: this.data.ID,
-          OpenID: this.data.OPENID,
-          Festival: fes_name_list[selidx]
-        })
-        .get()
-        .then(res=>{
+      .where({
+        ViewID: this.data.ID,
+        OpenID: this.data.OPENID,
+        Festival: fes_name_list[selidx]
+      })
+      .get()
+      .then(res => {
         //根据数据库中的情况，来设定收藏情况
-          // console.log("收藏：",res)
-          var len = res.data.length
-          if(len == 0){
-            if_collect = false;
-            this.setData({
-              fav_icon:false
-            })
-          }else{
-            if_collect = true;
-            this.setData({
-              fav_icon:true
-            })
-          }
-        })
+        // console.log("收藏：",res)
+        var len = res.data.length
+        if (len == 0) {
+          if_collect = false;
+          this.setData({
+            fav_icon: false
+          })
+        } else {
+          if_collect = true;
+          this.setData({
+            fav_icon: true
+          })
+        }
+      })
   },
 
 
@@ -96,11 +98,11 @@ Page({
    */
   onLoad: function (options) {
     selidx = 0;
-    console.log("options: ",options)
-    if(JSON.stringify(options) != "{}"){
+    // console.log("options: ",options)
+    if (JSON.stringify(options) != "{}") {
       var i = 0;
-      for(i; i<9; i++){
-        if(fes_name_list[i] == options.fes){
+      for (i; i < 9; i++) {
+        if (fes_name_list[i] == options.fes) {
           selidx = i;
           break;
         }
@@ -117,49 +119,51 @@ Page({
     
     //查询指定节日的数据
     db.collection("attractions")
-    .where({
-      ['festival.'+[selidx]]: true
-    }).get()
-    .then(res=>{
-      this.setData({        
-        bannerData: res.data,
-      })
-    //  console.log("bannerData",this.data.bannerData)
-    //改造bannerData数据的fes_pic和fes_intro
-     var i = 0;
-     var len = this.data.bannerData.length;
-     var views = []
-     for(i; i<len; i++){
-      var aCurrentFesView = this.data.bannerData[i];
-      aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
-      aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
-      views[i] = aCurrentFesView;
-     }
-      this.setData({
-        bannerData: views
-      })
-
-      //获取当前view的id，和用户的openid
-      var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
-      wx.cloud.callFunction({
-        name: "getOPENID"
-      })
-      .then(res=>{
+      .where({
+        ['festival.' + [selidx]]: true
+      }).get()
+      .then(res => {
+        console.log("REs",res.data);
         this.setData({
-          OPENID: res.result.openid,
-          ID: currentViewID
+          bannerData: res.data,
         })
-        // console.log("ViewID: ",this.data.ID)
-        // console.log("OpenID: ", this.data.OPENID)
-        //获取ViewID和OpenID后，设定当前view的收藏状态
-        this.setCollectIcon()
-      }) 
-    })
+         console.log("bannerData",this.data.bannerData)
+        //改造bannerData数据的fes_pic和fes_intro
+        var i = 0;
+        var len = this.data.bannerData.length;
+        var views = []
+        for (i; i < len; i++) {
+          var aCurrentFesView = this.data.bannerData[i];
+          aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
+          aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
+          views[i] = aCurrentFesView;
+        }
+        this.setData({
+          bannerData: views
+        })
+
+        //获取当前view的id，和用户的openid
+        var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
+        wx.cloud.callFunction({
+            name: "getOPENID"
+          })
+          .then(res => {
+            this.setData({
+              OPENID: res.result.openid,
+              ID: currentViewID
+            })
+            // console.log("ViewID: ",this.data.ID)
+            // console.log("OpenID: ", this.data.OPENID)
+            //获取ViewID和OpenID后，设定当前view的收藏状态
+            this.setCollectIcon()
+          })
+      })
   },
   //左右切换景点的动作
   bannerSwiper(e) {
-    console.log("Banner Swiper", e)
-    const that = this, bannerCurrent = e.detail.current;
+    // console.log("Banner Swiper", e)
+    const that = this,
+      bannerCurrent = e.detail.current;
     that.setData({
       bannerCurrent
     })
@@ -199,87 +203,88 @@ Page({
       filtrate: false
     })
   },
-  choose: function (e) {   
+  choose: function (e) {
     let _index = e.currentTarget.dataset.index
     let _name = e.currentTarget.dataset.name
     selidx = _index
     // indexx=_index
-    var timeOut=setTimeout(
-      function() 
-      { filtrate: false }, 2000)
+    var timeOut = setTimeout(
+      function () {
+        filtrate: false
+      }, 2000)
     this.setData({
       fesName: _name,
       timeOut,
-      filtrate:false
-      
+      filtrate: false
+
     })
     db.collection("attractions").where({
-      ['festival.'+[selidx]]: true
-    }).get()
-    .then(res=>{
-      // console.log("RES 51", res)
-      this.setData({        
-        bannerData: res.data,
+        ['festival.' + [selidx]]: true
+      }).get()
+      .then(res => {
+        // console.log("RES 51", res)
+        this.setData({
+          bannerData: res.data,
+        })
+        //  console.log("bannerData",this.data.bannerData)
+        var i = 0;
+        var len = this.data.bannerData.length;
+        var views = []
+        for (i; i < len; i++) {
+          var aCurrentFesView = this.data.bannerData[i];
+          aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
+          aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
+          views[i] = aCurrentFesView;
+        }
+        this.setData({
+          bannerData: views
+        })
       })
-    //  console.log("bannerData",this.data.bannerData)
-     var i = 0;
-     var len = this.data.bannerData.length;
-     var views = []
-     for(i; i<len; i++){
-      var aCurrentFesView = this.data.bannerData[i];
-      aCurrentFesView.fes_intro = this.data.bannerData[i].fes_intro[selidx]
-      aCurrentFesView.fes_pic = this.data.bannerData[i].fes_pic[selidx]
-      views[i] = aCurrentFesView;
-     }
-      this.setData({
-        bannerData: views
-      })
-    })
     this.setCollectIcon()
   },
-  click_collect(){
-    if(if_collect == true){
+  // 点击收藏
+  click_collect() {
+    if (if_collect == true) {
       this.setData({
-        fav_icon:false
+        fav_icon: false
       })
       if_collect = false;
       db.collection("festival_collections").where({
-        OpenID: this.data.OPENID,
-        ViewID: this.data.ID,
-        Festival: fes_name_list[selidx]
-      })
-      .remove()
-      .then(res=>{
-        console.log("取消收藏成功", res)
-      })
-      .catch(res=>{
-        console.log("取消收藏失败", res)
+          OpenID: this.data.OPENID,
+          ViewID: this.data.ID,
+          Festival: fes_name_list[selidx]
+        })
+        .remove()
+        .then(res => {
+          console.log("取消收藏成功", res)
+        })
+        .catch(res => {
+          console.log("取消收藏失败", res)
 
-      })
-    }
-    else{
+        })
+    } else {
       this.setData({
-        fav_icon:true
+        fav_icon: true
       })
       if_collect = true;
       db.collection("festival_collections").add({
-        data:{
-          ViewID: this.data.ID,
-          OpenID: this.data.OPENID,
-          Festival: fes_name_list[selidx],
-          SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
-          FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
-          FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro,
-          Index: this.data.bannerCurrent
-        }
-      })
-      .then(res=>{
-        console.log("增加收藏成功", res)
-        console.log(if_collect)
-      })
-      .catch(res=>{
-        console.log("增加收藏失败", res)
-      })
+          data: {
+            ViewID: this.data.ID,
+            OpenID: this.data.OPENID,
+            Festival: fes_name_list[selidx],
+            SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
+            FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
+            FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro,
+            Index: this.data.bannerCurrent
+          }
+        })
+        .then(res => {
+          console.log("增加收藏成功", res)
+          // console.log(if_collect)
+        })
+        .catch(res => {
+          console.log("增加收藏失败", res)
+        })
     }
   },
 

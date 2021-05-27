@@ -22,8 +22,8 @@
                     <view class='imgWrap'>
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <view class='mSmall f14 relative mb10'> {{ item.site_name }} </view>
-                        <!-- <view class='mSmall relative'>· {{ item.fes_intro }} ·</view> -->
+                        <!-- <view class='mSmall f14 relative mb10'> {{ item.site_name }} </view> -->
+                        <view class='mSmall relative' style="font-weight: bold;font-size: 30rpx;">· {{ item.site_name }} ·</view>
                       </view>
                     </view>
                   </view>
