@@ -79,7 +79,6 @@ Page({
           this.setData({
             festivalViewList: res.data,
           })
-          console.log('fesivalViewList', res.data)
         }
       })
     })
@@ -124,7 +123,6 @@ Page({
   },
 
   swichNav: function (e) {
-    console.log(e);  
     var that = this; 
     if (this.data.currentTab === e.target.dataset.current) {
     return false; 
@@ -133,7 +131,7 @@ Page({
         currentTab: e.target.dataset.current,  
     })    
     }
-    console.log("currentTab: ", this.data.currentTab)    
+    // console.log("currentTab: ", this.data.currentTab)    
     },    
     swiperChange: function (e) {    
     console.log(e);    

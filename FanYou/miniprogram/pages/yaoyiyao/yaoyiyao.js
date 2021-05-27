@@ -63,7 +63,7 @@ Page({
           x: e.x,
           y: e.y
         })
-        if ((Math.abs(speedX) > 26000) || (Math.abs(speedY) > 26000)) {
+        if ((Math.abs(speedX) > 800) || (Math.abs(speedY) > 800)) {
           if (that.data.isExecute) {
             // console.log("正在执行")
             // setRandow();

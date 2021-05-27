@@ -1,39 +1,28 @@
-
-<!-- <view class='container'>
-  <view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
-    <view class='box ' >
-      <view class='title'>{{item.city}}</view>
-      <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-id='{{item._id}}'></image>
-      <view class='content'>{{item.introduction}}</view>
-    </view>   
-  </view>
-</view> -->
-
-
 <view class="page">
 <view class="swiper-tab">
- <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">City</view>
- <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">Festival</view> 
+ <view class="tab-item {{currentTab==0 ? 'onCity' : ''}}" data-current="0" bindtap="swichNav">城市</view>
+ <view class="tab-item {{currentTab==1 ? 'onFestival' : ''}}" data-current="1" bindtap="swichNav">节日</view> 
  </view>
  <swiper class="swiper" current="{{currentTab}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" duration="200" bindchange="swiperChange">
  
- <swiper-item>
+ <swiper-item class="city">
   <scroll-view  class='container' scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
   <scroll-view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
     <view class='box ' >
-      <view class='title'>{{item.City}}--{{item.SiteName}}</view>
+
       <image class='image' src='{{item.CityImg}}' mode='aspectFill' catchtap='onCityTapNavigateTo' data-id='{{item.ViewID}}'></image>
+      <view class='title'>{{item.City}} · {{item.SiteName}}</view>
       <view class='content'>{{item.CityIntro}}</view>
     </view>   
   </scroll-view>
 </scroll-view>
  </swiper-item>
- <swiper-item> 
+ <swiper-item class="festival"> 
   <scroll-view class='container' scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
   <scroll-view class='mrys'  wx:for="{{festivalViewList}}" wx:key="id" >
     <view class='box ' >
-      <view class='title'>{{item.Festival}}--{{item.SiteName}}</view>
       <image class='image' src='{{item.FesPic}}' mode='aspectFill' catchtap='onFesTapNavigateTo' data-item='{{item}}'></image>
+      <view class='title'>{{item.Festival}} · {{item.SiteName}}</view>
       <view class='content'>{{item.FesIntro}}</view>
     </view>   
   </scroll-view>
