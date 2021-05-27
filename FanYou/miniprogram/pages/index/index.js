@@ -20,9 +20,9 @@ Page(
     },
     login() {
       wx.getUserProfile({
-        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        desc: '需要登陆才可以收藏和转发！', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: (file) => {
-          console.log(file)
+          console.log("Filse: ",file)
           wx.login({
             success: (res) => {
               console.log(res);

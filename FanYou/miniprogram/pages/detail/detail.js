@@ -98,7 +98,7 @@ Page({
           if_collect = true;
         }
         this.setData({
-          collect_img_url: if_collect== true ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E6%94%B6%E8%97%8F.png?sign=051e3aa8a07a1dcdd9e914c6ff2bad0d&t=1622028859": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=824802fd21da8befce4473e720f6f094&t=1622028817",
+          collect_img_url: len != 0 ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E6%94%B6%E8%97%8F.png?sign=051e3aa8a07a1dcdd9e914c6ff2bad0d&t=1622028859": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=824802fd21da8befce4473e720f6f094&t=1622028817",
         })
       })
       
@@ -126,49 +126,59 @@ Page({
   },
   //收藏的click方法
 click_collect(){
-  if(if_collect == true){
-    this.setData({
-      collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=f245662a9daf0f91b018b5477497aa1c&t=1622028879"
-    })
-    if_collect = false
-    db.collection("city_collections").where({
-      OpenID: this.data.OPENID,
-      ViewID: this.data.ID
-    })
-    .remove()
-    .then(res=>{
-      console.log("取消收藏成功", res)
-    })
-    .catch(res=>{
-      console.log("取消收藏失败", res)
-    })
-    
-
-  }else{
-  //如果用户没有收藏该景点且点击了收藏button则:
-    //更改图片
-    this.setData({
-      collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E6%94%B6%E8%97%8F.png?sign=9ffe97b4fa08655b93dbeee8b81d4427&t=1622028900"
-    })
-    if_collect = true
-
-    db.collection("city_collections").add({
-      data:{
-        ViewID: this.data.ID,
+  var len = 0
+  db.collection("city_collections").where({
+    ViewID: this.data.ID,
+    OpenID: this.data.OPENID
+  })
+  .get()
+  .then(res=>{
+     len = res.data.length;
+     if(len != 0){
+      this.setData({
+        collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=f245662a9daf0f91b018b5477497aa1c&t=1622028879"
+      })
+      if_collect = false
+      db.collection("city_collections").where({
         OpenID: this.data.OPENID,
-        SiteName: this.data.currentView.site_name,
-        City: this.data.currentView.city,
-        CityImg: this.data.currentView.img_url,
-        CityIntro: this.data.currentView.introduction
-      }
-    })
-    .then(res=>{
-      console.log("增加收藏成功", res)
-    })
-    .catch(res=>{
-      console.log("增加收藏失败", res)
-    })
-  }
+        ViewID: this.data.ID
+      })
+      .remove()
+      .then(res=>{
+        console.log("取消收藏成功", res)
+      })
+      .catch(res=>{
+        console.log("取消收藏失败", res)
+      })
+      
+  
+    }else{
+    //如果用户没有收藏该景点且点击了收藏button则:
+      //更改图片
+      this.setData({
+        collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E6%94%B6%E8%97%8F.png?sign=9ffe97b4fa08655b93dbeee8b81d4427&t=1622028900"
+      })
+      if_collect = true
+  
+      db.collection("city_collections").add({
+        data:{
+          ViewID: this.data.ID,
+          OpenID: this.data.OPENID,
+          SiteName: this.data.currentView.site_name,
+          City: this.data.currentView.city,
+          CityImg: this.data.currentView.img_url,
+          CityIntro: this.data.currentView.introduction
+        }
+      })
+      .then(res=>{
+        console.log("增加收藏成功", res)
+      })
+      .catch(res=>{
+        console.log("增加收藏失败", res)
+      })
+    }
+  })
+  
 },
 
 click_like(){

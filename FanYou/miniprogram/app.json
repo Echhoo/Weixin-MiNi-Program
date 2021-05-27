@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/festival/festival",
     "pages/book/catagory",
     "pages/city/city",
     "pages/festival/festival",
