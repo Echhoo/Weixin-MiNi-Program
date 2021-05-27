@@ -1,0 +1,15 @@
+<!--pages/sightrec/sightrec.wxml-->
+<!-- <image style="width:100%; height: 300px; " src="{{img}}" ></image>
+<text class="tips" wx:if="{{ishow}}">请先选择图片!</text>
+<button bindtap="chooseimgTap">选择图片</button>
+<button bindtap="plantTap" class="btn" type="primary">植物识别</button> 
+返回结果
+<view class="result-content">{{content}}</view> -->
+
+<view class="contianer">
+  <view class="imgContainer">
+    <image class="bigImg"src="{{img}}"></image>
+  </view>
+  <button class="btn" bindtap="chooseimgTap">开始识别</button>
+  <view class="result">相关信息</view>
+</view>
