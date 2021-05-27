@@ -16,8 +16,9 @@
     <text  class="intro-text" space="emsp">  {{currentView.introduction}}</text>
   </view>
   <view class="function">
-    <view class="like">
-      <image class='collect_image' src = '{{like_img_url}}' bindtap = 'click_like' style="width: 120rpx; height: 120rpx; display: relative; "></image>
+    <view class="share_func">
+      <image src='https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/%E5%88%86%E4%BA%AB.png?sign=4d964c432369d2bf03eacfb9f7e80988&t=1622028424'></image>
+      <button open-type="share"></button>   
     </view>
     <view class="collect">
       <image class='collect_image' src = '{{collect_img_url}}' bindtap = 'click_collect' style="width: 120rpx; height: 120rpx; display: relative; "></image>

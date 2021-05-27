@@ -59,6 +59,8 @@ Page({
         name: "元宵"
       },
     ],
+    // 当前节日的对象列表
+    currentFestivalViews: []
 
   },
   //设定当前卡片的被收藏的情况
@@ -104,10 +106,14 @@ Page({
         }
       }
       this.setData({
-        bannerCurrent: parseInt(options.index)
+        bannerCurrent: parseInt(options.index),
+        fesName : options.fes
       })
 
     }
+    this.setData({
+      fesName: fes_name_list[selidx]
+    })
     
     //查询指定节日的数据
     db.collection("attractions")
@@ -277,6 +283,28 @@ Page({
     }
   },
 
+  /**
+   * 用户分享功能
+   */
+  onShareAppMessage: function(res) {
+    let that = this;
+    // console.log("Share",res);
+    // console.log("Festival",fes_name_list[selidx]);
+    // console.log("Index",this.data.bannerCurrent);
+    return {
+      title: "发送给好友",      
+      path: 'pages/festival/festival?fes='+fes_name_list[selidx]+
+      '&index='+this.data.bannerCurrent,
+      
+      success: function(res) {
+        console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        console.log(res, "转发失败")
+      }
+    }
+  },
+
 
   onReady: function () {
 
@@ -320,7 +348,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  // onShareAppMessage: function () {
+  //   return {
+  //     title: '泛游邀你一起看',
+  //     desc: fes_name_list[selidx]+'佳节的'+this.data.bannerData[this.data.bannerCurrent].site_name,
+  //     path: '/pages/festival/festival?fes='+fes_name_list[selidx]+"&index="+this.data.bannerCurrent // 路径，传递参数到指定页面。
+  // }
+  // }
 })

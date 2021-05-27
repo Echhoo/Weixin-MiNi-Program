@@ -6,10 +6,8 @@
     "pages/festival/festival",
     "pages/index/index",
     "pages/book/catagory",
-
     "pages/city/city",
-     "pages/collect/collect",
-    "pages/team/team",   
+    "pages/collect/collect",
     "pages/detail/detail",
     "pages/collecttest/collecttest",
     "pages/view_detail/view_detail"
