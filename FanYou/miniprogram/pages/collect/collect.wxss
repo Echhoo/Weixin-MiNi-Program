@@ -84,6 +84,7 @@
 
 
 .city .mrys .box .title {
+    overflow: hidden;
   right: 0;
   top: 0;
   font-size: 13pt;
@@ -127,10 +128,11 @@
 
 
 .festival .mrys .box .title {
+  overflow: hidden;
   right: 0;
   top: 20rpx;
   width:250rpx;
-  height:200rpx;
+  height:150rpx;
   margin-top: 20rpx;
   margin-left: 20rpx;
   padding-right:20rpx;
