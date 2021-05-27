@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/upload/upload",
     "pages/book/catagory",
     "pages/city/city",
     "pages/festival/festival",
@@ -18,6 +19,8 @@
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
-  "requiredBackgroundModes": ["audio", "location"]
-  
+  "requiredBackgroundModes": ["audio", "location"],
+  "useExtendedLib": {
+    "weui": true
+  }
 } 
