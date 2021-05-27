@@ -179,6 +179,12 @@ saveImg1(url){
     }
   })
 },
+onShareAppMessage: function(){
+  // return{
+  //   title: "泛游邀请你一起看",
+  //   desc: this.data.currentView
+  // }
+}
 })
 
 
