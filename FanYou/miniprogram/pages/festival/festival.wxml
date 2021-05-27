@@ -60,10 +60,8 @@
           <view class='functionIcon'>
             <view class='forwardIcon'>
               <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
-              <button open-type="share" class="share_button" >
-                <icon class="iconfont forward-pic icon-fenxiang1" >
-                </icon>
-              </button>
+              <icon class="iconfont forward-pic icon-fenxiang1" ></icon>
+              <button open-type="share" data-item='{{item}}'></button>
             </view>
             <view class='favoriteIcon' bindtap = 'click_collect'>
               <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
