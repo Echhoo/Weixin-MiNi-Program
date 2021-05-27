@@ -1,8 +1,6 @@
 const innerAudioContext = wx.createInnerAudioContext()
-let util = require("../../utils/util.js")
-util.formatDate(new Date())
 let if_collect = false;
-let random = Math.floor(Math.random() * 8);
+let random=0;
 let fes_name_list = ["清明", "五一", "端午", "儿童节", "中秋", "七夕", "国庆", "春节", "元宵"]
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val);
@@ -27,6 +25,8 @@ Page({
       'score': '7.6',
       'city': ''
     }],
+    ranData: [],
+    // bannerData:[],
     startTime: 0,
     x: 0,
     y: 0,
@@ -37,13 +37,13 @@ Page({
     shakeTip: ''
   },
   onLoad: function (options) {
-    // this.setRandow()
+    // this.setRandow();
   },
+  // 摇一摇
   onShow: function () {
     var that = this;
     that.isShow = true;
     wx.onAccelerometerChange(function (e) {
-      // console.log("###",e)
       if (!that.isShow) {
         return
       }
@@ -63,16 +63,17 @@ Page({
           x: e.x,
           y: e.y
         })
-        if ((Math.abs(speedX) > 20000) || (Math.abs(speedY) > 20000)) {
+        if ((Math.abs(speedX) > 26000) || (Math.abs(speedY) > 26000)) {
           if (that.data.isExecute) {
-            console.log("正在执行")
+            // console.log("正在执行")
+            // setRandow();
             wx.showToast({
-              title: '成功',
-              icon: 'success',
+              title: "摇一摇\n你的景点来了",
+              icon: 'none',
               duration: 2000
             })
             wx.vibrateLong({})
-            // this.setRandow()
+            that.setRandow();
           } else {
 
             // innerAudioContext.play();
@@ -83,17 +84,12 @@ Page({
 
             }, 1000)
             wx.showToast({
-              title: '成功',
-              icon: 'success',
+              title: "摇一摇\n你的景点来了",
+              icon: 'none',
               duration: 2000
             })
+            that.setRandow();
             wx.vibrateLong({})
-            
-            setTimeout(function () {
-              that.setData({
-                isExecute: false,
-              })
-            }, 1000)
           }
         }
       }
@@ -122,50 +118,114 @@ Page({
     //设定当前view的收藏状态
     // this.setCollectIcon()
   },
-  // checkCollect: function (e) {
-  //   db.collection("festival_collections")
-  //     .where({
-  //       ViewID: this.data.ID,
-  //       OpenID: this.data.OPENID,
-  //       Festival: fes_name_list[random]
-  //     })
-  //     .get()
-  //     .then(res => {
-  //       //根据数据库中的情况，来设定收藏情况
-  //       // console.log("收藏：",res)
-  //       var len = res.data.length
-  //       if (len == 0) {
-  //         if_collect = false;
-  //       } else {
-  //         if_collect = true;
-  //       }
-  //     })
-  // },
   // 随机筛选数据库
-  // setRandow: function (e) {
-  //   //随机数
-  //   //
-  //   while (!if_collect) {
-  //     this.checkCollect();
-  //   }
-  //   db.collection('attractions')
-  //     .aggregate()
-  //     .sample({
-  //       size: 1
-  //     })
-  //     .end().then(res => {
-  //       console.log(res.list[0].concent);
-  //       console.log(res.list);
-  //     })
+  setRandow: function () {
+    var that = this;
+    random = Math.floor(Math.random() * 8)
+    
+    console.log(random)
+    db.collection('attractions')
+      .aggregate()
+      .match({
+        ['festival.' + [random]]: true
+      })
+      .sample({
+        size: 1
+      })
+      .end().then(res => {
+        console.log("res", res.list),
+          that.setData({
+            ranData: res.list,
+          })
+        console.log("ranData", that.data.ranData)
+        var i = 0;
+        var len = this.data.ranData.length;
+        var views = []
+        for (i; i < len; i++) {
+          var aCurrentFesView = this.data.ranData[i];
+          aCurrentFesView.fes_intro = this.data.ranData[i].fes_intro[random]
+          aCurrentFesView.fes_pic = this.data.ranData[i].fes_pic[random]
+          // aCurrentFesView.img_url = this.data.ranData[i].img_url
+          // aCurrentFesView.level = this.data.ranData[i].level
+          // aCurrentFesView.score = this.data.ranData[i].score
+          views[i] = aCurrentFesView;
+        }
+        this.setData({
+          bannerData: views
+        })
+        console.log("bannnerData", this.data.bannerData)
+        var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
+        wx.cloud.callFunction({
+            name: "getOPENID"
+          })
+          .then(res => {
+            this.setData({
+              OPENID: res.result.openid,
+              ID: currentViewID
+            })
+            // console.log("ViewID: ",this.data.ID)
+            // console.log("OpenID: ", this.data.OPENID)
+            //获取ViewID和OpenID后，设定当前view的收藏状态
+          })
+      })
+  },
+  click_collect() {
+    if (if_collect == true) {
+      this.setData({
+        fav_icon: false
+      })
+      if_collect = false;
+      db.collection("festival_collections").where({
+          OpenID: this.data.OPENID,
+          ViewID: this.data.ID,
+          Festival: fes_name_list[random]
+        })
+        .remove()
+        .then(res => {
+          wx.showToast({
+            title: "取消收藏成功",
+            icon: 'success',
+            duration: 2000
+          })
+        })
+        .catch(res => {
+          wx.showToast({
+            title: '取消收藏失败',
+            icon: 'error',
+            duration: 2000
+          })
 
-  // }
-  //   db.collection("attractions")
-  //   .where({
-  //     ['festival.'+[selidx]]: true
-  //   }).get()
-  //   .then(res=>{
-  //     this.setData({        
-  //       bannerData: res.data,
-  //     })
-  // })
+        })
+    } else {
+      this.setData({
+        fav_icon: true
+      })
+      if_collect = true;
+      db.collection("festival_collections").add({
+          data: {
+            ViewID: this.data.ID,
+            OpenID: this.data.OPENID,
+            Festival: fes_name_list[random],
+            SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
+            FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
+            FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro,
+            Index: this.data.bannerCurrent
+          }
+        })
+        .then(res => {
+          wx.showToast({
+            title: '增加收藏成功',
+            icon: 'success',
+            duration: 2000
+          })
+        })
+        .catch(res => {
+          wx.showToast({
+            title: '增加收藏失败',
+            icon: 'error',
+            duration: 2000
+          })
+        })
+    }
+  },
 })

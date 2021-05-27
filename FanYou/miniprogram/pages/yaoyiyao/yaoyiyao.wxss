@@ -15,13 +15,12 @@ page {
 .title {
   width: 100%;
   height: 6%;
-  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   position: relative;
 }
 .title .Name {
   position: absolute;
   width: 100%;
-  font-size: 50rpx;
   color:white;
   font-size:36rpx;
   margin:30rpx;
@@ -29,9 +28,10 @@ page {
   /* /* justify-content: center; */
   text-align: center 
 }
-.yaoicon{
-  left:10%;
+.title .yaoicon{
+  left:22%;
   padding:10rpx;
+  top:60rpx;
   width:100rpx;
   height:100rpx;
   font-size:60rpx;

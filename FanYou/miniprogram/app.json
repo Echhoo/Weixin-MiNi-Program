@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/festival/festival",
     "pages/index/index",
+    "pages/festival/festival",
     "pages/catagory/catagory",
     "pages/city/city",
-     "pages/collect/collect",
-    "pages/team/team",   
+    "pages/collect/collect",
     "pages/detail/detail",
-    "pages/view_detail/view_detail"
+    "pages/view_detail/view_detail",
+    "pages/yaoyiyao/yaoyiyao"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

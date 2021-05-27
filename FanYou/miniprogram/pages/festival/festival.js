@@ -59,6 +59,8 @@ Page({
         name: "元宵"
       },
     ],
+    // 当前节日的对象列表
+    currentFestivalViews: []
 
   },
 
@@ -106,21 +108,26 @@ Page({
         }
       }
       this.setData({
-        bannerCurrent: parseInt(options.index)
+        bannerCurrent: parseInt(options.index),
+        fesName : options.fes
       })
 
     }
-
+    this.setData({
+      fesName: fes_name_list[selidx]
+    })
+    
     //查询指定节日的数据
     db.collection("attractions")
       .where({
         ['festival.' + [selidx]]: true
       }).get()
       .then(res => {
+        console.log("REs",res.data);
         this.setData({
           bannerData: res.data,
         })
-        //  console.log("bannerData",this.data.bannerData)
+         console.log("bannerData",this.data.bannerData)
         //改造bannerData数据的fes_pic和fes_intro
         var i = 0;
         var len = this.data.bannerData.length;
@@ -237,21 +244,6 @@ Page({
   },
   // 点击收藏
   click_collect() {
-    // wx.getSetting({
-    //   success: function (res) {
-    //     // 判断是否授权
-    //     if (res.authSetting['scope.userInfo']) {
-    //        //获取用户信息
-    //       wx.getUserInfo({
-    //         success: function (res) {
-    //           console.log("hello")
-    //         }
-    //       });
-    //     }else{
-    //       login()
-    //       console
-    //     }
-    //   }})
     if (if_collect == true) {
       this.setData({
         fav_icon: false
@@ -296,39 +288,29 @@ Page({
     }
   },
 
-  login() {
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (file) => {
-        // console.log(file)
-        wx.login({
-          success: (res) => {
-            // console.log(res);
-            wx.request({
-              url: 'code获取openid的接口',
-              data: {
-                code: res.code
-              },
-              success: (open) => {
-                // console.log(open.data);
-                wx.request({
-                  url: '授权登陆接口',
-                  data: {
-                    openid: open.data.openid,
-                    NickName: file.userInfo.nickName,
-                    HeadUrl: file.userInfo.avatarUrl
-                  },
-                  success(data) {
-                    // console.log(data.data);
-                  }
-                })
-              }
-            })
-          }
-        })
+  /**
+   * 用户分享功能
+   */
+  onShareAppMessage: function(res) {
+    let that = this;
+    // console.log("Share",res);
+    // console.log("Festival",fes_name_list[selidx]);
+    // console.log("Index",this.data.bannerCurrent);
+    return {
+      title: "发送给好友",      
+      path: 'pages/festival/festival?fes='+fes_name_list[selidx]+
+      '&index='+this.data.bannerCurrent,
+      
+      success: function(res) {
+        console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        console.log(res, "转发失败")
       }
-    })
+    }
   },
+
+
   onReady: function () {
 
   },
@@ -371,7 +353,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  // onShareAppMessage: function () {
+  //   return {
+  //     title: '泛游邀你一起看',
+  //     desc: fes_name_list[selidx]+'佳节的'+this.data.bannerData[this.data.bannerCurrent].site_name,
+  //     path: '/pages/festival/festival?fes='+fes_name_list[selidx]+"&index="+this.data.bannerCurrent // 路径，传递参数到指定页面。
+  // }
+  // }
 })
