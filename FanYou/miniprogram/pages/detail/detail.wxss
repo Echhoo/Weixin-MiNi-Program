@@ -27,8 +27,8 @@ align-items: flex-start;
 overflow:unset;
 }
 .slide-image{
-height:320rpx;
-width: 320rpx;
+height:350rpx;
+width: 350rpx;
 border-radius: 9rpx;
 box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
 margin: 0rpx 30rpx;

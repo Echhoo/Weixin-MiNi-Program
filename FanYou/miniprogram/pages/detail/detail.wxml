@@ -1,7 +1,7 @@
 <!--pages/detail/detail.wxml-->
 <view class="container">
   <view class="carousel">
-    <swiper class="swiper-block" previous-margin="200rpx" next-margin="200rpx" 
+    <swiper class="swiper-block" previous-margin="180rpx" next-margin="180rpx" 
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{imgUrls}}" wx:index="{{index}}">
         <swiper-item class="swiper-item">
@@ -11,7 +11,7 @@
     </swiper>
   </view>
   <view class="intro">
-    <view class="intro-title">{{currentView.city}} {{currentView.site_name}}</view>
+    <view class="intro-title">{{currentView.city}} · {{currentView.site_name}}</view>
     <view class="intro-level_score" space="emsp">等级：{{currentView.level}}  评分：{{currentView.score}}</view>
     <text  class="intro-text" space="emsp">  {{currentView.introduction}}</text>
   </view>
