@@ -37,6 +37,31 @@ Page({
     list: [],
     shakeTip: ''
   },
+  setCollectIcon: function () {
+    db.collection("festival_collections")
+      .where({
+        ViewID: this.data.ID,
+        OpenID: this.data.OPENID,
+        Festival: fes_name_list[random]
+      })
+      .get()
+      .then(res => {
+        //根据数据库中的情况，来设定收藏情况
+        // console.log("收藏：",res)
+        var len = res.data.length
+        if (len == 0) {
+          if_collect = false;
+          this.setData({
+            fav_icon: false
+          })
+        } else {
+          if_collect = true;
+          this.setData({
+            fav_icon: true
+          })
+        }
+      })
+  },
   onLoad: function (options) {
     // this.setRandow();
   },
@@ -173,6 +198,7 @@ Page({
             console.log("OpenID: ", this.data.OPENID)
             console.log("BannerData: ", this.data.bannerData)
             // 获取ViewID和OpenID后，设定当前view的收藏状态
+            this.setCollectIcon()
           })
       })
   },
