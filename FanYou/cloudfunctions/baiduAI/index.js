@@ -9,23 +9,32 @@ let SECRET_KEY = "yUXwVAS27pqWyFZ7t0MYhOTbsQRbAH66";
 // 新建一个对象，建议只保存一个对象调用服务接口
 let client = new AirpImageClassifyClient(APP_ID, API_KEY,SECRET_KEY);
 
-cloud.init()
+cloud.init({
+  env: 'wzx-cloudbase-1grg51bs80e42788'
+})
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  let img = event.fileID  
   let { fileID } = event;   // 这里是因为我们这个函数只需要一个fileID的参数
 
   let res = await cloud.downloadFile({   // 云服务的下载
     fileID: fileID  
   })
-  
   console.log('调用百度ai函数打印1：', res);
 
   let image = res.fileContent.toString("base64");   // 将图片转成base64格式，因为这里百度ai只接受base64格式
 
-  let val = await client.advancedGeneral(image);  
+
+// 调用地标识别
+  client.landmark(image).then(function(result) {
+    console.log(JSON.stringify(result));
+  }).catch(function(err) {
+    // 如果发生网络错误
+    console.log(err);
+});
 
   return {
-    val
+    val,img
   }
 }

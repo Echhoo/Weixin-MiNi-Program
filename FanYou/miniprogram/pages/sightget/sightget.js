@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    context:[]
+    context:[],
+    pic:"",
+    bgUrl:""
   },
 
   /**
@@ -24,15 +26,28 @@ Page({
         wx.hideLoading();
         console.log("百度ai传回来的数据2：", res.result.val.result)
         this.setData({
-          context: res.result.val.result
+          context: res.result.val.result,
+          pic:res.result.img
         })
         console.log(this.data.context);
+        // console.log(this.data.pic);
+        var img = this.data.pic
+        // console.log(img)
+        
+        wx.cloud.getTempFileURL({
+          fileList:[img,],
+          success: res => {
+            this.setData({
+              bgUrl:res.fileList[0].tempFileURL
+            })
+            console.log(this.data.bgUrl)
+          },
+    })
       },
       fail: error =>{
         console.log('接口失败：', error);
       }
     })
-
   },
 
   /**

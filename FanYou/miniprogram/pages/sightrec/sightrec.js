@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: '../../images/favorites-fill.png',
+    img: '',
     imgB64: '',
     content: '',
     ishow: false
