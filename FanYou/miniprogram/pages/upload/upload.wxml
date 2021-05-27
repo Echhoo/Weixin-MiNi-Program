@@ -1,31 +1,21 @@
 <!--pages/upload/upload.wxml-->
-<view>
-  <text>景点：</text>
-  <input placeholder="请输入景点名称" bindinput="siteNameInput"/>
-</view>
-<view>
-  <text>城市：</text>
-  <input placeholder="请输入所在城市（市、区）" bindinput="cityInput"/>
-</view>
-
-<view>
-  <text>简介：</text>
-  <input placeholder="请输入简介（30字左右）" bindinput="introInput"/>
-</view>
-<view>
+<form bindsubmit='uploadViewData'>
+  <text >景点信息录入：</text>
+  <input type='text' name='site_name' placeholder="请输入景点名称"></input>
+  <input type='text' name='city' placeholder="请输入所在城市（市、区）"></input>
+  <input type='text' name='intro' placeholder="请输入简介（30字左右）"/>
+  <view>
   <text>请上传图片：</text>
-  <button bindtap="chooseImage"></button>
-  <text>url: {{file}}</text>
-  <view class="page">
-    <view class="page__bd">
-        <mp-cells>
-            <mp-cell>
-                <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="5" title="图片上传" ></mp-uploader>
-            </mp-cell>
-        </mp-cells>
-    </view>
-  </view>
+  <button type = "primary" bindtap="chooseAndUploadImage">上传图片到云端</button>
+  <image src="{{fileID}}"></image>
 </view>
+  <view >
+    <button formType="submit" type='primary'>点击提交</button>
+    <button formType="reset" type='primary'>重置数据表单</button>
+  </view>
+</form>
+
+
 
 
 
