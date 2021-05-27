@@ -14,6 +14,7 @@ Page({
   data: {
     ID: '',
     OPENID: '',
+    fav_icon: false,
     bannerCurrent: 0, // 当前显示的banner
     bannerData: [{
       'id': 1,
@@ -63,7 +64,7 @@ Page({
           x: e.x,
           y: e.y
         })
-        if ((Math.abs(speedX) > 26000) || (Math.abs(speedY) > 26000)) {
+        if ((Math.abs(speedX) > 800) || (Math.abs(speedY) > 800)) {
           if (that.data.isExecute) {
             // console.log("正在执行")
             // setRandow();
@@ -114,29 +115,24 @@ Page({
     this.setData({
       ID: this.data.bannerData[this.data.bannerCurrent]._id,
     })
-    // console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
     //设定当前view的收藏状态
-    // this.setCollectIcon()
+    this.setCollectIcon()
   },
   // 随机筛选数据库
   setRandow: function () {
     var that = this;
     random = Math.floor(Math.random() * 8)
-    
     console.log(random)
     db.collection('attractions')
-      .aggregate()
-      .match({
+      .where({
         ['festival.' + [random]]: true
       })
-      .sample({
-        size: 1
-      })
-      .end().then(res => {
-        console.log("res", res.list),
-          that.setData({
-            ranData: res.list,
-          })
+      .get()
+      .then(res => {
+        that.setData({
+          ranData: res.data,
+        })
         console.log("ranData", that.data.ranData)
         var i = 0;
         var len = this.data.ranData.length;
@@ -154,7 +150,17 @@ Page({
           bannerData: views
         })
         console.log("bannnerData", this.data.bannerData)
-        var currentViewID = this.data.bannerData[this.data.bannerCurrent]._id;
+        var random_index = Math.floor(Math.random() * len)
+        this.setData({
+          bannerCurrent: random_index
+        })
+        // 注意bannerData必须保持list格式
+        var list = [this.data.bannerData[random_index]]
+        this.setData({
+          bannerData: list
+        })
+        console.log("random banncurrent: ", random_index);
+        var currentViewID = this.data.bannerData[0]._id;
         wx.cloud.callFunction({
             name: "getOPENID"
           })
@@ -163,13 +169,16 @@ Page({
               OPENID: res.result.openid,
               ID: currentViewID
             })
-            // console.log("ViewID: ",this.data.ID)
-            // console.log("OpenID: ", this.data.OPENID)
-            //获取ViewID和OpenID后，设定当前view的收藏状态
+            console.log("ViewID: ",this.data.ID)
+            console.log("OpenID: ", this.data.OPENID)
+            console.log("BannerData: ", this.data.bannerData)
+            // 获取ViewID和OpenID后，设定当前view的收藏状态
           })
       })
   },
   click_collect() {
+    // console.log("OpenID: ", this.data.OpenID)
+    // console.log("ViewID: ", this.data.ViewID)
     if (if_collect == true) {
       this.setData({
         fav_icon: false
@@ -206,13 +215,14 @@ Page({
             ViewID: this.data.ID,
             OpenID: this.data.OPENID,
             Festival: fes_name_list[random],
-            SiteName: this.data.bannerData[this.data.bannerCurrent].site_name,
-            FesPic: this.data.bannerData[this.data.bannerCurrent].fes_pic,
-            FesIntro: this.data.bannerData[this.data.bannerCurrent].fes_intro,
+            SiteName: this.data.bannerData[0].site_name,
+            FesPic: this.data.bannerData[0].fes_pic,
+            FesIntro: this.data.bannerData[0].fes_intro,
             Index: this.data.bannerCurrent
           }
         })
         .then(res => {
+          console.log("Res: ", res)
           wx.showToast({
             title: '增加收藏成功',
             icon: 'success',
