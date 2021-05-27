@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=824802fd21da8befce4473e720f6f094&t=1622028817",
+    collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/20%E7%88%B1%E5%BF%83%20(2).png?sign=f4395722ac7146644fe84919f2f1daab&t=1622111860",
     like_img_url : "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/detial/不喜欢.png",
     currentView: {},
     //ID是当前景点的ID； OPENID则是当前用户的ID；
@@ -98,7 +98,7 @@ Page({
           if_collect = true;
         }
         this.setData({
-          collect_img_url: len != 0 ? "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E6%94%B6%E8%97%8F.png?sign=051e3aa8a07a1dcdd9e914c6ff2bad0d&t=1622028859": "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=824802fd21da8befce4473e720f6f094&t=1622028817",
+          collect_img_url: len != 0 ?  "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/20%E7%88%B1%E5%BF%83%20(1).png?sign=9af3fd2dfb226e69a319260cc2a48555&t=1622111802":"https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/20%E7%88%B1%E5%BF%83%20(2).png?sign=f4395722ac7146644fe84919f2f1daab&t=1622111860",
         })
       })
       
@@ -136,7 +136,7 @@ click_collect(){
      len = res.data.length;
      if(len != 0){
       this.setData({
-        collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E4%B8%8D%E6%94%B6%E8%97%8F.png?sign=f245662a9daf0f91b018b5477497aa1c&t=1622028879"
+        collect_img_url :  "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/20%E7%88%B1%E5%BF%83%20(2).png?sign=f4395722ac7146644fe84919f2f1daab&t=1622111860",
       })
       if_collect = false
       db.collection("city_collections").where({
@@ -156,7 +156,7 @@ click_collect(){
     //如果用户没有收藏该景点且点击了收藏button则:
       //更改图片
       this.setData({
-        collect_img_url : "https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/detial/%E6%94%B6%E8%97%8F.png?sign=9ffe97b4fa08655b93dbeee8b81d4427&t=1622028900"
+        collect_img_url :"https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/20%E7%88%B1%E5%BF%83%20(1).png?sign=9af3fd2dfb226e69a319260cc2a48555&t=1622111802"
       })
       if_collect = true
   

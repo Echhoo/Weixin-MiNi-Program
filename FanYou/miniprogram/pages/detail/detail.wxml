@@ -21,7 +21,7 @@
       <button open-type="share"></button>   
     </view>
     <view class="collect">
-      <image class='collect_image' src = '{{collect_img_url}}' bindtap = 'click_collect' style="width: 120rpx; height: 120rpx; display: relative; "></image>
+      <image class='collect_image' src = '{{collect_img_url}}' bindtap = 'click_collect'  ></image>
     </view>
   </view>
 </view>
