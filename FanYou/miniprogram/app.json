@@ -1,8 +1,9 @@
 {
   "cloud": true,
   "pages": [
-    "pages/festival/festival",
     "pages/sightrec/sightrec",
+    "pages/festival/festival",
+
     "pages/sightget/sightget",
 
     "pages/index/index",

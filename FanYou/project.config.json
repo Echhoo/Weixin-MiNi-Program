@@ -1,10 +1,10 @@
 {
-  "miniprogramRoot": "./miniprogram",
-  "cloudfunctionRoot": "./cloudfunctions",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -23,7 +23,7 @@
     "useApiHook": true,
     "useApiHostProcess": false,
     "babelSetting": {
-      "ignore": [],
+      "ignore": ["./miniprogram/miniprogram_npm/psl"],
       "disablePlugins": [],
       "outputPath": ""
     },

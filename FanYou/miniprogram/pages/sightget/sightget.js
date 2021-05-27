@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    context:[]
   },
 
   /**
@@ -22,10 +22,11 @@ Page({
       success: res => {
         console.log('百度ai传回来的数据：', res);
         wx.hideLoading();
+        console.log("百度ai传回来的数据2：", res.result.val.result)
         this.setData({
-          pic: res.result.val.result
+          context: res.result.val.result
         })
-        console.log(this.data.pic);
+        console.log(this.data.context);
       },
       fail: error =>{
         console.log('接口失败：', error);

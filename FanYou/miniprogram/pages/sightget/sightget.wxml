@@ -1,4 +1,4 @@
 <!--pages/sightget/sightget.wxml-->
 <view class="container">
-  <image src="{{pic}}" class="img"></image>
+  <view class="img">{{context[0].root}}</view>
 </view>
