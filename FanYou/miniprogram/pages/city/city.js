@@ -2,6 +2,7 @@
 var that
 const db = wx.cloud.database();
 var touch = [0,0];
+var openid = ''
 Page({
   data: {
     //new-picker-data
@@ -179,40 +180,13 @@ saveImg1(url){
     }
   })
 },
-login() {
-      wx.getUserProfile({
-        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-        success: (file) => {
-          console.log(file)
-          wx.login({
-            success: (res) => {
-              console.log(res);
-              wx.request({
-                url: 'code获取openid的接口',
-                data: {
-                  code: res.code
-                },
-                success: (open) => {
-                  console.log(open.data);
-                  wx.request({
-                    url: '授权登陆接口',
-                    data: {
-                      openid: open.data.openid,
-                      NickName: file.userInfo.nickName,
-                      HeadUrl: file.userInfo.avatarUrl
-                    },
-                    success(data) {
-                      console.log(data.data);
-                    }
-                  })
-                }
-              })
-            }
-          })
-          this.toBook();
-        }
-      })
-    },
+onShareAppMessage: function(){
+  // return{
+  //   title: "泛游邀请你一起看",
+  //   desc: this.data.currentView.city+"的"+this.data.currentView.site_name,
+  //   path: "/pages/city/city?"
+  // }
+}
 })
 
 

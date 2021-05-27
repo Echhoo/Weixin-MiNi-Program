@@ -18,6 +18,8 @@
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
-  "requiredBackgroundModes": ["audio", "location"]
-  
+  "requiredBackgroundModes": ["audio", "location"],
+  "useExtendedLib": {
+    "weui": true
+  }
 } 
