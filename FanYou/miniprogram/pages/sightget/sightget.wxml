@@ -1,14 +1,8 @@
 <!--pages/sightget/sightget.wxml-->
 <view class="container">
-  <image class="img" src="{{bgUrl}}"></image>
-    <!-- <view class="carousel">
-      <swiper class="swiper-block" previous-margin="200rpx" next-margin="200rpx" 
-            current="0" bindchange="swiperChange" circular="{{true}}">
-        <swiper-item class="swiper-item" wx:for="{{context}}"  wx:key="index">
-          <view class='detailBox'>
-            <view class='mSmall f14 relative mb10'> {{ item.site_name }} </view>
-          </view>          
-        </swiper-item>
-    </swiper> -->
-  <!-- </view> -->
+  <view class="imgContainer">
+    <image class="img" src="{{bgUrl}}"></image>
+  </view>  
+  <view class="{{is_bg ? 'result':''}}"></view>
+
 </view>

@@ -7,7 +7,8 @@ Page({
   data: {
     context:[],
     pic:"",
-    bgUrl:""
+    bgUrl:"",
+    is_bg:false
   },
 
   /**
@@ -38,7 +39,8 @@ Page({
           fileList:[img,],
           success: res => {
             this.setData({
-              bgUrl:res.fileList[0].tempFileURL
+              bgUrl:res.fileList[0].tempFileURL,
+              is_bg:true
             })
             console.log(this.data.bgUrl)
           },

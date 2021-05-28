@@ -2,9 +2,13 @@
   "cloud": true,
   "pages": [
     "pages/sightrec/sightrec",
+    "pages/sightget/sightget",
+
+    "pages/mulu1/mulu1",
+
     "pages/festival/festival",
 
-    "pages/sightget/sightget",
+
 
     "pages/index/index",
     "pages/book/catagory",

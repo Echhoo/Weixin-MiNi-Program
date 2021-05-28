@@ -4,38 +4,37 @@
   height:100vh;
   position: relative;
 }
+.imgContainer{
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index: -99;
+}
 .img{
   width:100%;
   height:100%;
 }
 
-.carousel{
+.result{
   width:100%;
-  height:40%;
+  height:400rpx;
   bottom:0;
-  position:absolute;  
+  position: absolute;
+  background-color: rgb(235, 229, 229, 0.5);
+  animation:mymove 1s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
 }
-.swiper-block{
-  height: 100%;
-  width: 100%;
+
+@keyframes mymove
+{
+	from {bottom:-400rpx;}
+	to {bottom:0;}
 }
-.swiper-item{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-overflow:unset;
-}
-.slide-image{
-height:320rpx;
-width: 320rpx;
-border-radius: 9rpx;
-box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
-margin: 0rpx 30rpx;
-z-index: 1;
-}
-.active{
-transform: scale(1.2);
-transition:all .2s ease-in 0s;
-z-index: 20;
+
+.test{
+  width:100%;
+  height:100%;
+  
+
 }

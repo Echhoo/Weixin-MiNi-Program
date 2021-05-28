@@ -1,10 +1,6 @@
 var app = getApp();
 var that = '';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     img: '',
     imgB64: '',
@@ -15,7 +11,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    that = this;
+    wx.cloud.getTempFileURL({
+      fileList: ['cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/recognition/head.png',
+    ],
+      success: res => {
+        this.setData({img:res.fileList[0].tempFileURL,
+        })
+      },
+    })
   },
   /**
    * 选择图片
@@ -53,80 +56,13 @@ Page({
             })
           }
         })
-        // that.getB64ByUrl(tempFilePaths);
-        // that.setData({
-        //   img: tempFilePaths
-        // });
 
       }
     })
-  },
-  /**
-   * 转b64
-   */
-  getB64ByUrl: function(url) {
-    const FileSystemManager = wx.getFileSystemManager();
-    FileSystemManager.readFile({
-      filePath: url,
-      encoding: 'base64',
-      success(res) {
-        // console.log(res.data);
-        that.setData({
-          imgB64: res.data
-        });
-      }
-    })
-  },
-
-  /**
-   * 植物识别
-   */
-  plantTap: function(e) {
-    const imgB64 = that.data.imgB64;
-    if (!imgB64) {
-      that.setData({
-        ishow: true
-      });
-      return;
-    };
-
-    that.getToken(function(token) {
-      that.getResult(token);
-    });
-  },
-  getToken: function(callback) {
-    wx.request({
-      url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=OyxjHvcGqXlmD3skUUt3GHEl&client_secret=MUMttTySPycE2U9U25MqlCxdoQCpOwfa',
-      data: {},
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success(res) {
-        var token = res.data.access_token;
-        console.log(token);
-
-        return callback(token);
-      }
-    });
-  },
-  getResult: function(token) {
-    wx.request({
-      url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant?access_token=' + token, //仅为示例，并非真实的接口地址
-      method: "post",
-      data: {
-        image: that.data.imgB64
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          content: JSON.stringify(res.data)
-        });
-
-      }
-    });
   }
 
+
+
+
+ 
 })
