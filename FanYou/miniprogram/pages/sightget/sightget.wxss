@@ -1,0 +1,40 @@
+/* pages/sightget/sightget.wxss */
+.container{
+  width: 100vw;
+  height:100vh;
+  position: relative;
+}
+.imgContainer{
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index: -99;
+}
+.img{
+  width:100%;
+  height:100%;
+}
+
+.result{
+  width:100%;
+  height:400rpx;
+  bottom:0;
+  position: absolute;
+  background-color: rgb(235, 229, 229, 0.5);
+  animation:mymove 1s;
+	animation-iteration-count:1;
+	animation-fill-mode:forwards;
+}
+
+@keyframes mymove
+{
+	from {bottom:-400rpx;}
+	to {bottom:0;}
+}
+
+.test{
+  width:100%;
+  height:100%;
+  
+
+}

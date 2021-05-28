@@ -1,4 +1,4 @@
-// pages/book/catagory.js
+// pages/picker/picker.js
 Page({
 
   /**
@@ -6,48 +6,13 @@ Page({
    */
   data: {
 
-    bgUrl:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.getTempFileURL({
-      fileList: [
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/mulu.png'
-    ],
-      success: res => {
-        this.setData({
-          bgUrl:res.fileList[0].tempFileURL
-        })
-      },
-    })
-  },
-  introView: function(e){
-    wx.navigateTo({ 
-      url: '../mulu1/mulu1',       
-    })
-  },
-  customView: function(e){
-    wx.navigateTo({ 
-      url: '../mulu2/mulu2',       
-    })
-  },
-  personView: function(e){
-    wx.navigateTo({ 
-      url: '../mulu3/mulu3',       
-    })
-  },
-  teamView: function(e){
-    wx.navigateTo({ 
-      url: '../team/team',       
-    })
-  },
-  yaoyiyao: function(e){
-    wx.navigateTo({ 
-      url: '../yaoyiyao/yaoyiyao',       
-    })
+
   },
 
   /**

@@ -1,0 +1,7 @@
+<!--pages/mulu3/mulu3.wxml-->
+<view class="container">
+  <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
+  <view class="btn1-container" bindtap="collectView" ></view>
+  <view class="btn2-container" bindtap="feedbackView"></view>
+</view>
+

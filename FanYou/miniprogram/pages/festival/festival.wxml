@@ -13,7 +13,7 @@
         <view class="swiper-item">
           <view class='boxItem column'>
             <!-- 卡牌 -->
-            <view class="flipGroup  {{ item.isOpenFilp ? 'on':''}}" catchtap='switchFlip' data-index='{{ index }}'>
+            <view class="flipGroup   {{ item.isOpenFilp ? 'on':''}}" catchtap='switchFlip' data-index='{{ index }}'>
               <view class="flipBox">
                 <!-- 正面内容 -->
                 <view class="sideWrap front">

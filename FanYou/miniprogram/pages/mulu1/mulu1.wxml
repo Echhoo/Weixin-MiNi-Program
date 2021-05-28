@@ -1,0 +1,7 @@
+<!--pages/mulu1/mulu1.wxml-->
+<view class="container">
+  <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
+  <view class="btn1-container" bindtap="festivalView" ></view>
+  <view class="btn2-container" bindtap="cityView"></view>
+  <view class="btn3-container" bindtap="recView"></view>
+</view>

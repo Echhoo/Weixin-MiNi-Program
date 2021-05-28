@@ -1,0 +1,8 @@
+<!--pages/sightget/sightget.wxml-->
+<view class="container">
+  <view class="imgContainer">
+    <image class="img" src="{{bgUrl}}"></image>
+  </view>  
+  <view class="{{is_bg ? 'result':''}}"></view>
+
+</view>
