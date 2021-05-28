@@ -1,10 +1,24 @@
 <!--pages/book/catagory.wxml-->
+<!-- style="filter: blur(6rpx);" -->
 <view class="container">
-  <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
+ 
+  <image src="{{bgUrl}}" class="bgImage" style="{{mohu?'filter: blur(6rpx)':''}}" mode="aspectFill"></image>
   <view class="btn1-container" bindtap="introView" ></view>
   <view class="btn2-container" bindtap="customView"></view>
   <view class="btn3-container" bindtap="personView"></view>
   <view class="btn4-container" bindtap="teamView"></view>
+  <view class="{{show?'tipsContainer':'none'}}"  >
+     <!-- <view class="index" animation="{{slide_up1}}">你好</view> -->
+    <view class="tips" bindtap="shows" wx:if="{{show}}">
+      <!-- <view class="index" animation="{{slide_up1}}">你好</view> -->
+      <view class="guide "style="top:7%" >使用指南</view>
+      <view class="tip tip1" animation="{{slide_up1}}" ><text>· 良辰美景：\n     景点介绍及景点识别</text></view>
+      <view class="tip tip2" animation="{{slide_up2}}" ><text>· 泛游定制：\n     随机掉落及专属卡片</text></view>
+      <view class="tip tip3" animation="{{slide_up3}}"><text>· 个人中心：\n     卡片收藏及上传反馈</text></view>
+      <view class="tip tip4" animation="{{slide_up4}}"><text>· 关于我们：\n     团队信息及联系方式</text></view>
+      <view class="school">· 南开大学软件学院 ·</view>
+    </view>
+  </view>
 </view>
 
   

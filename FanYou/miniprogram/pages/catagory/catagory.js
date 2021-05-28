@@ -1,12 +1,16 @@
 // pages/book/catagory.js
+let hidn = true;
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    mohu:true,
     bgUrl:"",
+    show:false,
+    guideShow:false,
   },
 
   /**
@@ -19,9 +23,20 @@ Page({
     ],
       success: res => {
         this.setData({
-          bgUrl:res.fileList[0].tempFileURL
+          bgUrl:res.fileList[0].tempFileURL,
         })
       },
+    })
+    setTimeout(this.changeShow, 1200);
+  }, 
+  changeShow: function () { 
+    this.setData({
+      show:hidn
+    })
+  },
+  changeGuide: function () { 
+    this.setData({
+      guideShow:hidn
     })
   },
   introView: function(e){
@@ -45,6 +60,16 @@ Page({
     })
   },
 
+  shows: function () {
+    hidn = false;
+    if(this.data.show){
+      this.setData({
+        show:false,
+        mohu:false
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -56,6 +81,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that = this;
+    setTimeout(function () {
+      app.slideupshow(this, 'slide_up1', -60, 1)
+    }.bind(this), 2000);
+    setTimeout(function () {
+      app.slideupshow(this, 'slide_up2', 10, 1)
+    }.bind(this), 2700);
+    setTimeout(function () {
+      app.slideupshow(this, 'slide_up3', 80, 1)
+    }.bind(this), 3400);
+    setTimeout(function () {
+      app.slideupshow(this, 'slide_up4', 150, 1)
+    }.bind(this), 4100);
 
   },
 
@@ -63,8 +101,8 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+ },
 
-  },
 
   /**
    * 生命周期函数--监听页面卸载
