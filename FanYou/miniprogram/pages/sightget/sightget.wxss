@@ -21,7 +21,7 @@
   bottom:0;
   position: absolute;
   background-color: rgb(235, 229, 229, 0.5);
-  animation:mymove 1s;
+  animation:mymove 3s;
 	animation-iteration-count:1;
 	animation-fill-mode:forwards;
 }

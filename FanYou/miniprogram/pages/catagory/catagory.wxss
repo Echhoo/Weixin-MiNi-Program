@@ -4,6 +4,10 @@ page{
   height: 100%;
 }
 
+.index{
+  opacity: 0; 
+  transform: translateY(-200px);
+}
 .container{
   height: 100vh;
   width: 100vw;
@@ -17,6 +21,7 @@ page{
   position:absolute;
   background-size: 100% 100%;
   z-index:-1;
+  
 }
 .btn1-container{
   width:180rpx;
@@ -47,15 +52,123 @@ page{
   top:58%;
   position:fixed;
 }
-.btn5-container{
-  width:180rpx;
-  height:185rpx;
-  right:24%;
-  color:white;
-  top:80%;
-  position:fixed;
-}
 .btn{
   width: 100%;
   height:100%;
 }
+
+.none {
+  display: none;
+}
+
+.tipsContainer{
+  width:100%;
+  height:100%;
+  position: absolute;
+}
+.tips{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height:50%;
+  margin-top:280rpx;
+  padding-bottom:30rpx;
+  margin-left:160rpx;
+  margin-right:160rpx;
+  border-radius: 50rpx;
+  color:white;
+  background-color: rgb(235, 229, 229,0.4);
+  position: relative;
+}
+.guide{
+  font-weight:bolder;
+  font-size: 20px;
+  font-family: "新宋体";
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  text-align: center;
+  width: 200rpx;
+  position: absolute;
+  animation-iteration-count:1;
+	animation-fill-mode:forwards;  
+}
+.school{
+  top:130%;
+  position: absolute;
+  font-size:20px;
+}
+.tip{
+  opacity: 0;  
+  height:100rpx;
+  padding: 5rpx;
+  font-size: 16px;  
+  white-space:pre-wrap;
+  position: absolute;
+  /* animation-iteration-count:1;
+	animation-fill-mode:forwards; */
+}
+.tip1{
+  transform: translateY(-30px); 
+}
+.tip2{
+  transform: translateY(50px); 
+}
+.tip3{
+  transform: translateY(110px); 
+}
+.tip4{
+  transform: translateY(190px); 
+}
+.ani0{
+  animation:mymove0 0.8s;
+}
+@keyframes mymove0
+{
+from {top:8%;}
+to {top:7%;}
+}
+
+.ani1{
+  animation:mymove1 2s;
+}
+@keyframes mymove1
+{
+from {top:35%;}
+to {top:25%;}
+}
+
+.ani2{
+  
+  animation:mymove2 2s;
+
+}
+@keyframes mymove2
+{
+from {top:55%;}
+to {top:45%;}
+}
+
+.ani3{
+
+  animation:mymove3 2s;
+
+}
+@keyframes mymove3
+{
+from {top:75%;}
+to {top:65%;}
+}
+
+.ani4{
+  animation:mymove4 2s;
+}
+@keyframes mymove4
+{
+from {top:90%;}
+to {top:85%;}
+}
+
+
+
+

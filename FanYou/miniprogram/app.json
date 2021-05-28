@@ -1,9 +1,9 @@
 {
   "cloud": true,
   "pages": [
-
-    "pages/index/index",
     "pages/catagory/catagory",
+    "pages/index/index",
+
     "pages/mulu1/mulu1",
     "pages/festival/festival",
     "pages/city/city",
