@@ -3,14 +3,12 @@ var that = '';
 Page({
   data: {
     img: '',
-    imgB64: '',
-    content: '',
-    ishow: false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this.data
     wx.cloud.getTempFileURL({
       fileList: ['cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/recognition/head.png',
     ],
@@ -24,10 +22,6 @@ Page({
    * 选择图片
    */
   chooseimgTap: function() {
-    that.setData({
-      ishow: false,
-      content: ''
-    });
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],

@@ -1,20 +1,23 @@
 {
   "cloud": true,
   "pages": [
-    "pages/sightrec/sightrec",
-    "pages/sightget/sightget",
-
-    "pages/mulu1/mulu1",
-
-    "pages/festival/festival",
-
-
-
     "pages/index/index",
     "pages/book/catagory",
+    "pages/mulu1/mulu1",
+    "pages/festival/festival",
     "pages/city/city",
+    "pages/sightrec/sightrec",
+    "pages/sightget/sightget",
+    "pages/mulu2/mulu2",
+    "pages/mulu3/mulu3",
     "pages/collect/collect",
     "pages/detail/detail",
+    "pages/team/team",
+
+
+
+
+    
     "pages/collecttest/collecttest",
     "pages/view_detail/view_detail"
   ],
