@@ -1,7 +1,5 @@
 /* pages/collect/collect.wxss */
 
-
-
 .container {
   padding-top: 20rpx;
 }
@@ -11,101 +9,21 @@
   margin-right: 20rpx;
   margin-bottom: 20rpx;
   }
-   
-   
-  .swiper-tab {
-  display: flex;
-  flex-direction: row;
-  line-height: 80rpx;
-  }
-   
-   
-  .tab-item {
-  width: 50%;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-  color: #333;
-  
-  }
-   
-   
+      
   .swiper {  
   height: 1100px;
   background: #F0F0F0; 
-  display: flex;
-  }
-   
-   
-  .onCity { 
-    background-color: rgba(66, 104, 114, 0.781);
-    color:white;
-    border-top-left-radius: 20rpx;
-  }
-
-  .onFestival{
-    background-color:rgb(225, 128, 116);
-    color:white;
-    border-bottom: 5rpx solid rgba(225, 129, 116, 0.692);
-    border-top-right-radius: 20rpx;
+  /* display: flex; */
+  float: left;
   }
 
 .mrys{
-  height:600rpx;
-}
-.city .mrys .box{ 
-  margin:30rpx;
-  height:500rpx;
-  width:600rpx;
-  padding: 10rpx;
-  border-radius: 10rpx;
-  /* background-color: #F0F0F0; */
-  display: flex;
-  flex-direction:column;
-
-  justify-content: center;
-  align-items: center;
-  background-color:#fcfcfc;
-  box-shadow:  5px 5px 20px -5px #b8b7b7;
+  height:550rpx;
+  width: 100%;
+  margin-right:30rpx;
 }
 
-.city .mrys .box .image {
-  /* align-content: center; */
-  /* justify-items: center; */
-
-  width: 500rpx;
-  height: 330rpx;
-  /* center: */
-  padding-top: 30rpx;
-  padding-left: 30rpx;
-  padding-right:30rpx;
-  padding-bottom: 20rpx;
-}
-
-
-.city .mrys .box .title {
-    overflow: hidden;
-  right: 0;
-  top: 0;
-  font-size: 13pt;
-  font-weight: bolder;
-  color: 	rgba(51, 51, 51, 0.527);
-}
-
-.city .mrys .box .content {
-  font-size: 11pt;
-  color:rgba(88, 88, 88, 0.63);
-  display: -webkit-box;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  margin-right: 50rpx;
-  margin-left: 70rpx;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-indent: 20pt;
-}
-.festival .mrys .box{ 
+ .mrys .box{ 
   margin:30rpx;
   height:500rpx;
   /* width:600rpx; */
@@ -116,61 +34,65 @@
   background-color:#fcfcfc;
   box-shadow:  5px 5px 20px -5px #b8b7b7;
 }
-.festival .mrys .box .image {
-  width:340rpx;
-  height: 450rpx;
-  padding-top: 20rpx;
-  margin-left: 20rpx;
-  padding-right:20rpx;
+ .mrys .box .check {
+  font-size: 15pt;
+  font-weight: bold;
+  /* color: 	rgba(51, 51, 51, 0.527); */
+  color:white;
+  z-index: 1;
+  top:300rpx;
+  width:50%;
+  height: 350rpx;
+  /* top:170rpx; */
+  text-align: center;
   margin-bottom: 20rpx;
   position:absolute;
 }
-
-
-.festival .mrys .box .title {
-  overflow: hidden;
-  right: 0;
-  top: 20rpx;
-  width:250rpx;
-  height:150rpx;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  padding-right:20rpx;
-  margin-bottom: 20rpx;
-  position: absolute;
+.title{
   font-size: 15pt;
   font-weight: bolder;
-  color: 	rgba(51, 51, 51, 0.527);
-  z-index: 1;
+  /* color: 	rgba(51, 51, 51, 0.527); */
+  color:white;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  padding-right:20rpx;
+  margin-bottom: 20rpx;
+  width:50%;
+  text-align: center;
+  height: 150rpx;
+  position:absolute;
+}
+.img{
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  padding-right:20rpx;
+  margin-bottom: 20rpx;
+  right:0;
+  width:20%;
+  text-align: center;
+  height: 450rpx;
+  position:absolute;
 }
 
-.festival .mrys .box .content {
-  right:0;
-  top:200rpx;
-  width:250rpx;
+ .mrys .box .content {
+  padding-left: 20rpx;
+  padding-right:20rpx;
+  top:400rpx;
+  width:50%;
   height:250rpx;
   position: absolute;
-  padding-bottom: 30rpx;
-  padding-right:20rpx;
   font-size: 16px;
-  color:rgba(88, 88, 88, 0.63);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  /* -webkit-line-clamp: 2; */
-  overflow: hidden;
-  text-indent: 20pt;
+  color:rgba(238, 238, 238, 0.63);
+  /* text-indent: pt; */
 }
 
 .icons{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 30rpx;
+  flex-direction: row;
 }
-  /* swiper-item {
-    overflow: scroll;
-  } */
 
-  .checking_view{
-    font-size: 15pt;
-    font-weight: bolder;
-    color: 	rgba(51, 51, 51, 0.527);
-  }
+
