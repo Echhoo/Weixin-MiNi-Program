@@ -1,50 +1,52 @@
 <!--pages/upload/upload.wxml-->
-<form style="font-size: 40rpx" bindsubmit='submitViewData' bindreset="reset">
-  <text >景点信息录入：</text>
+<view class="container">
+      <view class="title" style="white-space:pre-wrap">传一传\n制作你的专属卡片</view>
+  <!-- <scroll-view class="test" bindscrolltolower="scrollbot" scroll-y="{{true}}"
+    style="height: {{clientHeight?clientHeight+'px':'auto'}}"> -->
+    <form  style="font-size: 40rpx" bindsubmit='submitViewData' bindreset="reset">
+      <mp-cells class="uploadContainer">
+        <mp-cell class="data">
+          <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}"
+            upload="{{uplaodFile}}" files="{{files}}" max-count="2" title="图片上传（2张）">
+          </mp-uploader>
+        </mp-cell>
+        <mp-cell class="data">
+          <view class="recommand">推荐节日</view>
+          <picker bindchange="bindPickerChange" value="{{fes_index}}" range="{{fes_array}}">
+            <view class="picker">{{fes_array[fes_index]}}</view>
+          </picker>
+        </mp-cell>
+        <mp-cell class="data">
+          <view class="sightName">景点名称</view>
+          <view class="dataInput"><input type='text' name='site_name'></input></view>
+        </mp-cell>
 
-  <mp-cells>
-    <mp-cell>
-      <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="2" title="图片上传" tips="注意，第一张图片为***第二张图片为***">
-      </mp-uploader>
-    </mp-cell>
-    <mp-cell>
-      <input type='text' name='site_name' placeholder="请输入景点名称"></input>
-    </mp-cell>
+        <mp-cell class="data">
+          <view class="sightName">所在城市</view>
+          <view class="dataInput"><input type='text' name='city'></input></view>
+        </mp-cell>
 
-    <mp-cell>
-      <input type='text' name='city' placeholder="请输入所在城市（市、区）"></input>
-    </mp-cell>
-  
-  <mp-cell>
-    <view >
-      <view >
-        <textarea auto-focus="true" style="height: 3em" name="intro" placeholder="请输入景点介绍（30字左右）"/>
+        <mp-cell class="data">
+          <view class="sightName">景点介绍(40字以内)</view>
+          <view class="dataInput">
+            <textarea auto-focus="true" name="intro"></textarea>
+          </view>
+        </mp-cell>
+
+        <!-- <view ></view> -->
+      </mp-cells>
+    </form>
+    <!-- </view> -->
+    <view class="form_buttons">
+    <block wx:if="{{!submited}}">
+      <view class="sub_button">
+        <button class="btn" formType="submit" style="width:300rpx">点击提交</button>
       </view>
+    </block>
+    <view class="reset_button">
+      <button class="btn" formType="reset" style="width:300rpx">重置数据</button>
     </view>
-  </mp-cell>
-  
-  <mp-cell>
-    <view>
-      <picker bindchange="bindPickerChange" value="{{fes_index}}" range="{{fes_array}}">
-        <view class="picker">
-          请选择推荐旅游节日：{{fes_array[fes_index]}}
-        </view>
-      </picker>
-    </view>
-  </mp-cell>
-  </mp-cells>
-
-  <view class="form_buttons">
-  <block wx:if="{{!submited}}">
-    <button class="sub_button" formType="submit" type='primary'>点击提交</button>
-  </block>
-    <button class="reset_button" formType="reset" type='warn'>重置数据</button>
   </view>
-</form>
+  <!-- </scroll-view> -->
 
-
-
-
-
-
-
+</view>

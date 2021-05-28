@@ -8,18 +8,28 @@ Page({
       fes_array: ['清明', '五一', '端午', '儿童节', '中秋', '七夕', '国庆', '春节', '元宵'],
       fes_index: 0,
   },
+  
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       fes_index: e.detail.value
     })
   },
-  onLoad() {
+  onLoad:function(e){
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight 
+        });
+      }
+    }),
       wx.cloud.callFunction({
         name: "getOPENID"
       }).then(res=>{
         this.setData({
-          OpenID: res.result.event.openid
+          OpenID: res.result.event.openid,
+          
         })
       })
       this.setData({

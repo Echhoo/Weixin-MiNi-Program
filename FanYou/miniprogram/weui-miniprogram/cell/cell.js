@@ -94,6 +94,7 @@ module.exports =
 
 
 Component({
+    externalClasses:['data'],
     options: {
         addGlobalClass: true,
         multipleSlots: true

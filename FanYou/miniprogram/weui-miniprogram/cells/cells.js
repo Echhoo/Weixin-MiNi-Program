@@ -94,6 +94,7 @@ module.exports =
 
 
 Component({
+    externalClasses:['uploadContainer'],
     options: {
         addGlobalClass: true,
         multipleSlots: true
