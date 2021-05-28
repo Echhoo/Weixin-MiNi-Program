@@ -59,6 +59,12 @@
           "pathName": "pages/upload/upload",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
         }
       ]
     }
