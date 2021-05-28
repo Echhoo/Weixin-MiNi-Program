@@ -1,0 +1,10 @@
+<!--pages/sightrec/sightrec.wxml-->
+<view class="contianer">
+  <view class="imgContainer">
+    <image class="bigImg"src="{{img}}"></image>
+  </view>
+  <view class="recognition">
+    <button class="btn" bindtap="chooseimgTap">开始识别</button>
+  </view>
+  
+</view>

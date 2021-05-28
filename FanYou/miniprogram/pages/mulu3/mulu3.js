@@ -1,4 +1,4 @@
-// pages/book/catagory.js
+// pages/mulu3/mulu3.js
 Page({
 
   /**
@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/mulu.png'
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/mulu3.png'
     ],
       success: res => {
         this.setData({
@@ -24,32 +24,17 @@ Page({
       },
     })
   },
-  introView: function(e){
+  collectView: function(e){
     wx.navigateTo({ 
-      url: '../mulu1/mulu1',       
+      url: '../collect/collect',       
     })
   },
-  customView: function(e){
+  feedbackView: function(e){
     wx.navigateTo({ 
-      url: '../mulu2/mulu2',       
+      url: '../my_uploads/my_uploads',       
     })
   },
-  personView: function(e){
-    wx.navigateTo({ 
-      url: '../mulu3/mulu3',       
-    })
-  },
-  teamView: function(e){
-    wx.navigateTo({ 
-      url: '../team/team',       
-    })
-  },
-  yaoyiyao: function(e){
-    wx.navigateTo({ 
-      url: '../yaoyiyao/yaoyiyao',       
-    })
-  },
-
+   
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

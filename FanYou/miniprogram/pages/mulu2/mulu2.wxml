@@ -1,0 +1,6 @@
+<!--pages/mulu1/mulu1.wxml-->
+<view class="container">
+  <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
+  <view class="btn1-container" bindtap="shakeView" ></view>
+  <view class="btn2-container" bindtap="uploadView"></view>
+</view>

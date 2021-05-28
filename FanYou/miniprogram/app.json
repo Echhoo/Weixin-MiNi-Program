@@ -1,17 +1,22 @@
 {
+  "cloud": true,
   "pages": [
+
     "pages/index/index",
-    "pages/festival/festival",
     "pages/catagory/catagory",
+    "pages/mulu1/mulu1",
+    "pages/festival/festival",
     "pages/city/city",
+    "pages/sightrec/sightrec",
+    "pages/sightget/sightget",
+    "pages/mulu2/mulu2",
+    "pages/yaoyiyao/yaoyiyao",
+    "pages/mulu3/mulu3",
     "pages/collect/collect",
     "pages/team/team",
     "pages/detail/detail",
-    "pages/view_detail/view_detail",
-    "pages/yaoyiyao/yaoyiyao",
-    "pages/upload/upload",
-    "pages/my_uploads/my_uploads",
-    "pages/check/check"
+    "pages/view_detail/view_detail"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -4,13 +4,13 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -23,7 +23,7 @@
     "useApiHook": true,
     "useApiHostProcess": false,
     "babelSetting": {
-      "ignore": [],
+      "ignore": ["./miniprogram/miniprogram_npm/psl"],
       "disablePlugins": [],
       "outputPath": ""
     },
