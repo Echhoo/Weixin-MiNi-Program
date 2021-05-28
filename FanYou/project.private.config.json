@@ -77,6 +77,12 @@
           "pathName": "pages/check/check",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/team/team",
+          "pathName": "pages/team/team",
+          "query": "",
+          "scene": null
         }
       ]
     }
