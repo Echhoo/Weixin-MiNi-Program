@@ -1,1 +1,6 @@
 /* pages/upload/upload.wxss */
+.uploadImageButton{
+  height: 20%;
+  width: 20%;
+
+}

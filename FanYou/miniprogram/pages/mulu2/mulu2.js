@@ -31,7 +31,7 @@ Page({
   },
   uploadView: function(e){
     wx.navigateTo({ 
-      url: '',       
+      url: '../upload/upload',       
     })
   },
    

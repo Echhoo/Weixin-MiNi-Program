@@ -1,0 +1,142 @@
+/* pages/detail/detail.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+}
+.carousel{
+  width:100%;
+  height:40%;
+  position:absolute;  
+}
+.swiper-block{
+  height: 480rpx;
+  width: 100%;
+}
+.swiper-item{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+overflow:unset;
+}
+.slide-image{
+height:350rpx;
+width: 350rpx;
+border-radius: 9rpx;
+box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
+margin: 0rpx 30rpx;
+z-index: 1;
+}
+.active{
+transform: scale(1);
+transition:all .2s ease-in 0s;
+z-index: 20;
+}
+.score {
+  color: #04ac71;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.intro-title{
+  font-size: 18pt;
+  font-weight: bolder;
+  color: 	#333;
+  width: 100%;
+  height:80rpx;
+  top:36%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.intro-level_score{
+  font-size: 12pt;
+  color: 	#033;
+  width: 100%;
+  height:80rpx;
+  top:41%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.intro-text{
+  width:550rpx;
+  top:47%;
+  left:120rpx;
+  position: absolute;
+  font-size: 14pt;
+  color: 		rgba(51, 51, 51, 0.527);
+  overflow: hidden;
+  
+}
+
+.function{
+  width:100%;
+  height:20%;
+  bottom:0;
+  position:absolute;    
+}
+.share_func{
+  height: 80rpx;
+  width: 80rpx;
+  position: absolute;
+  bottom:50rpx;
+  left:138rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  border-radius: 50%;
+  z-index: 10;
+  color:#333333;
+
+}
+
+.share_func image{
+  height: 100%;
+  width: 100%;
+}
+
+.share_func button:not([size='mini']) {
+  position: absolute;
+  height: 100%;
+  width: 110rpx;
+  opacity: 0;
+  z-index: 99;
+}
+
+.collect{
+  /* box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.15);
+  border: 5rpx solid grey; */
+	border-radius: 20rpx;
+  float:right;
+  right:20%;
+  bottom:60rpx;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* .share-font{
+  font-size:large;
+
+}
+.collect-font{
+  font-size:large;
+} */
+
+.collect_image{
+  height: 60rpx;
+  width: 60rpx;
+}
+

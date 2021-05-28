@@ -31,7 +31,7 @@ Page({
   },
   feedbackView: function(e){
     wx.navigateTo({ 
-      url: '',       
+      url: '../my_uploads/my_uploads',       
     })
   },
    
