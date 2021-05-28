@@ -25,6 +25,7 @@ exports.main = async (event, context) => {
 
   let image = res.fileContent.toString("base64");   // 将图片转成base64格式，因为这里百度ai只接受base64格式
 
+  // let val = await client.advancedGeneral(image);  
 
 // 调用地标识别
   client.landmark(image).then(function(result) {
