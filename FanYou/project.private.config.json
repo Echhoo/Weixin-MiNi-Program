@@ -65,6 +65,18 @@
           "pathName": "pages/detail/detail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/my_uploads/my_uploads",
+          "pathName": "pages/my_uploads/my_uploads",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/check/check",
+          "pathName": "pages/check/check",
+          "query": "",
+          "scene": null
         }
       ]
     }
