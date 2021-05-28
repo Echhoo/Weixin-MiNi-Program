@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    typeList: ['success','waiting', 'clear'],
+    status_icon_type: "",
     festivalViewList: [],
     loading: true,
     currentView: {},
@@ -68,9 +70,17 @@ Page({
           var len = this.data.festivalViewList.length;
           var views = []
           for (i; i < len; i++) {
+            
             var aCurrentFesView = this.data.festivalViewList[i];
             var j = 0
             console.log("a current view; ", aCurrentFesView)
+            if(aCurrentFesView.check_status == 'checking'){
+              aCurrentFesView['icon_type'] = 'waiting'
+            }else if(aCurrentFesView.check_status == 'isAccepted'){
+              aCurrentFesView['icon_type'] = 'success'
+            }else{
+              aCurrentFesView['icon_type'] = 'clear'
+            }
             for(j; j<9; j++){
               if(aCurrentFesView.festival[j] == true){
                 aCurrentFesView.fes_pic = this.data.festivalViewList[i].fes_pic[j]

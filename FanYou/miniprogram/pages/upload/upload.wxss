@@ -1,6 +1,17 @@
 /* pages/upload/upload.wxss */
-.uploadImageButton{
+.form_buttons{
+  width: 100%;
   height: 20%;
-  width: 20%;
+  display: inline;
+}
 
+.sub_button{
+  width: 35%;
+  float: left;
+  margin: 5%;
+}
+.reset_button{
+  width: 35%;
+  float: right;
+  margin: 5%;
 }

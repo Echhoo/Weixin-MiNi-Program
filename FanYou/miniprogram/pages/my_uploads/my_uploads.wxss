@@ -156,12 +156,21 @@
   color:rgba(88, 88, 88, 0.63);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   overflow: hidden;
   text-indent: 20pt;
 }
 
+.icons{
+  display: flex;
+  flex-direction: column;
+}
   /* swiper-item {
     overflow: scroll;
   } */
 
+  .checking_view{
+    font-size: 15pt;
+    font-weight: bolder;
+    color: 	rgba(51, 51, 51, 0.527);
+  }

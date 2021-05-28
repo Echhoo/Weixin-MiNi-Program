@@ -1,41 +1,44 @@
 <!--pages/upload/upload.wxml-->
-
-<view class="page">
-    <!-- <view class="page__hd">
-        <view class="page__title">请上传两张景点的图片（推荐一大一小）</view>
-    </view> -->
-    <view class="page__bd">
-        <mp-cells>
-            <mp-cell>
-                <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="2" title="图片上传" tips="注意，第一张图片为***第二张图片为***"></mp-uploader>
-            </mp-cell>
-        </mp-cells>
-    </view>
-</view>
-
-
 <form style="font-size: 40rpx" bindsubmit='submitViewData' bindreset="reset">
   <text >景点信息录入：</text>
-  <input type='text' name='site_name' placeholder="请输入景点名称"></input>
-  <input type='text' name='city' placeholder="请输入所在城市（市、区）"></input>
-  <view >
-    <view >
-      <textarea auto-focus="true" style="height: 3em" name="intro" placeholder="请输入景点介绍（30字左右）"/>
-    </view>
-  </view>
-<view>
-  <picker bindchange="bindPickerChange" value="{{fes_index}}" range="{{fes_array}}">
-    <view class="picker">
-      请选择推荐旅游节日：{{fes_array[fes_index]}}
-    </view>
-  </picker>
-</view>
 
-  <view >
+  <mp-cells>
+    <mp-cell>
+      <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="2" title="图片上传" tips="注意，第一张图片为***第二张图片为***">
+      </mp-uploader>
+    </mp-cell>
+    <mp-cell>
+      <input type='text' name='site_name' placeholder="请输入景点名称"></input>
+    </mp-cell>
+
+    <mp-cell>
+      <input type='text' name='city' placeholder="请输入所在城市（市、区）"></input>
+    </mp-cell>
+  
+  <mp-cell>
+    <view >
+      <view >
+        <textarea auto-focus="true" style="height: 3em" name="intro" placeholder="请输入景点介绍（30字左右）"/>
+      </view>
+    </view>
+  </mp-cell>
+  
+  <mp-cell>
+    <view>
+      <picker bindchange="bindPickerChange" value="{{fes_index}}" range="{{fes_array}}">
+        <view class="picker">
+          请选择推荐旅游节日：{{fes_array[fes_index]}}
+        </view>
+      </picker>
+    </view>
+  </mp-cell>
+  </mp-cells>
+
+  <view class="form_buttons">
   <block wx:if="{{!submited}}">
-    <button formType="submit" type='primary'>点击提交</button>
+    <button class="sub_button" formType="submit" type='primary'>点击提交</button>
   </block>
-    <button formType="reset" type='warn'>重置数据表单</button>
+    <button class="reset_button" formType="reset" type='warn'>重置数据</button>
   </view>
 </form>
 

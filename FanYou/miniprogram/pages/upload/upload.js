@@ -47,7 +47,7 @@ Page({
     view['fes_pic'] = ["","","","","","","","",""]
     view['fes_pic'][this.data.fes_index] = this.data.img_urls[1];
     // check_status 有checking，accepted 和 rejected
-    view['check_status'] =  "checking"
+    view['check_status'] =  {"checking": true, "accepted":false, "rejected":false};
     console.log("new View: ",view)
     db.collection("pending_attractions").add({
       data: view
