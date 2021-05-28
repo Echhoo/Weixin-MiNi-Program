@@ -5,7 +5,6 @@
   <view class="btn2-container" bindtap="customView"></view>
   <view class="btn3-container" bindtap="personView"></view>
   <view class="btn4-container" bindtap="teamView"></view>
-  <view class="btn5-container" bindtap="yaoyiyao">摇一摇</view>
 </view>
 
   

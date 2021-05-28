@@ -47,14 +47,7 @@ page{
   top:58%;
   position:fixed;
 }
-.btn5-container{
-  width:180rpx;
-  height:185rpx;
-  right:24%;
-  color:white;
-  top:80%;
-  position:fixed;
-}
+
 .btn{
   width: 100%;
   height:100%;
