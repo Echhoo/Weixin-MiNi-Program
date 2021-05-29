@@ -2,7 +2,7 @@
 <!-- style="filter: blur(6rpx);" -->
 <view class="container">
  
-  <image src="{{bgUrl}}" class="bgImage" style="{{mohu?'filter: blur(6rpx)':''}}" mode="aspectFill"></image>
+  <image src="{{bgUrl}}" class="bgImage" style="{{show?'filter: blur(6rpx)':''}}" mode="aspectFill"></image>
   <view class="btn1-container" bindtap="introView" ></view>
   <view class="btn2-container" bindtap="customView"></view>
   <view class="btn3-container" bindtap="personView"></view>
