@@ -13,7 +13,8 @@
   <view class="intro">
     <view class="intro-title">{{currentView.city}} · {{currentView.site_name}}</view>
     <view class="intro-level_score" space="emsp">等级：{{currentView.level}}  评分：{{currentView.score}}</view>
-    <text  class="intro-text" space="emsp">  {{currentView.introduction}}</text>
+    <view  class="intro-text">
+      <scroll-view scroll-y="true" style="height: 500rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">· {{currentView.introduction}}</scroll-view> </view>
   </view>
   <view class="function">
     <view class="share_func">
