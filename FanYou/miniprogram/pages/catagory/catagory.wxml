@@ -11,7 +11,7 @@
     <view class="tips" bindtap="shows" wx:if="{{show}}">
       <view class="guide "style="top:7%" >使用指南</view>
       <view class="tip tip1" animation="{{slide_up1}}" ><text>· 良辰美景：\n     景点介绍及花草识别</text></view>
-      <view class="tip tip2" animation="{{slide_up2}}" ><text>· 泛游定制：\n     随机掉落及专属卡片</text></view>
+      <view class="tip tip2" animation="{{slide_up2}}" ><text>· 泛游定制：\n     随机掉落及制作卡片</text></view>
       <view class="tip tip3" animation="{{slide_up3}}"><text>· 个人中心：\n     卡片收藏及上传反馈</text></view>
       <view class="tip tip4" animation="{{slide_up4}}"><text>· 关于我们：\n     团队信息及联系方式</text></view>
       <view class="school">· 南开大学软件学院 ·</view>

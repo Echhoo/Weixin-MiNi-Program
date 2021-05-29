@@ -1,15 +1,13 @@
 {
   "cloud": true,
   "pages": [
-    "pages/sightrec/sightrec",
-    "pages/sightget/sightget",
-
     "pages/index/index",
     "pages/catagory/catagory",
     "pages/mulu1/mulu1",
     "pages/festival/festival",
     "pages/city/city",
-
+    "pages/sightrec/sightrec",
+    "pages/sightget/sightget",
     "pages/mulu2/mulu2",
     "pages/yaoyiyao/yaoyiyao",
     "pages/mulu3/mulu3",
