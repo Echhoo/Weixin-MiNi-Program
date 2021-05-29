@@ -35,6 +35,8 @@
   box-shadow:  5px 5px 20px -5px #b8b7b7;
 }
  .mrys .box .check {
+  background-color: #333;
+  opacity: 0.3;
   font-size: 15pt;
   font-weight: bold;
   /* color: 	rgba(51, 51, 51, 0.527); */
@@ -42,7 +44,7 @@
   z-index: 1;
   top:300rpx;
   width:50%;
-  height: 350rpx;
+  height: 100rpx;
   /* top:170rpx; */
   text-align: center;
   margin-bottom: 20rpx;
@@ -50,9 +52,12 @@
 }
 .title{
   font-size: 15pt;
+  /* filter: blur(6rpx); */
   font-weight: bolder;
   /* color: 	rgba(51, 51, 51, 0.527); */
   color:white;
+  background-color: #333;
+  opacity: 0.3;
   padding-top: 20rpx;
   padding-left: 20rpx;
   padding-right:20rpx;
@@ -75,6 +80,7 @@
 }
 
  .mrys .box .content {
+   
   padding-left: 20rpx;
   padding-right:20rpx;
   top:400rpx;
