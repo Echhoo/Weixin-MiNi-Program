@@ -25,12 +25,14 @@
             current="0" bindchange="swiperChange" circular="{{true}}">
       <block wx:for="{{viewData}}" wx:key="id" wx:index="{{index}}">
         <swiper-item class="swiper-item" style="width: 502rpx; height: 90rpx; display: flex; box-sizing: content-box; left: 0rpx; top: 0rpx">
+          <view class="img {{swiperIndex == index ? 'active' : ''}}" 
+          bindtap="scaleImg">
           <image mode="scaleToFill" src="{{item.img_url}}" 
-          class="slide-image {{swiperIndex == index ? 'active' : ''}}" 
-          bindtap="scaleImg"
+          class="slide-image "
           bindlongpress="saveImg"/>
+        </view>
           <view class='view-info'>
-                <view class='view-title {{item.site_name.length>9 ? "text-small" : ""}}' style="width: 514rpx; height: 66rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.site_name}}
+                <view class='view-title {{item.site_name.length>9 ? "text-small" : ""}}' style="display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.site_name}}
                 </view>
           </view>
         </swiper-item>

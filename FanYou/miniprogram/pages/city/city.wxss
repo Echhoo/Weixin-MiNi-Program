@@ -22,7 +22,7 @@ page{
   .title .CityName {
     width: 100%;
     font-size: 50rpx;
-    color: #333333;
+    color: #333;
     justify-content: center;
     text-align: center
   }
@@ -97,14 +97,23 @@ justify-content: space-around;
 align-items: center;
 overflow:unset;
 }
+.img{
+  height:520rpx;
+  width:90%;
+  border-radius: 5%;
+  margin: 0rpx 30rpx;
+  padding:20rpx;
+  background-color: white;
+  box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
+  z-index: 1;
+  }
 .slide-image{
   height:480rpx;
-  width:85%;
+  width:100%;
   border-radius: 9rpx;
+  z-index: 2;
+  border-radius: 4%;
   box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
-  margin: 0rpx 30rpx;
-  z-index: 1;
-  border-radius: 5%;
   }
   .active{
   transform: scale(1.06);
@@ -123,7 +132,7 @@ overflow:unset;
   top: 30rpx;
   margin: 25rpx;
   line-height: 1;
-  color: #342158;
+  color: #333;
   display: inline-block;
 }
 
@@ -144,7 +153,7 @@ overflow:unset;
 
 .view-detail {
   box-sizing: border-box;
-  color: #342158;
+  color: #333;
   display: block;
   left:35%;
   top:60%;
@@ -154,7 +163,7 @@ overflow:unset;
   line-height: 76rpx;
   text-align: center;
   border-radius: 10rpx;
-  border: 2rpx solid #342158;
+  border: 2rpx solid #333;
 }
 
 .view-description-wrapper {
@@ -173,18 +182,18 @@ overflow:unset;
 .item-title {
   font-size: 35rpx;
   font-weight: bold;
-  color: #342158;
+  color: #333;
 }
 
 .view-description {  
   margin-top: 10rpx;
-  margin-left:10%;
-  margin-right: 10%;
-  height: 50%;
+  margin-left:20%;
+  margin-right: 20%;
+  height: 43%;
   top:0;
   font-size: 30rpx;
   line-height: 2;
-  color: #342158;
+  color: #333;
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
@@ -215,7 +224,7 @@ overflow:unset;
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .6);
 }
 
 .poster .bgImg {

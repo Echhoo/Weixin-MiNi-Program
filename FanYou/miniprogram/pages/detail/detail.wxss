@@ -49,7 +49,7 @@ z-index: 20;
   font-weight: bolder;
   color: 	#333;
   width: 100%;
-  height:80rpx;
+  height:50rpx;
   top:36%;
   display: flex;
   justify-content: center;
