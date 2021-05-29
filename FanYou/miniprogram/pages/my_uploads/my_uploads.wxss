@@ -11,16 +11,25 @@
   }
   
   .bgImg{
+    width:100vw;
+    height:100vh;
+    position: relative;
+  }
+  .noload{
     position: absolute;
     width:100%;
     height:100%;
-    
   }
-  /* .noload{
-    width:100%;
-    height:100%;
-  } */
-      
+  .load{
+    top:61%;
+    left:14%;
+    position: absolute;
+    width:550rpx;
+    height:110rpx;
+  }
+  .none{
+    display: none;
+  }
   .swiper {  
   height: 1100px;
   background: #F0F0F0; 
@@ -48,6 +57,7 @@
  .mrys .box .check {
   font-size: 15pt;
   font-weight: bold;
+  opacity: 0.8;
   /* color: 	rgba(51, 51, 51, 0.527); */
   color:white;
   z-index: 1;
@@ -65,7 +75,7 @@
   font-weight: bolder;
   /* color: 	rgba(51, 51, 51, 0.527); */
   color:white;
-  opacity: 0.3;
+
   padding-top: 20rpx;
   padding-left: 20rpx;
   padding-right:20rpx;
@@ -103,7 +113,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
   border-radius: 30rpx;
   flex-direction: row;
 }

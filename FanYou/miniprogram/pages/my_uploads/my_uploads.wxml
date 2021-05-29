@@ -1,5 +1,9 @@
+
+<view class="{{hidd?'bgImg':'none'}}" >
+  <image class="noload" src="{{noloadImg}}" mode="aspectFill"></image>
+  <view class="load" bindtap="gotoLoad"></view>
+</view>
 <view class="page">
-  <view class="bgImg" hidden="{{hidd}}"><image class="noload" src="{{noloadImg}}" mode="aspectFill"></image></view>
  <swiper-item> 
   <scroll-view class='container' scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
   <scroll-view class='mrys'  wx:for="{{festivalViewList}}" wx:key="id" >
@@ -13,7 +17,7 @@
       <!-- <view class="title1" style="top:100rpx;  border-style:solid ;">
          {{item.city}} · {{item.site_name}} 
       </view> -->
-      <image class='image' src='{{item.fes_pic}}' mode='aspectFill' catchtap='onTapNavigateTo' data-item='{{item}}'></image>
+      <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-item='{{item}}'></image>
       <view class='check' >状态：{{item.check_status.checking==true?'审核中' 
       :(item.check_status.accepted==true?'已通过':'未通过')}}</view>
       <view class="content">

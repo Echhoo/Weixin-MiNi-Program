@@ -33,6 +33,7 @@ Page({
         })
       },
     }),
+    this.if_occur(),
     wx.cloud.callFunction({
       name:'getOPENID'
     }).then(res=>{
@@ -59,9 +60,6 @@ Page({
    */
   loadMrysData: function() {
     if (!this.data.loading) {
-        this.setData({
-          hidd:true,
-        })
       return;
     }
     // let { pageIndex, pageSize } = this.data;
@@ -78,6 +76,11 @@ Page({
             festivalViewList: res.data,
           })
           console.log(res.data)
+          if(res.data.length == 0){
+            this.setData({
+              hidd:true,
+            })
+          }
           
           //改造festivalViewList数据的fes_pic和fes_intro
           var i = 0;
@@ -152,12 +155,18 @@ Page({
     }
     // console.log("currentTab: ", this.data.currentTab)    
     },    
-    swiperChange: function (e) {    
+  swiperChange: function (e) {    
     console.log(e);    
     this.setData({  
     currentTab: e.detail.current,  
     })
     },
+
+  gotoLoad:function(e){
+    wx.navigateTo({
+      url: '../upload/upload',
+    })
+  }
 
 })
 

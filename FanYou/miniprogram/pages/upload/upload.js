@@ -131,6 +131,7 @@ uplaodFile(files) {
       })
       var object = {};
       const that = this;
+      console.log("看我看我看我！", filesData.length)
       for (let i = 0; i < filesData.length; i++) {
       const filePath = filesData[i];
       const name = 'upload/'+'upload_img-'+parseInt(Math.random() * 100000000);
