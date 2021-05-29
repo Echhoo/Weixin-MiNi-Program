@@ -50,9 +50,11 @@
 }
 .title{
   font-size: 15pt;
+  /* filter: blur(6rpx); */
   font-weight: bolder;
   /* color: 	rgba(51, 51, 51, 0.527); */
   color:white;
+  opacity: 0.3;
   padding-top: 20rpx;
   padding-left: 20rpx;
   padding-right:20rpx;
