@@ -297,9 +297,10 @@ Page({
     // console.log("Festival",fes_name_list[selidx]);
     // console.log("Index",this.data.bannerCurrent);
     return {
-      title: "发送给好友",      
+      title: "送你一封景点明信片",      
       path: 'pages/festival/festival?fes='+fes_name_list[selidx]+
       '&index='+this.data.bannerCurrent,
+      imageUrl:this.data.bannerData[this.data.bannerCurrent].fes_pic,
       
       success: function(res) {
         console.log(res, "转发成功")

@@ -85,8 +85,6 @@ page{
   font-weight:bolder;
   font-size: 20px;
   font-family: "新宋体";
-  border-bottom-style: solid;
-  border-bottom-color: white;
   text-align: center;
   width: 200rpx;
   position: absolute;
