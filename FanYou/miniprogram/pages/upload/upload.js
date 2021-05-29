@@ -54,7 +54,14 @@ Page({
   submitViewData(res){
     var data = res.detail.value;
     console.log(res.detail.value)
-
+    if((data.city=="")||(data.site_name=="")||(city.intro=="")){
+      wx.showToast({
+        title: "信息不完整\n请重新填报",
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
     var view = {}
     view['site_name'] = data.site_name;
     view['city'] = data.city;
