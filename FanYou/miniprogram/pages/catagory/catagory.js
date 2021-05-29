@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mohu:true,
+    // mohu:true,
     bgUrl:"",
     show:false,
     guideShow:false,
@@ -27,11 +27,11 @@ Page({
         })
       },
     })
-    setTimeout(this.changeShow, 1200);
+    setTimeout(this.changeShow, 1000);
   }, 
   changeShow: function () { 
     this.setData({
-      show:hidn
+      show:hidn  
     })
   },
   changeGuide: function () { 
@@ -65,7 +65,7 @@ Page({
     if(this.data.show){
       this.setData({
         show:false,
-        mohu:false
+        // mohu:false
       })
     }
   },
