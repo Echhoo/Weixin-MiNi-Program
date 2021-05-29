@@ -54,7 +54,12 @@ Page({
   submitViewData(res){
     var data = res.detail.value;
     console.log(res.detail.value)
-
+    if((data.city=="")||(data.site_name=="")||(city.intro=="")){
+      wx.showToast({
+        title: '信息不完整',
+        duration: 2000
+      })
+    }
     var view = {}
     view['site_name'] = data.site_name;
     view['city'] = data.city;
