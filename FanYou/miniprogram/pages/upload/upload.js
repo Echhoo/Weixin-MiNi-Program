@@ -7,6 +7,7 @@ Page({
       OpenID: '',
       fes_array: ['清明', '五一', '端午', '儿童节', '中秋', '七夕', '国庆', '春节', '元宵'],
       fes_index: 0,
+      bgUrl:"",
   },
   
   bindPickerChange: function(e) {
@@ -17,6 +18,14 @@ Page({
   },
   onLoad:function(e){
     var that = this
+    wx.cloud.getTempFileURL({
+      fileList: ['cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/recognition/head.png',
+    ],
+      success: res => {
+        this.setData({bgUrl:res.fileList[0].tempFileURL,
+        })
+      },
+    })
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -45,6 +54,7 @@ Page({
   submitViewData(res){
     var data = res.detail.value;
     console.log(res.detail.value)
+
     var view = {}
     view['site_name'] = data.site_name;
     view['city'] = data.city;
@@ -72,6 +82,9 @@ Page({
       title: '提交成功',
       icon: 'success',
       duration: 2000
+    })
+    wx.navigateTo({
+      url: '../my_uploads/my_uploads',
     })
     
   },
