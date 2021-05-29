@@ -13,7 +13,7 @@
         </mp-cell>
         <mp-cell>
           <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}"
-            upload="{{uplaodFile}}" files="{{files}}" max-count="2" title="图片上传（2张）">
+            upload="{{uplaodFile}}" files="{{files}}" max-count="2" title="图片上传(第一张为横图，第二张为竖图)">
           </mp-uploader>
         </mp-cell>
         <mp-cell>
@@ -27,9 +27,9 @@
         </mp-cell>
 
         <mp-cell>
-          <view class="sightName">景点介绍(40字以内)</view>
+          <view class="sightName">景点介绍(100字以内)</view>
           <view class="recommand">
-            <textarea auto-height="true" name="intro"></textarea>
+            <textarea auto-height="true" maxlength="100" name="intro"></textarea>
           </view>
         </mp-cell>
       </mp-cells>
