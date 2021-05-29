@@ -53,8 +53,8 @@ Page({
   },
   submitViewData(res){
     var data = res.detail.value;
-    console.log(res.detail.value)
-    if((data.city=="")||(data.site_name=="")||(city.intro=="")){
+    console.log("Data: ",data)
+    if((data.city=="")||(data.site_name=="")||(data.intro=="")){
       wx.showToast({
         title: "信息不完整\n请重新填报",
         icon: 'none',
