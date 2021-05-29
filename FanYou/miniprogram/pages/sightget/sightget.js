@@ -11,6 +11,7 @@ Page({
     is_bg:false,
     score:0,
     content:true,
+    scoreOcc:true,
   },
 
   /**
