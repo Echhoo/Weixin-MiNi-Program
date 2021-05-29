@@ -221,7 +221,8 @@ click_like(){
   onShareAppMessage: function(res) {
     let that = this;
     return {
-      title: "发送给好友",
+      title: "送你一封城市景点介绍名片",
+      imgUrl: this.data.currentView.img_url,
       success: function(res) {
         console.log(res, "转发成功")
       },
