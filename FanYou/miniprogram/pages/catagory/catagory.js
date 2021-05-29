@@ -27,7 +27,7 @@ Page({
         })
       },
     })
-    setTimeout(this.changeShow, 1200);
+    setTimeout(this.changeShow, 1000);
   }, 
   changeShow: function () { 
     this.setData({

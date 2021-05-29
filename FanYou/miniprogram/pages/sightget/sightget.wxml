@@ -1,8 +1,26 @@
 <!--pages/sightget/sightget.wxml-->
 <view class="container">
   <view class="imgContainer">
-    <image class="img" src="{{bgUrl}}"></image>
+    <image class="img" src="{{bgUrl}}" mode="aspectFill"></image>
   </view>  
-  <view class="{{is_bg ? 'result':''}}"></view>
+  <view class="{{is_bg ? 'result':''}}">
+    <view class="conten" hidden="{{content}}">
+      <view class="above">
+      <view class="plantImg">
+        <image class="plant" src="{{context[0].baike_info.image_url}}" mode="aspectFill"></image>
+      </view>      
+    </view>
+    <view class="below">
+      <view class="plantName">{{context[0].name}}</view>
+      <view class="score">匹配度 {{score * 100}}%</view>
+      <view class="baike"><text class="baikeText">{{context[0].baike_info.description}}</text></view>
+      <view class="more">
+        <view class="info">更多信息</view>
+        <view class="url">{{context[0].baike_info.baike_url}}</view>
+      </view>
+    </view>
+    </view>
+
+  </view>
 
 </view>

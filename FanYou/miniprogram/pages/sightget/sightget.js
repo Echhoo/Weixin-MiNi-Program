@@ -8,7 +8,10 @@ Page({
     context:[],
     pic:"",
     bgUrl:"",
-    is_bg:false
+    is_bg:false,
+    score:0,
+    content:true,
+    scoreOcc:true,
   },
 
   /**
@@ -28,29 +31,36 @@ Page({
         console.log("百度ai传回来的数据2：", res.result.val.result)
         this.setData({
           context: res.result.val.result,
-          pic:res.result.img
+          pic:res.result.img,
+          score:res.result.val.result[0].score.toPrecision(2)
         })
         console.log(this.data.context);
         // console.log(this.data.pic);
         var img = this.data.pic
-        // console.log(img)
-        
+        // console.log(img)        
         wx.cloud.getTempFileURL({
           fileList:[img,],
           success: res => {
             this.setData({
               bgUrl:res.fileList[0].tempFileURL,
-              is_bg:true
             })
-            console.log(this.data.bgUrl)
           },
-    })
+        })
+        setTimeout(this.boxMove, 2000)
       },
       fail: error =>{
         console.log('接口失败：', error);
       }
     })
   },
+boxMove:function(e){
+  if(!this.data.is_bg){
+    this.setData({
+      is_bg:true,
+      content:false
+    })
+  }
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

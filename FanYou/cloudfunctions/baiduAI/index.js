@@ -24,16 +24,9 @@ exports.main = async (event, context) => {
   console.log('调用百度ai函数打印1：', res);
 
   let image = res.fileContent.toString("base64");   // 将图片转成base64格式，因为这里百度ai只接受base64格式
-
-  let val = await client.advancedGeneral(image);  
-
-// 调用地标识别
-//   client.landmark(image).then(function(result) {
-//     console.log(JSON.stringify(result));
-//   }).catch(function(err) {
-//     // 如果发生网络错误
-//     console.log(err);
-// });
+  var options = {};
+  options["baike_num"] = "5";
+  let val = await client.plantDetect(image,options);  
 
   return {
     val,img

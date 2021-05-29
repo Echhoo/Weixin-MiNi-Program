@@ -9,6 +9,9 @@
       <view class="title" style="top:100rpx;  border-style:solid ;">
          {{item.city}} · {{item.site_name}} 
       </view>
+      <!-- <view class="title1" style="top:100rpx;  border-style:solid ;">
+         {{item.city}} · {{item.site_name}} 
+      </view> -->
       <image class='image' src='{{item.fes_pic}}' mode='aspectFill' catchtap='onTapNavigateTo' data-item='{{item}}'></image>
       <view class='check' >状态：{{item.check_status.checking==true?'审核中' 
       :(item.check_status.accepted==true?'已通过':'未通过')}}</view>
