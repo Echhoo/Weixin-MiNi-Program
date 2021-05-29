@@ -9,6 +9,17 @@
   margin-right: 20rpx;
   margin-bottom: 20rpx;
   }
+  
+  .bgImg{
+    position: absolute;
+    width:100%;
+    height:100%;
+    
+  }
+  /* .noload{
+    width:100%;
+    height:100%;
+  } */
       
   .swiper {  
   height: 1100px;

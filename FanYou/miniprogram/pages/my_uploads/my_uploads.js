@@ -17,12 +17,22 @@ Page({
     // cityViewIDList: [],
     festivalViewIDList: [],
     OpenID: '',
+    hidd:false,
+    noloadImg:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.cloud.getTempFileURL({
+      fileList: ['cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/my_upload/noload.png',
+    ],
+      success: res => {
+        this.setData({noloadImg:res.fileList[0].tempFileURL,
+        })
+      },
+    }),
     wx.cloud.callFunction({
       name:'getOPENID'
     }).then(res=>{
@@ -49,6 +59,9 @@ Page({
    */
   loadMrysData: function() {
     if (!this.data.loading) {
+        this.setData({
+          hidd:true,
+        })
       return;
     }
     // let { pageIndex, pageSize } = this.data;
@@ -65,6 +78,7 @@ Page({
             festivalViewList: res.data,
           })
           console.log(res.data)
+          
           //改造festivalViewList数据的fes_pic和fes_intro
           var i = 0;
           var len = this.data.festivalViewList.length;
