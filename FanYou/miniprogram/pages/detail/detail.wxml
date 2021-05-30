@@ -12,7 +12,7 @@
   </view>
   <view class="intro">
     <view class="intro-title">{{currentView.city}} · {{currentView.site_name}}</view>
-    <view class="intro-level_score" space="emsp">等级：{{currentView.level}}  评分：{{currentView.score}}</view>
+    <view class="intro-level_score" space="emsp">等级：{{currentView.level == ''?'暂无':currentView.level}}  评分：{{currentView.score == ''?'暂无':currentView.score}}</view>
     <view  class="intro-text">
       <scroll-view scroll-y="true" style="height: 500rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">· {{currentView.introduction}}</scroll-view> </view>
   </view>
