@@ -20,10 +20,6 @@ Page(
     },
     
   onLoad: function (options) {
-    this.setData({
-      height: wx.getSystemInfoSync().windowHeight,
-      width: wx.getSystemInfoSync().windowWidth,
-    })
     wx.cloud.init({
       env: 'wzx-cloudbase-1grg51bs80e42788'
     })
@@ -37,7 +33,11 @@ Page(
         })
         // console.log(res.fileList[0])
       },
+      
     })
+    setTimeout(() => {
+        this.toBook()
+    }, 3000);
   },
 
   getUserProfile() {
