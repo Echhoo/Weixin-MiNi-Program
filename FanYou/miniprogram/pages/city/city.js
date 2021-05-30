@@ -19,6 +19,7 @@ Page({
     viewData: [],
   },
   onLoad(options){
+    
     that = this;
     var _city = this.data.picker_data[1]["name"]
     this.setData({
@@ -74,7 +75,7 @@ Page({
       if(_data.length == 0){
         this.setData({
           viewData: [
-            {img_url: "https://i.loli.net/2021/05/12/N1mTYD7EV2w9Gyz.png",
+            {img_url: "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/city/no_city.png",
             introduction: "尚无信息"
           }
           ]

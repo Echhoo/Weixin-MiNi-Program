@@ -33,7 +33,7 @@ Page({
         })
       },
     }),
-    this.if_occur(),
+    // this.if_occur(),
     wx.cloud.callFunction({
       name:'getOPENID'
     }).then(res=>{
