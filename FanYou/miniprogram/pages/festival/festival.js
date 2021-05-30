@@ -195,8 +195,9 @@ Page({
   },
   show: function () {
     this.setData({
-      filtrate: true
+      filtrate: true,
     })
+    console.log("success")
   },
   none: function () {
     this.setData({

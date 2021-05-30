@@ -13,7 +13,7 @@
     "miniprogram": {
       "list": [
         {
-          "name": "yaoyiyao",
+          "name": "pages/yaoyiyao/yaoyiyao",
           "pathName": "pages/yaoyiyao/yaoyiyao",
           "query": "",
           "scene": null

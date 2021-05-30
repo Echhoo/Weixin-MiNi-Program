@@ -85,7 +85,7 @@ z-index: 20;
   position:absolute;    
 }
 .share_func{
-  height: 80rpx;
+  height: 120rpx;
   width: 80rpx;
   position: absolute;
   bottom:50rpx;
@@ -118,7 +118,7 @@ z-index: 20;
 	border-radius: 20rpx;
   float:right;
   right:20%;
-  bottom:60rpx;
+  bottom:55rpx;
   position: absolute;
   display: flex;
   flex-direction: column;
