@@ -5,6 +5,7 @@ var touch = [0,0];
 var openid = ''
 Page({
   data: {
+    empty_city: false,
     //new-picker-data
     city: " ",
     is_show_picker: false,
@@ -74,10 +75,11 @@ Page({
       if(_data.length == 0){
         this.setData({
           viewData: [
-            {img_url: "https://i.loli.net/2021/05/12/N1mTYD7EV2w9Gyz.png",
-            introduction: "尚无信息"
+            {img_url: "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/city/no_city.png",
+            introduction: "尚无信息",
           }
-          ]
+          ],
+          empty_city: true
         })
         this.setData({
           currentView: this.data.viewData[0],
@@ -87,6 +89,7 @@ Page({
         //先加载新的数据
         this.setData({
           viewData: res.result.data,
+          empty_city: false
         })
         //后初始化wxml显示第一张卡片
         this.setData({

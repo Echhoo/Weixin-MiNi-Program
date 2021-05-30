@@ -51,6 +51,7 @@
   <view class="view-description">
     <text space="emsp" >  "{{currentView.introduction}}"</text>
   </view>
-  <view class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}' style="width: 208rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">景点详情</view>
+    <view wx:if="{{!empty_city}}" class='view-detail' catchtap='onTapNavigateTo' data-id='{{item.id}}' style="width: 208rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">景点详情</view>
+  
 </view>
 </view>
