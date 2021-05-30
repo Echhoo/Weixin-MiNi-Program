@@ -26,7 +26,7 @@ page{
   position:fixed;
 }
 .btn2-container{
-  width:350rpx;
+  width:380rpx;
   height:180rpx;
   left:24%;
   top:52%;

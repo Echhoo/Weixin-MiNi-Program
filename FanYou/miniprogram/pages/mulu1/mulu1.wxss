@@ -19,29 +19,25 @@ page{
   z-index:-1;
 }
 .btn1-container{
-  width:180rpx;
+  width:460rpx;
   height:180rpx;
   left:24%;
   top:29%;
   position:fixed;
-
-
 }
 .btn2-container{
-  width:180rpx;
+  width:460rpx;
   height:150rpx;
   left:24%;
   top:45%;
   position:fixed;
-
 }
 .btn3-container{
-  width:182rpx;
+  width:460rpx;
   height:185rpx;
   left:24%;
   top:58%;
   position: fixed;
-
 }
 .btn{
   width: 100%;
