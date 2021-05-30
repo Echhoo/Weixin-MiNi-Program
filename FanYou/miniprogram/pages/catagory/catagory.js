@@ -11,6 +11,7 @@ Page({
     bgUrl:"",
     show:false,
     guideShow:false,
+    shareImg:""
   },
 
   /**
@@ -19,11 +20,13 @@ Page({
   onLoad: function (options) {
     wx.cloud.getTempFileURL({
       fileList: [
-      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/mulu.png'
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/catalogue/mulu.png',
+      'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/share.png'
     ],
       success: res => {
         this.setData({
           bgUrl:res.fileList[0].tempFileURL,
+          shareImg:res.fileList[1].tempFileURL
         })
       },
     })
@@ -83,16 +86,16 @@ Page({
   onShow: function () {
     let that = this;
     setTimeout(function () {
-      app.slideupshow(this, 'slide_up1', -60, 1)
+      app.slideupshow(this, 'slide_up1', -150, 1)
     }.bind(this), 2000);
     setTimeout(function () {
-      app.slideupshow(this, 'slide_up2', 10, 1)
+      app.slideupshow(this, 'slide_up2', -10, 1)
     }.bind(this), 2700);
     setTimeout(function () {
       app.slideupshow(this, 'slide_up3', 80, 1)
     }.bind(this), 3400);
     setTimeout(function () {
-      app.slideupshow(this, 'slide_up4', 150, 1)
+      app.slideupshow(this, 'slide_up4', 170, 1)
     }.bind(this), 4100);
 
   },
@@ -128,7 +131,21 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function(res) {
+    let that = this;
+    return {
+      title: "泛游·你旅行的好朋友",
+      path: '/pages/index/index',
+      imgUrl: that.data.shareImg,
+      success: function(res) {
+        console.log(res, "转发成功"),
+        console.log(imgUrl)
+      },
+      fail: function(res) {
+        // console.log(res, "转发失败")
+      }
+  
+    }
 
-  }
+  },
 })

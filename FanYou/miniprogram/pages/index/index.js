@@ -11,33 +11,37 @@ Page(
     rate:0,
     bgUrl: "",
     iconUrl:"",
-    tiger:""
+    tiger:"",
+
   },
     toBook: function() {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../catagory/catagory',
       })
     },
     
   onLoad: function (options) {
-    this.setData({
-      height: wx.getSystemInfoSync().windowHeight,
-      width: wx.getSystemInfoSync().windowWidth,
-    })
     wx.cloud.init({
       env: 'wzx-cloudbase-1grg51bs80e42788'
     })
     wx.cloud.getTempFileURL({
       fileList: [
       'cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/index/home.png',
+      
     ],
       success: res => {
 
-        this.setData({bgUrl:res.fileList[0].tempFileURL,
+        this.setData({
+          bgUrl:res.fileList[0].tempFileURL,
+          
         })
         // console.log(res.fileList[0])
       },
+      
     })
+    setTimeout(() => {
+        this.toBook()
+    }, 1700);
   },
 
   getUserProfile() {
@@ -63,6 +67,21 @@ Page(
         hasUserInfo: true,
       })
     }
+  },
+  onShareAppMessage: function(res) {
+    let that = this;
+    return {
+      title: "泛游·你旅行的好朋友",
+      path: '/pages/index/index',
+      imgUrl: this.data.shareImg,
+      success: function(res) {
+        // console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        // console.log(res, "转发失败")
+      }
+    }
+
   },
 
 })

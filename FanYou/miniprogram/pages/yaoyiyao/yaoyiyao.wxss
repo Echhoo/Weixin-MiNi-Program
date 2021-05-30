@@ -247,7 +247,7 @@ page {
 }
 
 .mSmall.f14 {
-  font-size: 50rpx;
+  font-size: 35rpx;
   font-family: SimSun;
   font-weight: bold;
 }

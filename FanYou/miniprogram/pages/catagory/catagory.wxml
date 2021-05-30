@@ -10,11 +10,11 @@
   <view class="{{show?'tipsContainer':'none'}}"  >
     <view class="tips" bindtap="shows" wx:if="{{show}}">
       <view class="guide "style="top:7%" >使用指南</view>
-      <view class="tip tip1" animation="{{slide_up1}}" ><text>· 良辰美景：\n     景点介绍及花草识别</text></view>
-      <view class="tip tip2" animation="{{slide_up2}}" ><text>· 泛游定制：\n     随机掉落及制作卡片</text></view>
-      <view class="tip tip3" animation="{{slide_up3}}"><text>· 个人中心：\n     卡片收藏及上传反馈</text></view>
-      <view class="tip tip4" animation="{{slide_up4}}"><text>· 关于我们：\n     团队信息及联系方式</text></view>
-      <view class="school">· 南开大学软件学院 ·</view>
+      <view class="tip tip1" animation="{{slide_up1}}" ><text>🌈良辰美景🌇 \n根据节日或城市进行定向筛选\n为您提供优质的景点推荐服务\n   •景区点一点，介绍就出来。\n   •未知的花草，扫扫有惊喜。</text></view>
+      <view class="tip tip2" animation="{{slide_up2}}" ><text>🛫泛游定制🚞  \n  摇一摇，摇出你的专属景点卡片。\n  传一传，传上你的独特旅游记忆。</text></view>
+      <view class="tip tip3" animation="{{slide_up3}}"><text>👦个人中心👧 \n  收藏的景点•上传的记忆\n都在这里。</text></view>
+      <view class="tip tip4" animation="{{slide_up4}}"><text>🐅关于我们💃 \n  您的支持建议是我们前进的最好动力</text></view>
+      <view class="school">• 南开大学软件学院 •</view>
     </view>
   </view>
 </view>

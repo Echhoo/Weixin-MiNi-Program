@@ -71,11 +71,13 @@ page{
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height:50%;
-  margin-top:280rpx;
+  height:65%;
+  margin-top:230rpx;
   padding-bottom:30rpx;
-  margin-left:160rpx;
-  margin-right:160rpx;
+  margin-left:100rpx;
+  padding-left:20rpx;
+  margin-right:100rpx;
+  padding-right:20rpx;
   border-radius: 50rpx;
   color:white;
   background-color: rgb(235, 229, 229,0.4);
@@ -92,11 +94,12 @@ page{
 	animation-fill-mode:forwards;  
 }
 .school{
-  top:130%;
+  top:110%;
   position: absolute;
   font-size:18px;
 }
 .tip{
+  text-align: center;
   opacity: 0;  
   height:100rpx;
   padding: 5rpx;
@@ -105,16 +108,16 @@ page{
   position: absolute;
 }
 .tip1{
-  transform: translateY(-30px); 
+  transform: translateY(-100px); 
 }
 .tip2{
   transform: translateY(50px); 
 }
 .tip3{
-  transform: translateY(110px); 
+  transform: translateY(150px); 
 }
 .tip4{
-  transform: translateY(190px); 
+  transform: translateY(220px); 
 }
 .ani0{
   animation:mymove0 0.8s;
