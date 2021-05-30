@@ -9,11 +9,30 @@
   margin-right: 20rpx;
   margin-bottom: 20rpx;
   }
-      
+  
+  .bgImg{
+    width:100vw;
+    height:100vh;
+    position: relative;
+  }
+  .noload{
+    position: absolute;
+    width:100%;
+    height:100%;
+  }
+  .load{
+    top:61%;
+    left:14%;
+    position: absolute;
+    width:550rpx;
+    height:110rpx;
+  }
+  .none{
+    display: none;
+  }
   .swiper {  
   height: 1100px;
   background: #F0F0F0; 
-  /* display: flex; */
   float: left;
   }
 
@@ -26,35 +45,30 @@
  .mrys .box{ 
   margin:30rpx;
   height:500rpx;
-  /* width:600rpx; */
   padding: 10rpx;
   border-radius: 10rpx;
   position: relative;
-  /* background-color: #F0F0F0; */
   background-color:#fcfcfc;
   box-shadow:  5px 5px 20px -5px #b8b7b7;
 }
  .mrys .box .check {
   font-size: 15pt;
   font-weight: bold;
-  /* color: 	rgba(51, 51, 51, 0.527); */
+  opacity: 0.8;
   color:white;
   z-index: 1;
   top:300rpx;
   width:50%;
   height: 350rpx;
-  /* top:170rpx; */
   text-align: center;
   margin-bottom: 20rpx;
   position:absolute;
 }
 .title{
   font-size: 15pt;
-  /* filter: blur(6rpx); */
   font-weight: bolder;
-  /* color: 	rgba(51, 51, 51, 0.527); */
   color:white;
-  opacity: 0.3;
+
   padding-top: 20rpx;
   padding-left: 20rpx;
   padding-right:20rpx;
@@ -63,6 +77,11 @@
   text-align: center;
   height: 150rpx;
   position:absolute;
+}
+.image{
+  width:100%;
+  height:100%;
+  padding:18rpx;
 }
 .img{
   padding-top: 20rpx;
@@ -85,14 +104,12 @@
   position: absolute;
   font-size: 16px;
   color:rgba(238, 238, 238, 0.63);
-  /* text-indent: pt; */
 }
 
 .icons{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
   border-radius: 30rpx;
   flex-direction: row;
 }

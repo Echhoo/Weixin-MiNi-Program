@@ -12,11 +12,11 @@ exports.main = async (event, context) => {
     }
   })
   .then(res=>{
-    console.log("改变收藏状态成功", res)
+    // console.log("改变收藏状态成功", res)
     return res
   })
   .catch(res=>{
-    console.log("改变收藏状态失败", res)
+    // console.log("改变收藏状态失败", res)
     return res
   })
 }

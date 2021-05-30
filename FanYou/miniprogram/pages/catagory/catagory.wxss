@@ -94,7 +94,7 @@ page{
 .school{
   top:130%;
   position: absolute;
-  font-size:20px;
+  font-size:18px;
 }
 .tip{
   opacity: 0;  
@@ -103,8 +103,6 @@ page{
   font-size: 16px;  
   white-space:pre-wrap;
   position: absolute;
-  /* animation-iteration-count:1;
-	animation-fill-mode:forwards; */
 }
 .tip1{
   transform: translateY(-30px); 

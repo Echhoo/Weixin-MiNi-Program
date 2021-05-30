@@ -2,7 +2,6 @@ page{
   background-color: #efeff4;
   overflow: hidden;
   height: 100vh;
-  /* background-image: url(https://i.loli.net/2021/04/17/zR1NjUXCJfDWEvF.png); */
   }
   .container {
     height: 100vh;
@@ -28,7 +27,6 @@ page{
   }
   
   .title .icon-show {
-    /* width: 35s%; */
     color:#333333;
     position: absolute;
     left:10%;
@@ -158,7 +156,6 @@ overflow:unset;
   left:35%;
   top:60%;
   position: absolute;
-  /* margin: 10% 30%; */
   font-size: 35rpx;
   line-height: 76rpx;
   text-align: center;
@@ -167,13 +164,8 @@ overflow:unset;
 }
 
 .view-description-wrapper {
-  /* display: flex;
-  flex-direction: column;
-  align-content: center;
-  margin: auto; */
   width: 100%;
   height: 40%;
-  /* left:10%; */
   bottom:0;
   position: absolute;
 
@@ -189,7 +181,7 @@ overflow:unset;
   margin-top: 10rpx;
   margin-left:20%;
   margin-right: 20%;
-  height: 43%;
+  height: 42%;
   top:0;
   font-size: 30rpx;
   line-height: 2;
@@ -197,7 +189,7 @@ overflow:unset;
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3; /* 设置超出多少行隐藏 */
+  -webkit-line-clamp: 4; /* 设置超出多少行隐藏 */
   -webkit-box-orient: vertical;
   overflow: hidden;
   position: absolute;

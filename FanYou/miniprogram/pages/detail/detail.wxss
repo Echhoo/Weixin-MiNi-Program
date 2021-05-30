@@ -115,8 +115,6 @@ z-index: 20;
 }
 
 .collect{
-  /* box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.15);
-  border: 5rpx solid grey; */
 	border-radius: 20rpx;
   float:right;
   right:20%;
@@ -127,13 +125,6 @@ z-index: 20;
   align-items: center;
   justify-content: center;
 }
-/* .share-font{
-  font-size:large;
-
-}
-.collect-font{
-  font-size:large;
-} */
 
 .collect_image{
   height: 60rpx;

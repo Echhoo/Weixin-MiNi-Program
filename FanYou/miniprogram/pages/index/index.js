@@ -35,7 +35,7 @@ Page(
 
         this.setData({bgUrl:res.fileList[0].tempFileURL,
         })
-        console.log(res.fileList[0])
+        // console.log(res.fileList[0])
       },
     })
   },

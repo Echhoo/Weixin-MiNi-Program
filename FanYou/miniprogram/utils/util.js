@@ -141,7 +141,7 @@ const getUrlParams = (param, k, p) => {
  * @param callable errorCallback 失败执行方法
  */
 const basePost = function (url, data, successCallback, errorCallback, header) {
-  console.log('请求url：' + url);
+  // console.log('请求url：' + url);
   wx.showLoading({
     title: "正在加载中...",
   })
@@ -155,7 +155,7 @@ const basePost = function (url, data, successCallback, errorCallback, header) {
     },
     success: function (res) {
       wx.hideLoading();
-      console.log('响应：', res.data);
+      // console.log('响应：', res.data);
       try {
         if (res.data.code == 200) {
           successCallback && successCallback(res.data);
@@ -168,7 +168,7 @@ const basePost = function (url, data, successCallback, errorCallback, header) {
           errorCallback && errorCallback(res.data);
         }
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     },
     fail: function (res) {
@@ -187,7 +187,7 @@ const basePost = function (url, data, successCallback, errorCallback, header) {
  * @param boolean isMsg 是否自动提示错误 默认提示
  */
 const baseGet = function (url, successCallback, errorCallback, isMsg, header) {
-  console.log('请求url：' + url);
+  // console.log('请求url：' + url);
   wx.showLoading({
     title: "正在加载中...",
   })
@@ -198,7 +198,7 @@ const baseGet = function (url, successCallback, errorCallback, isMsg, header) {
     header: header,
     success: function (res) {
       wx.hideLoading();
-      console.log('响应：', res.data);
+      // console.log('响应：', res.data);
       try {
         if (res.data.code == 200) {
           successCallback && successCallback(res.data);
@@ -214,11 +214,11 @@ const baseGet = function (url, successCallback, errorCallback, isMsg, header) {
           });
         }
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     },
     fail: function (res) {
-      console.log('submit fail');
+      // console.log('submit fail');
     },
     complete: function (res) {
 
@@ -469,7 +469,7 @@ const PosterCanvas = (arr2, store_name, price, successFn) => {
   wx.getImageInfo({
     src: arr2[0],
     success: function (res) {
-      console.log(res);
+      // console.log(res);
       const WIDTH = res.width;
       const HEIGHT = res.height;
       ctx.drawImage(arr2[0], 0, 0, WIDTH, HEIGHT);

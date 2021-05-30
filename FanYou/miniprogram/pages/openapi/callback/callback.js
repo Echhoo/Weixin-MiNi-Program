@@ -10,6 +10,6 @@ Page({
   },
 
   onCustomerServiceButtonClick(e) {
-    console.log(e)
+    // console.log(e)
   },
 })

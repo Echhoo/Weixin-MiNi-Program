@@ -1,29 +1,26 @@
+
+<view class="{{hidd?'bgImg':'none'}}" >
+  <image class="noload" src="{{noloadImg}}" mode="aspectFill"></image>
+  <view class="load" bindtap="gotoLoad"></view>
+</view>
 <view class="page">
  <swiper-item> 
   <scroll-view class='container' scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
   <scroll-view class='mrys'  wx:for="{{festivalViewList}}" wx:key="id" >
     <view class='box'>
-      <!-- <view class="title">
-        节日·{{item.Festival}} 
-      </view> -->
       <view class="title" style="top:100rpx;  border-style:solid ;">
          {{item.city}} · {{item.site_name}} 
       </view>
-      <!-- <view class="title1" style="top:100rpx;  border-style:solid ;">
-         {{item.city}} · {{item.site_name}} 
-      </view> -->
-      <image class='image' src='{{item.fes_pic}}' mode='aspectFill' catchtap='onTapNavigateTo' data-item='{{item}}'></image>
+      <image class='image' src='{{item.img_url}}' mode='aspectFill' catchtap='onTapNavigateTo' data-item='{{item}}'></image>
       <view class='check' >状态：{{item.check_status.checking==true?'审核中' 
       :(item.check_status.accepted==true?'已通过':'未通过')}}</view>
       <view class="content">
-        <!-- <icon class="iconstyle" wx:for="{{typeList}}" type="{{item}}" size="40" ></icon> -->
         <view class="icons">
           <icon type="waiting" color="{{item.check_status.checking==true?'' :'#0333'}}" size="40"></icon>
           <icon type="success" color="{{item.check_status.accepted==true?'':'#0333'}}" size="40"></icon>
           <icon type="clear" color="{{item.check_status.rejected==true?'red':'#0333'}}" size="40"></icon>
         </view>
       </view>
-      <!-- <view class='content'>{{item.fes_intro}}</view> -->
     </view>   
   </scroll-view>
 </scroll-view>

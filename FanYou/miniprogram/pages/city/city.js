@@ -5,6 +5,7 @@ var touch = [0,0];
 var openid = ''
 Page({
   data: {
+    empty_city: false,
     //new-picker-data
     city: " ",
     is_show_picker: false,
@@ -19,6 +20,7 @@ Page({
     viewData: [],
   },
   onLoad(options){
+    
     that = this;
     var _city = this.data.picker_data[1]["name"]
     this.setData({
@@ -31,7 +33,7 @@ Page({
       }
     })
     .then(res => {
-      console.log("该城市的数据", res.result.data);
+      // console.log("该城市的数据", res.result.data);
       var _data = res.result.data;
       that.setData({
         viewData: _data
@@ -56,8 +58,8 @@ Page({
       picker_data: e.detail.choosedData,
       picker_index:e.detail.choosedIndexArr
     })
-    console.log("picker_index: ",this.data.picker_index);
-    console.log("picker_data: ", this.data.picker_data)
+    // console.log("picker_index: ",this.data.picker_index);
+    // console.log("picker_data: ", this.data.picker_data)
     this.setData({
       city: this.data.picker_data[1]["name"]
     });
@@ -69,15 +71,16 @@ Page({
       }
     })
     .then(res => {
-      console.log(res.result)
+      // console.log(res.result)
       var _data = res.result.data;
       if(_data.length == 0){
         this.setData({
           viewData: [
-            {img_url: "https://i.loli.net/2021/05/12/N1mTYD7EV2w9Gyz.png",
-            introduction: "尚无信息"
+            {img_url: "cloud://wzx-cloudbase-1grg51bs80e42788.777a-wzx-cloudbase-1grg51bs80e42788-1305328067/picture/city/no_city.png",
+            introduction: "尚无信息",
           }
-          ]
+          ],
+          empty_city: true
         })
         this.setData({
           currentView: this.data.viewData[0],
@@ -87,6 +90,7 @@ Page({
         //先加载新的数据
         this.setData({
           viewData: res.result.data,
+          empty_city: false
         })
         //后初始化wxml显示第一张卡片
         this.setData({
@@ -97,7 +101,7 @@ Page({
     .catch(err => {
       //处理错误情况，展示空页面
       //注意，后面要对错误显示进行特殊处理
-      console.log("ERROR! ",err)
+      // console.log("ERROR! ",err)
     })
   },
   cancleCallBack () {
@@ -147,7 +151,7 @@ saveImg(){
             this.saveImg1(url);
           },
           fail: (res) =>{
-            console.log(res);
+            // console.log(res);
           }
         })
       }else{
@@ -156,7 +160,7 @@ saveImg(){
       }
     },
     fail: (res) =>{
-      console.log(res);
+      // console.log(res);
     }
   })   
 },
@@ -168,15 +172,15 @@ saveImg1(url){
       wx.saveImageToPhotosAlbum({
         filePath:path,
         success:(res)=> { 
-          console.log(res);
+          // console.log(res);
         },
         fail:(res)=>{
-          console.log(res);
+          // console.log(res);
         }
       })
     },
     fail:(res)=> {
-      console.log(res);
+      // console.log(res);
     }
   })
 },

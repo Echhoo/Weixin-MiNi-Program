@@ -26,15 +26,15 @@ Page({
         fileID: options.fileID
       },
       success: res => {
-        console.log('百度ai传回来的数据：', res);
+        // console.log('百度ai传回来的数据：', res);
         wx.hideLoading();
-        console.log("百度ai传回来的数据2：", res.result.val.result)
+        // console.log("百度ai传回来的数据2：", res.result.val.result)
         this.setData({
           context: res.result.val.result,
           pic:res.result.img,
           score:res.result.val.result[0].score.toPrecision(2)
         })
-        console.log(this.data.context);
+        // console.log(this.data.context);
         // console.log(this.data.pic);
         var img = this.data.pic
         // console.log(img)        
@@ -49,7 +49,7 @@ Page({
         setTimeout(this.boxMove, 2000)
       },
       fail: error =>{
-        console.log('接口失败：', error);
+        // console.log('接口失败：', error);
       }
     })
   },

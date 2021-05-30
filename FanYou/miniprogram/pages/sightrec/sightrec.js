@@ -27,10 +27,10 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
-        console.log('调用图片的成功结果：', res);
+        // console.log('调用图片的成功结果：', res);
         let filePath = res.tempFilePaths[0];
         let cloudPath = 'image/' + Date.now() + filePath.match(/\.[^.]+?$/)[0]
-        console.log('cloudPath is : ',cloudPath)
+        // console.log('cloudPath is : ',cloudPath)
         wx.cloud.uploadFile({  // 将图片上传至云存储空间
           // 指定上传到云路径
           cloudPath: cloudPath,
@@ -38,7 +38,7 @@ Page({
           filePath: filePath,
           // 成功回调
           success: res =>{
-            console.log('上传成功：', res);
+            // console.log('上传成功：', res);
             //  跳转图片上传成功页面
             wx.navigateTo({
               url: `../sightget/sightget?fileID=${res.fileID}&&pic=${filePath}`,
