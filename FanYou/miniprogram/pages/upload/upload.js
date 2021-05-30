@@ -11,7 +11,7 @@ Page({
   },
   
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       fes_index: e.detail.value
     })
@@ -53,7 +53,7 @@ Page({
   },
   submitViewData(res){
     var data = res.detail.value;
-    console.log("Data: ",data)
+    // console.log("Data: ",data)
     if((data.city=="")||(data.site_name=="")||(data.intro=="")){
       wx.showToast({
         title: "信息不完整\n请重新填报",
@@ -75,12 +75,12 @@ Page({
     view['fes_pic'][this.data.fes_index] = this.data.img_urls[1];
     // check_status 有checking，accepted 和 rejected
     view['check_status'] =  {"checking": true, "accepted":false, "rejected":false};
-    console.log("new View: ",view)
+    // console.log("new View: ",view)
     db.collection("pending_attractions").add({
       data: view
     })
     .then(res=>{
-      console.log("add res: ", res)
+      // console.log("add res: ", res)
     })
     this.setData({
       submited: true
@@ -101,7 +101,7 @@ Page({
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
         success: function (res) {
-          console.log("res", res)
+          // console.log("res", res)
             // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
             that.setData({
                 files: that.data.files.concat(res.tempFilePaths)
@@ -116,11 +116,11 @@ previewImage: function(e){
     })
 },
 selectFile(files) {
-    console.log('files', files)
+    // console.log('files', files)
     // 返回false可以阻止某次文件上传
 },
 uplaodFile(files) {
-    console.log('upload files', files)
+    // console.log('upload files', files)
     // 文件上传的函数，返回一个promise
     return new Promise((resolve, reject) => {
       const db = wx.cloud.database()
@@ -131,7 +131,7 @@ uplaodFile(files) {
       })
       var object = {};
       const that = this;
-      console.log("看我看我看我！", filesData.length)
+      // console.log(filesData.length)
       for (let i = 0; i < filesData.length; i++) {
       const filePath = filesData[i];
       const name = 'upload/'+'upload_img-'+parseInt(Math.random() * 100000000);
@@ -147,7 +147,7 @@ uplaodFile(files) {
           object['urls'] = that.data.arrurls;
         
           if(that.data.arrurls.length == filesData.length){
-            console.log(object);
+            // console.log(object);
             resolve(object)
           }
         //   _this.setData({
@@ -155,7 +155,7 @@ uplaodFile(files) {
         //   })
         },
         fail: res => {
-          console.error('[上传文件] 失败：', res)
+          // console.error('[上传文件] 失败：', res)
         //   wx.showToast({
         //     icon: 'none',
         //     title: '上传失败',
@@ -169,13 +169,13 @@ uplaodFile(files) {
     })
 },
 uploadError(e) {
-    console.log('upload error', e.detail)
+    // console.log('upload error', e.detail)
 },
 uploadSuccess(e) {
-  console.log('upload success', e.detail.urls)
+  // console.log('upload success', e.detail.urls)
   this.setData({
     img_urls: e.detail.urls
   })
-  console.log("img urls: ", this.data.img_urls)
+  // console.log("img urls: ", this.data.img_urls)
 }
 });

@@ -20,7 +20,7 @@ Page({
 
       const templateId = result
 
-      console.warn('[云函数] [openapi] 获取订阅消息模板 调用成功：', templateId)
+      // console.warn('[云函数] [openapi] 获取订阅消息模板 调用成功：', templateId)
       this.setData({
         templateId,
       })
@@ -29,7 +29,7 @@ Page({
         icon: 'none',
         title: '调用失败',
       })
-      console.error('[云函数] [openapi] 获取订阅消息模板 调用失败：', err)
+      // console.error('[云函数] [openapi] 获取订阅消息模板 调用失败：', err)
     }
   },
 
@@ -77,7 +77,7 @@ Page({
         templateId: this.data.templateId,
       },
       success: res => {
-        console.warn('[云函数] [openapi] subscribeMessage.send 调用成功：', res)
+        // console.warn('[云函数] [openapi] subscribeMessage.send 调用成功：', res)
         wx.showModal({
           title: '发送成功',
           content: '请返回微信主界面查看',
@@ -95,7 +95,7 @@ Page({
           icon: 'none',
           title: '调用失败',
         })
-        console.error('[云函数] [openapi] subscribeMessage.send 调用失败：', err)
+        // console.error('[云函数] [openapi] subscribeMessage.send 调用失败：', err)
       }
     })
   },
@@ -112,7 +112,7 @@ Page({
         formId: e.detail.formId,
       },
       success: res => {
-        console.warn('[云函数] [openapi] subscribeMessage.send 调用成功：', res)
+        // console.warn('[云函数] [openapi] subscribeMessage.send 调用成功：', res)
         wx.showModal({
           title: '发送成功',
           content: '请返回微信主界面查看',
@@ -130,7 +130,7 @@ Page({
           icon: 'none',
           title: '调用失败',
         })
-        console.error('[云函数] [openapi] templateMessage.send 调用失败：', err)
+        // console.error('[云函数] [openapi] templateMessage.send 调用失败：', err)
       }
     })
   },
@@ -153,7 +153,7 @@ Page({
         wxacodeResult: `从本地缓存中取得了小程序码的云文件 ID`,
         showClearWXACodeCache: true,
       })
-      console.log(`从本地缓存中取得了小程序码的云文件 ID：${fileID}`)
+      // console.log(`从本地缓存中取得了小程序码的云文件 ID：${fileID}`)
     } else {
       wx.cloud.callFunction({
         name: 'openapi',
@@ -161,7 +161,7 @@ Page({
           action: 'getWXACode',
         },
         success: res => {
-          console.warn('[云函数] [openapi] wxacode.get 调用成功：', res)
+          // console.warn('[云函数] [openapi] wxacode.get 调用成功：', res)
           wx.showToast({
             title: '调用成功',
           })
@@ -177,7 +177,7 @@ Page({
             icon: 'none',
             title: '调用失败',
           })
-          console.error('[云函数] [openapi] wxacode.get 调用失败：', err)
+          // console.error('[云函数] [openapi] wxacode.get 调用失败：', err)
         }
       })
     }

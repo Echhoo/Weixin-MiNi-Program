@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
   let res = await cloud.downloadFile({   // 云服务的下载
     fileID: fileID  
   })
-  console.log('调用百度ai函数打印1：', res);
+  // console.log('调用百度ai函数打印1：', res);
 
   let image = res.fileContent.toString("base64");   // 将图片转成base64格式，因为这里百度ai只接受base64格式
   var options = {};

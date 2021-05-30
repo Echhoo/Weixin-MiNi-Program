@@ -51,7 +51,7 @@ Page({
           icon: 'none',
           title: '调用失败',
         })
-        console.error('[云函数] [sum] 调用失败：', err)
+        // console.error('[云函数] [sum] 调用失败：', err)
       }
     })
   },

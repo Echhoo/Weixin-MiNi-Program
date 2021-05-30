@@ -123,11 +123,11 @@ Page({
         ['festival.' + [selidx]]: true
       }).get()
       .then(res => {
-        console.log("REs",res.data);
+        // console.log("REs",res.data);
         this.setData({
           bannerData: res.data,
         })
-         console.log("bannerData",this.data.bannerData)
+        //  console.log("bannerData",this.data.bannerData)
         //改造bannerData数据的fes_pic和fes_intro
         var i = 0;
         var len = this.data.bannerData.length;
@@ -256,10 +256,10 @@ Page({
         })
         .remove()
         .then(res => {
-          console.log("取消收藏成功", res)
+          // console.log("取消收藏成功", res)
         })
         .catch(res => {
-          console.log("取消收藏失败", res)
+          // console.log("取消收藏失败", res)
 
         })
     } else {
@@ -279,11 +279,11 @@ Page({
           }
         })
         .then(res => {
-          console.log("增加收藏成功", res)
+          // console.log("增加收藏成功", res)
           // console.log(if_collect)
         })
         .catch(res => {
-          console.log("增加收藏失败", res)
+          // console.log("增加收藏失败", res)
         })
     }
   },
@@ -303,10 +303,10 @@ Page({
       imageUrl:this.data.bannerData[this.data.bannerCurrent].fes_pic,
       
       success: function(res) {
-        console.log(res, "转发成功")
+        // console.log(res, "转发成功")
       },
       fail: function(res) {
-        console.log(res, "转发失败")
+        // console.log(res, "转发失败")
       }
     }
   },

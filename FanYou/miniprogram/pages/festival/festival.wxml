@@ -22,7 +22,6 @@
                     <view class='imgWrap'>
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <!-- <view class='mSmall f14 relative mb10'> {{ item.site_name }} </view> -->
                         <view class='mSmall relative' style="font-weight: bold;font-size: 30rpx;">· {{ item.site_name }} ·</view>
                       </view>
                     </view>
@@ -47,7 +46,6 @@
                     </view>
                     <view class='copyright'>
                       <view class='copyrightGrid'>
-                        <!-- <image class='logo' src='{{ logo }}' mode='widthFix'></image> -->
                         <text class='span'>fanyou-两只老虎爱跳舞</text>
                       </view>
                     </view>
@@ -59,12 +57,10 @@
           <!-- 转发收藏icon -->
           <view class='functionIcon'>
             <view class='forwardIcon'>
-              <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
               <icon class="iconfont forward-pic icon-fenxiang1" ></icon>
               <button open-type="share" data-item='{{item}}'></button>
             </view>
             <view class='favoriteIcon' bindtap = 'click_collect'>
-              <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
               <icon class="iconfont forward-pic {{fav_icon? 'icon-aixin-copy':'icon-aixin'}}" ></icon>
             </view>
           </view>
@@ -118,19 +114,6 @@
           </view>
         </view>
       </view>
-      <!-- <view class="nav">
-        <view class="nav1">其他</view>
-        <view class="nav2">
-          <view class="" wx:for="{{nav4}}" wx:key="id" wx:if="{{index==9||index==10}}">
-            <view class="n2_name {{item.isSel? 'active':''}}" bindtap="choose" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
-          </view>
-        </view>
-      </view> -->
     </view>
-    <!-- <view class="btn">
-      <view>
-        <view bindtap="queren">确定</view>
-      </view>
-    </view> -->
   </view>
 </view>

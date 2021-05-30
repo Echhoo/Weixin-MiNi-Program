@@ -47,7 +47,7 @@ Page({
       .get()
       .then(res => {
         //根据数据库中的情况，来设定收藏情况
-        // console.log("收藏：",res)
+        // // console.log("收藏：",res)
         var len = res.data.length
         if (len == 0) {
           if_collect = false;
@@ -91,7 +91,7 @@ Page({
         })
         if ((Math.abs(speedX) > 800) || (Math.abs(speedY) > 800)) {
           if (that.data.isExecute) {
-            // console.log("正在执行")
+            // // console.log("正在执行")
             // setRandow();
             wx.showToast({
               title: "摇一摇\n你的景点来了",
@@ -140,7 +140,7 @@ Page({
     this.setData({
       ID: this.data.bannerData[this.data.bannerCurrent]._id,
     })
-    console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
+    // // console.log("CurrentView",this.data.bannerData[this.data.bannerCurrent])
     //设定当前view的收藏状态
     this.setCollectIcon()
   },
@@ -148,7 +148,7 @@ Page({
   setRandow: function () {
     var that = this;
     random = Math.floor(Math.random() * 8)
-    console.log(random)
+    // // console.log(random)
     db.collection('attractions')
       .where({
         ['festival.' + [random]]: true
@@ -158,7 +158,7 @@ Page({
         that.setData({
           ranData: res.data,
         })
-        console.log("ranData", that.data.ranData)
+        // console.log("ranData", that.data.ranData)
         var i = 0;
         var len = this.data.ranData.length;
         var views = []
@@ -174,7 +174,7 @@ Page({
         this.setData({
           bannerData: views
         })
-        console.log("bannnerData", this.data.bannerData)
+        // console.log("bannnerData", this.data.bannerData)
         var random_index = Math.floor(Math.random() * len)
         this.setData({
           bannerCurrent: random_index
@@ -184,7 +184,7 @@ Page({
         this.setData({
           bannerData: list
         })
-        console.log("random banncurrent: ", random_index);
+        // console.log("random banncurrent: ", random_index);
         var currentViewID = this.data.bannerData[0]._id;
         wx.cloud.callFunction({
             name: "getOPENID"
@@ -194,17 +194,17 @@ Page({
               OPENID: res.result.openid,
               ID: currentViewID
             })
-            console.log("ViewID: ",this.data.ID)
-            console.log("OpenID: ", this.data.OPENID)
-            console.log("BannerData: ", this.data.bannerData)
+            // console.log("ViewID: ",this.data.ID)
+            // console.log("OpenID: ", this.data.OPENID)
+            // console.log("BannerData: ", this.data.bannerData)
             // 获取ViewID和OpenID后，设定当前view的收藏状态
             this.setCollectIcon()
           })
       })
   },
   click_collect() {
-    // console.log("OpenID: ", this.data.OpenID)
-    // console.log("ViewID: ", this.data.ViewID)
+    // // console.log("OpenID: ", this.data.OpenID)
+    // // console.log("ViewID: ", this.data.ViewID)
     if (if_collect == true) {
       this.setData({
         fav_icon: false
@@ -248,7 +248,7 @@ Page({
           }
         })
         .then(res => {
-          console.log("Res: ", res)
+          // console.log("Res: ", res)
           wx.showToast({
             title: '增加收藏成功',
             icon: 'success',

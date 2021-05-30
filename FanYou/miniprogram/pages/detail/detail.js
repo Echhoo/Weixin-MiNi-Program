@@ -49,11 +49,11 @@ Page({
       }
     })
     .then(res=>{
-      console.log("从城市页面跳转得到的数据 ",res)
+      // console.log("从城市页面跳转得到的数据 ",res)
       this.setData({
         currentView: res.result.data,
       })
-      console.log("CURRENTVIEW: ", this.data.currentView)
+      // console.log("CURRENTVIEW: ", this.data.currentView)
       var imgs = [this.data.currentView.img_url]
       var i =0;
       // console.log("current View: ", this.data.currentView)
@@ -77,8 +77,8 @@ Page({
         OPENID: res.result.openid,
         ID: currentViewID
       })
-      console.log("ViewID: ",this.data.ID)
-      console.log("OpenID: ", this.data.OPENID)
+      // console.log("ViewID: ",this.data.ID)
+      // console.log("OpenID: ", this.data.OPENID)
      
       
 
@@ -90,7 +90,7 @@ Page({
       .get()
       .then(res=>{
         //根据数据库中的情况，来设定收藏情况
-        console.log("收藏：",res)
+        // console.log("收藏：",res)
         var len = res.data.length
         if(len == 0){
           if_collect = false;
@@ -110,7 +110,7 @@ Page({
       .get()
       .then(res=>{
         //根据数据库中的情况，来设定喜欢情况
-        console.log("喜欢：",res)
+        // console.log("喜欢：",res)
         var len = res.data.length
         if(len == 0){
           if_like = false;
@@ -145,10 +145,10 @@ click_collect(){
       })
       .remove()
       .then(res=>{
-        console.log("取消收藏成功", res)
+        // console.log("取消收藏成功", res)
       })
       .catch(res=>{
-        console.log("取消收藏失败", res)
+        // console.log("取消收藏失败", res)
       })
       
   
@@ -171,10 +171,10 @@ click_collect(){
         }
       })
       .then(res=>{
-        console.log("增加收藏成功", res)
+        // console.log("增加收藏成功", res)
       })
       .catch(res=>{
-        console.log("增加收藏失败", res)
+        // console.log("增加收藏失败", res)
       })
     }
   })
@@ -193,10 +193,10 @@ click_like(){
     })
     .remove()
     .then(res=>{
-      console.log("取消喜欢成功", res)
+      // console.log("取消喜欢成功", res)
     })
     .catch(res=>{
-      console.log("取消喜欢失败", res)
+      // console.log("取消喜欢失败", res)
     })
   }else{
     this.setData({
@@ -210,10 +210,10 @@ click_like(){
       }
     })
     .then(res=>{
-      console.log("增加点赞成功", res)
+      // console.log("增加点赞成功", res)
     })
     .catch(res=>{
-      console.log("增加点赞失败", res)
+      // console.log("增加点赞失败", res)
     })
   }
   
@@ -224,10 +224,10 @@ click_like(){
       title: "送你一封城市景点介绍名片",
       imgUrl: this.data.currentView.img_url,
       success: function(res) {
-        console.log(res, "转发成功")
+        // console.log(res, "转发成功")
       },
       fail: function(res) {
-        console.log(res, "转发失败")
+        // console.log(res, "转发失败")
       }
     }
 

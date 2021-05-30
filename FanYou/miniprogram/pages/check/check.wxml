@@ -16,10 +16,6 @@
     <view class="intro-level_score" space="emsp">审核状态：{{currentView.check_status}} </view>
   </view>
   <view class="function">
-    <!-- <view class="share_func">
-      <image src='https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/%E5%88%86%E4%BA%AB.png?sign=4d964c432369d2bf03eacfb9f7e80988&t=1622028424'></image>
-      <button open-type="share"></button>   
-    </view> -->
     <block wx:if="{{isReady}}">
       <button bindtap="mergeIntoAttr">审核状态图标</button>
   </block>

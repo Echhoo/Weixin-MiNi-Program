@@ -2,7 +2,6 @@
   <view class="title">
     <image class="yaoicon" src="https://777a-wzx-cloudbase-1grg51bs80e42788-1305328067.tcb.qcloud.la/picture/icon/%E6%91%87%E4%B8%80%E6%91%87.png?sign=d79441e1975b3c696579d7f5938ed2b4&t=1622013933" ></image>
     <view class="Name"  style="white-space:pre-wrap">摇一摇\n为你定制私人景点</view>
-    <!-- <view class="Name">为你定制私人景点</view> -->
   </view>
   <view class="swiper-item" wx:for="{{ bannerData }}" wx:key="index">
           <view class='boxItem column'>
@@ -16,7 +15,6 @@
                     <view class='imgWrap'>
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <!-- <view class='mSmall f14 relative mb10' style="white-space:pre-wrap;">摇到了\n </view> -->
                         <view class='mSmall relative' style="  font-size: 30rpx;font-family: SimSun;  font-weight: bold;">·  {{ item.site_name }} ·</view>
                       </view>
                     </view>
@@ -41,7 +39,6 @@
                     </view>
                     <view class='copyright'>
                       <view class='copyrightGrid'>
-                        <!-- <image class='logo' src='{{ logo }}' mode='widthFix'></image> -->
                         <text class='span'>fanyou-两只老虎爱跳舞</text>
                       </view>
                     </view>
@@ -54,7 +51,6 @@
           <view class='functionIcon'>
             <view class='favoriteIcon' bindtap = 'click_collect'>
               <view class='favoriteIcon' >
-                <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
                 <icon class="iconfont forward-pic {{fav_icon? 'icon-aixin-copy':'icon-aixin'}}" ></icon>
               </view>
               </view>

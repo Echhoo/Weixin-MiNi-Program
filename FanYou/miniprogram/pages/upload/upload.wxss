@@ -3,10 +3,6 @@
   width: 100%;
   height: 20%;
   margin-top:80rpx;
-
-
-  /* display: inline; */
-  /* padding-bottom: 10rpx; */
 }
 .container{
   display:flex;
@@ -39,10 +35,6 @@
   width: 100%;
   text-align: center;
 }
-/* .data{
-  display:flex;
-  height:100rpx;
-} */
 .recommand{
   margin-top:15rpx;
   border-radius: 3rpx;
@@ -60,10 +52,6 @@
   border-bottom-color: rgb(211, 208, 208);
 
 }
-/* .site{
-  padding-bottom:20rpx;
-
-} */
 
 .sub_button{
   text-align: center;

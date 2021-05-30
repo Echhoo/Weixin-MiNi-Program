@@ -2,7 +2,6 @@
 <view class="container">
   <view class="title" style="white-space:pre-wrap">传一传\n制作你的专属卡片</view>
 <view class="formContainer">
-  <!-- <image class="bigImg" src="{{bgUrl}}"></image> -->
     <form bindsubmit='submitViewData' bindreset="reset">
       <mp-cells class="uploadContainer">
         <mp-cell class="data">

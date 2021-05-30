@@ -40,7 +40,7 @@ Page({
       this.setData({
         OpenID: res.result.openid
       })
-      console.log("opind:", this.data.OpenID)
+      // console.log("opind:", this.data.OpenID)
       this.loadMrysData();
     })
     var that = this
@@ -75,7 +75,7 @@ Page({
           this.setData({
             festivalViewList: res.data,
           })
-          console.log(res.data)
+          // console.log(res.data)
           if(res.data.length == 0){
             this.setData({
               hidd:true,
@@ -90,7 +90,7 @@ Page({
             
             var aCurrentFesView = this.data.festivalViewList[i];
             var j = 0
-            console.log("a current view; ", aCurrentFesView)
+            // console.log("a current view; ", aCurrentFesView)
             if(aCurrentFesView.check_status == 'checking'){
               aCurrentFesView['icon_type'] = 'waiting'
             }else if(aCurrentFesView.check_status == 'isAccepted'){
@@ -110,7 +110,7 @@ Page({
           this.setData({
             festivalViewList: views
           })
-          console.log("changed view: ", this.data.festivalViewList)
+          // console.log("changed view: ", this.data.festivalViewList)
       })
   },
 
@@ -138,7 +138,7 @@ Page({
 
   onTapNavigateTo(e){
     // console.log("EEEE: ", e)
-    console.log("pending ID",e.currentTarget.dataset.item._id)
+    // console.log("pending ID",e.currentTarget.dataset.item._id)
     // wx.navigateTo({
     //   url: '../check/check?pendingViewID='+e.currentTarget.dataset.item._id
     // })
@@ -156,7 +156,7 @@ Page({
     // console.log("currentTab: ", this.data.currentTab)    
     },    
   swiperChange: function (e) {    
-    console.log(e);    
+    // console.log(e);    
     this.setData({  
     currentTab: e.detail.current,  
     })
