@@ -23,7 +23,7 @@
                   <!-- 卡片 -->
                   <view class='posterGroup'>
                     <view class='imgWrap'>
-                      <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
+                      <image bindlongpress="saveImg" class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
                         <view class='mSmall relative' style="font-weight: bold;font-size: 30rpx;">· {{ item.site_name }} ·</view>
                       </view>

@@ -352,6 +352,54 @@ Page({
   onReachBottom: function () {
 
   },
+  //长按保存图片(两个函数)
+saveImg(){
+  console.log("save ")
+  var url = this.data.bannerData[this.data.bannerCurrent].fes_pic
+  //用户需要授权
+  wx.getSetting({
+    success: (res) => {
+      if (!res.authSetting['scope.writePhotosAlbum']) {
+        wx.authorize({
+          scope: 'scope.writePhotosAlbum',
+          success:()=> {
+            // 同意授权
+            this.saveImg1(url);
+          },
+          fail: (res) =>{
+            // console.log(res);
+          }
+        })
+      }else{
+        // 已经授权了
+        this.saveImg1(url);
+      }
+    },
+    fail: (res) =>{
+      // console.log(res);
+    }
+  })   
+},
+saveImg1(url){
+  wx.getImageInfo({
+    src: url,
+    success:(res)=> {
+      var path = res.path;
+      wx.saveImageToPhotosAlbum({
+        filePath:path,
+        success:(res)=> { 
+          // console.log(res);
+        },
+        fail:(res)=>{
+          // console.log(res);
+        }
+      })
+    },
+    fail:(res)=> {
+      // console.log(res);
+    }
+  })
+},
 
   /**
    * 用户点击右上角分享
