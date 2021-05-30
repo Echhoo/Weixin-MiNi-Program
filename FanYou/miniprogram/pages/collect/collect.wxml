@@ -8,9 +8,9 @@
  <swiper-item class="city">
   <scroll-view  class='container' scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
   <scroll-view class='mrys'  wx:for="{{storyList}}" wx:key="id" >
-    <view class='box ' >
+    <view class='box 'catchtap='onCityTapNavigateTo' data-id='{{item.ViewID}}' >
 
-      <image class='image' src='{{item.CityImg}}' mode='aspectFill' catchtap='onCityTapNavigateTo' data-id='{{item.ViewID}}'></image>
+      <image class='image' src='{{item.CityImg}}' mode='aspectFill' ></image>
       <view class='title'>{{item.City}} · {{item.SiteName}}</view>
       <view class='content'>{{item.CityIntro}}</view>
     </view>   

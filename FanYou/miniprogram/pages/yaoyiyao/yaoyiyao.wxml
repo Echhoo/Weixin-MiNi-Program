@@ -16,8 +16,8 @@
                     <view class='imgWrap'>
                       <image class='img' src="{{ item.fes_pic }}" mode="aspectFill"></image>
                       <view class='detailBox'>
-                        <!-- <view class='mSmall f14 relative mb10' style="white-space:pre-wrap;">摇到了\n </view> -->
-                        <view class='mSmall relative' style="  font-size: 30rpx;font-family: SimSun;  font-weight: bold;">·  {{ item.site_name }} ·</view>
+                        <view class='mSmall f14 relative mb10' style="white-space:pre-wrap;">·  {{ item.site_name }} · \n</view>
+                        <view class='mSmall relative' style="  font-size: 30rpx;font-family: SimSun;  font-weight: bold;">点击卡片翻转</view>
                       </view>
                     </view>
                   </view>

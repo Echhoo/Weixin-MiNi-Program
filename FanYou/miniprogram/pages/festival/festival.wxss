@@ -25,7 +25,27 @@ page {
   padding-top: 20rpx;
   position: relative;
 }
-
+.title .icon-show {
+  display: flex;
+  height:100%;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color:#333333;
+  position: relative;
+  left:10%;
+}
+.title .textcon{
+  padding-top:40rpx;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
 .title .fesName {
   width: 100%;
   font-size: 50rpx;
@@ -33,13 +53,15 @@ page {
   justify-content: center;
   text-align: center
 }
-
-.title .icon-show {
-  /* width: 35s%; */
-  color:#333333;
-  position: absolute;
-  left:10%;
+.title .intro {
+  width: 100%;
+  font-size: 35rpx;
+  color: #333333;
+  justify-content: center;
+  text-align: center
 }
+
+
 
 .poster {
   position: fixed;

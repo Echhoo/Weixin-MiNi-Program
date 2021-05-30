@@ -5,7 +5,10 @@
       <icon class="iconfont {{filtrate? 'icon-cebianlan' : 'icon-cebianlan1'}}" style='font-size:50rpx'></icon>
     </view>
     <!-- 这里放节日名字 -->
-    <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
+    <view class="textcon">
+      <view class="fesName" data-name="{{fesName}}">{{fesName}}</view>
+      <view class="intro">点击 · 翻转卡片获得详情♥</view>
+    </view>
   </view>
   <view class="swiper">
     <swiper class='bannerGrid' previous-margin="60rpx" next-margin="60rpx" bindchange="bannerSwiper" current="{{bannerCurrent}}" circular="{{true}}">
@@ -62,10 +65,12 @@
               <!-- <image class='forward-pic'src="../../images/forward.png"></image> -->
               <icon class="iconfont forward-pic icon-fenxiang1" ></icon>
               <button open-type="share" data-item='{{item}}'></button>
+              <view style="color:#333">分享</view>
             </view>
             <view class='favoriteIcon' bindtap = 'click_collect'>
               <!-- <icon class="iconfont forward-pic icon-fenxiang1" style='font-size:60rpx'></icon> -->
               <icon class="iconfont forward-pic {{fav_icon? 'icon-aixin-copy':'icon-aixin'}}" ></icon>
+              <view style="color:#333">收藏</view>
             </view>
           </view>
         </view>
