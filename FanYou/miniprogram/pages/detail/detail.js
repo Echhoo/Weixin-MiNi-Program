@@ -58,13 +58,14 @@ Page({
       var i =0;
       // console.log("current View: ", this.data.currentView)
       for(i; i<9; i++){
-        if(this.data.currentView.fes_pic[i].length != 0){
+        if(this.data.currentView.fes_pic != null && this.data.currentView.fes_pic[i].length != 0){
           imgs.push(this.data.currentView.fes_pic[i])
         }
       }
       this.setData({
         imgUrls: imgs
       })
+      console.log(this.data.currentView)
     })
 
     //设定ID 和 OPENID  

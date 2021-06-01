@@ -1,8 +1,6 @@
 {
   "cloud": true,
   "pages": [
-
-
     "pages/index/index",
     "pages/catagory/catagory",
     "pages/mulu1/mulu1",
