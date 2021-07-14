@@ -41,7 +41,7 @@ Page(
     })
     setTimeout(() => {
         this.toBook()
-    }, 1700);
+    }, 2000);
   },
 
   getUserProfile() {

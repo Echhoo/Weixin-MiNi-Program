@@ -109,6 +109,7 @@ Page({
   },
 
   onCityTapNavigateTo(e){
+    // console.log(e);
      wx.navigateTo({
        url: '../detail/detail?currentViewID='+e.currentTarget.dataset.id
      })
@@ -116,6 +117,7 @@ Page({
 
   onFesTapNavigateTo(e){
     // console.log("EEEE: ", e)
+    // console.log("fes",e.currentTarget.dataset.item)
     // console.log("fes",e.currentTarget.dataset.item.Festival)
     // console.log("index",e.currentTarget.dataset.item.Index)
     wx.navigateTo({

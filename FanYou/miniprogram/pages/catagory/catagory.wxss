@@ -24,34 +24,29 @@ page{
   
 }
 .btn1-container{
-  width:180rpx;
-  height:280rpx;
-  left:25%;
-  top:20%;
+  width:450rpx;
+  height:300rpx;
+  left:50rpx;
+  top:21.5%;
+  position:fixed;
+}
+.btn2-container{
+  width:300rpx;
+  height:200rpx;
+  left:50rpx;
+  top:45%;
   position:fixed;
 
 }
-.btn2-container{
-  width:180rpx;
-  height:185rpx;
-  right:24%;
-  top:34.5%;
-  position:fixed;
-}
 .btn3-container{
-  width:182rpx;
-  height:150rpx;
-  left:25%;
-  top:47%;
+  width:320rpx;
+  height:300rpx;
+  right:50rpx;
+  top:60%;
   position: fixed;
+
 }
-.btn4-container{
-  width:182rpx;
-  height:170rpx;
-  right:24%;
-  top:58%;
-  position:fixed;
-}
+
 .btn{
   width: 100%;
   height:100%;

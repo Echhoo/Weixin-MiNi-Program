@@ -3,9 +3,9 @@ const cloud = require('wx-server-sdk')
 let AirpImageClassifyClient = require('baidu-aip-sdk').imageClassify;
 
 // 设置APPID/AK/SK
-let APP_ID = "24250779"
-let API_KEY = "F3mih75YnY7TLlvoDWQZlhzG";
-let SECRET_KEY = "yUXwVAS27pqWyFZ7t0MYhOTbsQRbAH66";
+let APP_ID = "24547853"
+let API_KEY = "vPcO3BWeGe3OVY0crdALFohB";
+let SECRET_KEY = "FMze56IKTjHnDiR7DBWtgZSMkjv5kI20";
 // 新建一个对象，建议只保存一个对象调用服务接口
 let client = new AirpImageClassifyClient(APP_ID, API_KEY,SECRET_KEY);
 

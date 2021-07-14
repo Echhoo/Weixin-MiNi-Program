@@ -3,5 +3,7 @@
   <image src="{{bgUrl}}" class="bgImage" mode="aspectFill"></image>
   <view class="btn1-container" bindtap="collectView" ></view>
   <view class="btn2-container" bindtap="feedbackView"></view>
+  <view class="btn3-container" bindtap="uploadView"></view>
+  <view class="btn4-container" bindtap="teamView"></view>
 </view>
 
