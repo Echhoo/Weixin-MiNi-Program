@@ -38,7 +38,7 @@ Page({
           filePath: filePath,
           // 成功回调
           success: res =>{
-            // console.log('上传成功：', res);
+            console.log('上传成功：', res);
             //  跳转图片上传成功页面
             wx.navigateTo({
               url: `../sightget/sightget?fileID=${res.fileID}&&pic=${filePath}`,

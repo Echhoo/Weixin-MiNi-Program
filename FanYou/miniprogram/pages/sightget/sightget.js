@@ -18,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("options: ",options)
     wx.cloud.callFunction({
       // 需要调用的云函数名
       name: 'baiduAI',
@@ -26,9 +27,9 @@ Page({
         fileID: options.fileID
       },
       success: res => {
-        // console.log('百度ai传回来的数据：', res);
+        console.log('百度ai传回来的数据：', res);
         wx.hideLoading();
-        // console.log("百度ai传回来的数据2：", res.result.val.result)
+        console.log("百度ai传回来的详细数据：", res.result.val.result)
         this.setData({
           context: res.result.val.result,
           pic:res.result.img,

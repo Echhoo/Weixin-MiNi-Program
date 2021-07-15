@@ -23,12 +23,13 @@
     "useApiHook": true,
     "useApiHostProcess": false,
     "babelSetting": {
-      "ignore": ["./miniprogram/miniprogram_npm/psl"],
+      "ignore": [
+        "./miniprogram/miniprogram_npm/psl"
+      ],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
