@@ -1,11 +1,10 @@
 {
   "cloud": true,
   "pages": [
-    "pages/festival/festival",
     "pages/index/index",
     "pages/catagory/catagory",
     "pages/mulu1/mulu1",
-
+    "pages/festival/festival",
     "pages/city/city",
     "pages/sightrec/sightrec",
     "pages/sightget/sightget",
