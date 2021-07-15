@@ -20,17 +20,35 @@ page{
 }
 .btn1-container{
   width:350rpx;
-  height:240rpx;
-  left:24%;
-  top:29%;
+  height:150rpx;
+  left:100rpx;
+  top:28%;
   position:fixed;
+
 }
 .btn2-container{
-  width:380rpx;
-  height:180rpx;
-  left:24%;
-  top:52%;
+  width:350rpx;
+  height:150rpx;
+  left:100rpx;
+  top:43%;
   position:fixed;
+
+}
+.btn3-container{
+  width:350rpx;
+  height:150rpx;
+  left:100rpx;
+  top:59%;
+  position:fixed;
+
+}
+.btn4-container{
+  width:350rpx;
+  height:150rpx;
+  left:100rpx;
+  top:76%;
+  position:fixed;
+
 }
 .btn{
   width: 100%;

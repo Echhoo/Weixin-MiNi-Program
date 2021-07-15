@@ -34,6 +34,16 @@ Page({
       url: '../my_uploads/my_uploads',       
     })
   },
+  uploadView: function(e){
+    wx.navigateTo({ 
+      url: '../upload/upload',       
+    })
+  },
+  teamView: function(e){
+    wx.navigateTo({ 
+      url: '../team/team',       
+    })
+  },
    
   /**
    * 生命周期函数--监听页面初次渲染完成

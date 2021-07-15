@@ -1,19 +1,18 @@
 <!--pages/book/catagory.wxml-->
 <!-- style="filter: blur(6rpx);" -->
-<view class="container">
- 
+<view class="container"> 
   <image src="{{bgUrl}}" class="bgImage" style="{{show?'filter: blur(6rpx)':''}}" mode="aspectFill"></image>
   <view class="btn1-container" bindtap="introView" ></view>
-  <view class="btn2-container" bindtap="customView"></view>
-  <view class="btn3-container" bindtap="personView"></view>
-  <view class="btn4-container" bindtap="teamView"></view>
+  <view class="btn2-container" bindtap="personView"></view>
+  <view class="btn3-container" bindtap="customView"></view>
+
   <view class="{{show?'tipsContainer':'none'}}"  >
     <view class="tips" bindtap="shows" wx:if="{{show}}">
       <view class="guide "style="top:7%" >使用指南</view>
-      <view class="tip tip1" animation="{{slide_up1}}" ><text>🌈良辰美景🌇 \n根据节日或城市进行定向筛选\n为您提供优质的景点推荐服务\n   •景区点一点，介绍就出来。\n   •未知的花草，扫扫有惊喜。</text></view>
-      <view class="tip tip2" animation="{{slide_up2}}" ><text>🛫泛游定制🚞  \n  摇一摇，摇出你的专属景点卡片。\n  传一传，传上你的独特旅游记忆。</text></view>
-      <view class="tip tip3" animation="{{slide_up3}}"><text>👦个人中心👧 \n  收藏的景点•上传的记忆\n都在这里。</text></view>
-      <view class="tip tip4" animation="{{slide_up4}}"><text>🐅关于我们💃 \n  您的支持建议是我们前进的最好动力</text></view>
+      <view class="tip tip1" animation="{{slide_up1}}" ><text>🌈当季景点推荐🌇 \n•当季各平台高分景点\n•同城或周边景点一览</text></view>
+      <view class="tip tip2" animation="{{slide_up2}}" ><text>🛫泛游新玩法🚞  \n•识别未知的花草树木\n•摇到景点，说走就走</text></view>
+      <view class="tip tip3" animation="{{slide_up3}}"><text>👦个人中心👧 \n•收藏想要探寻的风景\n•上传经历生成回忆录</text></view>
+      <view class="tip tip4" animation="{{slide_up4}}"><text>🐅关于我们💃 \n 祝旅途愉快•泛游与您同在 \n\n点击开始体验</text></view>
       <view class="school">• 南开大学软件学院 •</view>
     </view>
   </view>

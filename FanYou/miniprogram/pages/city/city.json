@@ -2,6 +2,6 @@
   "usingComponents": {
     "picker": "../../picker/picker"
   },
-    "navigationBarTitleText": "城市风物",
+    "navigationBarTitleText": "城市风貌",
     "enablePullDownRefresh": true
 } 

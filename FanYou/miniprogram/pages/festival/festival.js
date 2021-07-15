@@ -354,7 +354,7 @@ Page({
   },
   //长按保存图片(两个函数)
 saveImg(){
-  console.log("save ")
+  console.log("save")
   var url = this.data.bannerData[this.data.bannerCurrent].fes_pic
   //用户需要授权
   wx.getSetting({
@@ -400,6 +400,14 @@ saveImg1(url){
     }
   })
 },
+// sameCityNavigateTo(e){
+//   print(e);
+//   wx.navigateTo({
+//     url: '../city/city?currentViewID='+e.currentTarget.dataset.id
+//   })
+// },
+
+
 
   /**
    * 用户点击右上角分享

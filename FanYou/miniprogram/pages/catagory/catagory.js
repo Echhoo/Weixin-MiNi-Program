@@ -57,11 +57,6 @@ Page({
       url: '../mulu3/mulu3',       
     })
   },
-  teamView: function(e){
-    wx.navigateTo({ 
-      url: '../team/team',       
-    })
-  },
 
   shows: function () {
     hidn = false;
@@ -89,10 +84,10 @@ Page({
       app.slideupshow(this, 'slide_up1', -150, 1)
     }.bind(this), 2000);
     setTimeout(function () {
-      app.slideupshow(this, 'slide_up2', -10, 1)
+      app.slideupshow(this, 'slide_up2', -45, 1)
     }.bind(this), 2700);
     setTimeout(function () {
-      app.slideupshow(this, 'slide_up3', 80, 1)
+      app.slideupshow(this, 'slide_up3', 60, 1)
     }.bind(this), 3400);
     setTimeout(function () {
       app.slideupshow(this, 'slide_up4', 170, 1)

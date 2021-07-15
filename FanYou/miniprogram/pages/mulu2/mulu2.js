@@ -24,16 +24,17 @@ Page({
       },
     })
   },
+  recView: function(e){
+    wx.navigateTo({ 
+      url: '../sightrec/sightrec',       
+    })
+  },
   shakeView: function(e){
     wx.navigateTo({ 
       url: '../yaoyiyao/yaoyiyao',       
     })
   },
-  uploadView: function(e){
-    wx.navigateTo({ 
-      url: '../upload/upload',       
-    })
-  },
+
    
   /**
    * 生命周期函数--监听页面初次渲染完成
