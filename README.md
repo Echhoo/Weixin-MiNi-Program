@@ -1,2 +1,4 @@
 # Weixin-MiNi-Program
-Software Engeering
+微信小程序-
+泛游 你旅游的好朋友
+获得《2021年高校微信小程序应用开发赛》全国三等奖、华北赛区一等奖
